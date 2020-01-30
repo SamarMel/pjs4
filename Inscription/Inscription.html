@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="inscription.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ <h2>Inscription</h2>
+
+        <div id="container">
+
+            <div>
+
+                <div>
+
+                    <label>Je suis un(e) étudiant(e)
+
+                        <input type="radio" checked="checked" value="etu" name="radioA" class="radioA">
+
+                    </label>
+
+                    <label>Je suis un(e) professeur
+
+                        <input type="radio" name="radioA" value="prof" class="radioA">
+
+                    </label>
+
+                </div>
+
+                <div>
+
+                    <label>Homme
+
+                        <input type="radio" checked="checked" value="M." name="genre">
+
+                    </label>
+
+                    <label>Femme
+
+                        <input type="radio" value="Mme." name="genre">
+
+                    </label>
+
+                </div>
+
+                <ul>
+
+                    <li class="inputli"><br><input class="inputB" name="nom" placeholder="Nom" required></li>
+
+                    <li class="inputli"><br><input class="inputB" name="prenom" placeholder="Prenom" required></li>
+
+		    <li class="inputli"><br><input class="inputB" name="pseudo" placeholder="Pseudo" required></li>
+
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <ul>
+
+                    <select name="grp">
+
+                        <option value="201">201</option>
+
+                        <option value="202">202</option>
+
+                        <option value="203">203</option>
+
+                        <option value="204">204</option>
+
+                        <option value="205">205</option>
+
+                        <option value="206">206</option>
+
+                        <option value="207">207</option>
+
+                        <option value="208">208</option>
+
+                        <option value="APP">APP</option>
+
+                    </select>
+
+                    <li class="inputli"><br><input class="inputB" name="mail" placeholder="Adresse mail" required></li>
+
+                    <li class="inputli"><br><input class="inputB" name="cmail" placeholder="Confirmer adresse mail" required></li>
+
+                    <li class="inputli"><br><input type="password" class="inputB" name="mdp" placeholder="Mot de passe" required></li>
+
+                    <li class="inputli"><br><input type="password" class="inputB" name="cmdp" placeholder="Confirmer mot de passe" required></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <button type="submit" onclick="form_valide()">S'inscrire</button>
+
+        <br>
+
+        <a href="index.php?controller=user&action=login">Retour à la connexion</a>
+        <br>
+    </div>
+
+</form>
+ 
+ 
+</body>
+</html>

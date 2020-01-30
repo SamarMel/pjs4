@@ -1,1 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Accueil_forum</title>
+  <link rel="stylesheet" href="accueil_forum.css">
+</head>
+<body>
+    <!-- Surement mettre tout ça dans une div pour pas que l'affichage prenne toute la page-->
+    <!-- Entete de la page mettre dans header?-->
+    <div class="container">
+        <div class="row" id="header">
+            <div class="col-9" id="pageTitle">
+                    <h1>FORUM</h1>
+            </div>
+            <div class="logo&pseudo">
+                    <div class="logo">
+                            <img src="" alt="votre logo">
+                    </div>
+                    <div class="pseudo">
+                        Pseudo<!--affichage du pseudo-->
+                    </div>
+
+            </div>
+               
+        </div>
+        <div class= "row" id="sujet">
+            SUJET : <!-- RajOUTER VARIABLES PHP-->
+        </div>
+        <!-- Décoration ligne : appliquer le code css suivant: .line{ width: 112px;height: 47px;border-bottom: 1px solid black;position: absolute;}-->
+        <div class="line"></div>
+
+        <!--Boucle for pour afficher les commentaires en fonction de ce qu'il y a -->
+        <div class="row">
+            <div class="col-3">
+                <div class="logo&pseudo&role">
+                    <div class ="logo">
+                        <img src="" alt="logo">
+                    </div>
+                <div class="pseudo">
+                    Pseudo <!--Affichage du pseudo-->
+                </div>
+                <div class="role">
+                        <!--Titre du role-->
+                </div>
+             </div>
+            </div>
+            <div class="col-9 comment&date">
+                <div class="comment">
+                    <!--Ajouter le texte de l'utilisateur-->
+                </div>
+                <div class="dateComment">
+                    Dernière modification le : <!-- Ajouter la date -->
+                </div>
+
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- Navigation bar-->
+        <div class ="row">
+           <div class="nav-number-bar col-6">
+               <div class="row">
+                    <div class="left-left-button col-1">
+                        <a href=""> <img src=""> </a>  
+                    </div>
+                     <div class="left-button col-1">
+                        <a href=""> <img src=""> </a>  
+                    </div>
+                    <!--Boucle for pour afficher les numéros de page-->
+                    <div class="page-number col-8">
+                        <!--boucle for-->
+                        <a href=""></a>
+                    </div>
+                    <div class="right-button col-1">
+                        <a href=""> <img src=""> </a>  
+                    </div>
+                    <div class="right-right-button col-1">
+                        <a href=""> <img src=""> </a>  
+                    </div>
+               </div>
+    
+            </div>
+            <div class="page-numerotation col-1">
+                    Page <!--numéro de page-->
+            </div>
+
+        </div>
+
+        <!--COMMENT AREA-->
+        <form >
+                <div class="form-group">
+                  <label for="comment">Ajouter un commentaire</label>
+                  <textarea  id="commentArea" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Commenter</button>
+        </form>
+
+    </div>
+ 
+
+</body>
+</html>

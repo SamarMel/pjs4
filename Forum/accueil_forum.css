@@ -6,8 +6,11 @@
 
 #topicsBox{
     margin-bottom: 30px;
-    background-color: grey;
-
+   /* background-color: grey;*/
+    border-radius: 25px;
+    border: 2px solid  grey;
+    padding: 20px;
+   
 }
 
 #header{
@@ -19,7 +22,7 @@
 #sujet{
     display: table;
     margin: 0 auto;
-   margin-bottom: 10px; 
+    margin-bottom: 30px;
 
 }
 
@@ -63,8 +66,11 @@
     display: table;
     margin: 0 auto;
     margin-bottom: 50px;
-    background-color: grey;
+   /* background-color: grey;*/
     width: 100%;
+    border-radius: 25px;
+    border: 2px solid  grey;
+    padding: 20px;
     
 
 }
@@ -78,14 +84,17 @@
     display: table;
     margin: 0 auto;
     margin-bottom: 50px;
-    background-color: grey;
+    /*background-color: grey;*/
     width: 100%;
+    border-radius: 25px;
+    border: 2px solid  grey;
+    padding: 20px;
 
 }
 
 #creerTopic .btn {
     color: black;
-    background-color: white;
+    background-color:grey;
     border: black;
     
 
@@ -93,7 +102,7 @@
 
 #rechercherTopic .btn{
     color: black;
-    background-color: white;
+    background-color: grey;
     border: black;
     
 }

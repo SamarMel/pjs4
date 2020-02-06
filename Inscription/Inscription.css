@@ -30,7 +30,7 @@ background-color:var(--color-primary);
 }
 #titre {
     float: left;
-    margin-left: 278px;
+    margin-left: 40%;
     margin-top: 3%;
     margin-bottom: 5%;
     
@@ -53,6 +53,12 @@ background-color:var(--color-primary);
     #Bouton {
         margin-top: 5%;
        
+    }
+
+    #Formulaire{
+        margin-right: 2%;
+
+
     }
     button{
         background:rgb(75, 179, 156);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4dfb3866-97b5-4648-a8d7-0044ecffa6dc" name="ulyssebouchet.fr" url="http://ftp.cluster020.hosting.ovh.net">
+        <fileTransfer host="ftp.cluster020.hosting.ovh.net" port="21" rootFolder="/PJS4">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

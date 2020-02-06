@@ -17,6 +17,11 @@
     height: 6vh;
 }
 
+#chatbox.closed:hover {
+    height: 8vh;
+    transition: 200ms;
+}
+
 #chatbox h1 {
     margin-top: 2vh;
     text-align: center;
@@ -31,16 +36,52 @@
     align-items: center;
 }
 
-#chatbox img, #chatbox-header {
+#chatbox-convs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#chatbox-convs>li {
+    width: 95%;
+    padding: 5%;
+    list-style: none;
+    border-bottom: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+#chatbox-convs>li:hover {
+    background: lightgray;
+    transition: 200ms;
     cursor: pointer;
 }
 
-#chatbox img:hover {
+.pp {
+    border-radius: 100px;
+    width: 5vh;
+    height: 5vh;
+    margin-right: 1vw;
+}
+
+#chatbox .chatbox-btn, #chatbox-header {
+    cursor: pointer;
+}
+
+#chatbox .chatbox-btn:hover {
     filter: invert(100%);
     transition: 300ms;
 }
 
-#chat {
+#chatbox-box {
     border-radius: 10px;
     background: white;
     height: 37.5vh;

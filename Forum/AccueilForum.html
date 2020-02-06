@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="./accueil_forum.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./accueil_forum.js">
 </head>
 <body>
     <!-- Surement mettre tout ça dans une div pour pas que l'affichage prenne toute la page-->
@@ -49,7 +50,7 @@
                             </div>
                             <!--Boucle for pour afficher tous les sujets disponibles-->
                             <div class="row" id="topic">
-                                <div class="col-md-5" id="sujet">
+                                <div class="col-md-5" id="sujetTopic">
                                     <p><!--Titre du topic--></p>
                                 </div>
                                 <div class="col-md-2" id="auteur">
@@ -58,7 +59,7 @@
                                 <div class="col-md-3" id="categorie">
                                         <p><!--categorie du topic--></p>
                                 </div>
-                                <div class="col-md-2" id="sujet">
+                                <div class="col-md-2" id="dernierPost">
                                         <p><!--Date dernier post--></p>
                                 </div>
                                 <div class=""></div>
@@ -73,7 +74,7 @@
 
                     </div>
                     <div class="row" id="rechercheForm">
-                            <form action="/action_page.php">
+                            <form action="/action_page.php" method="">
                                 <input list="browsers">
                                 <datalist id="browsers">
                                     <!--boucle for pour chercher tout les topic-->
@@ -85,9 +86,9 @@
                                 </datalist>
                                 </br>
                                 </br>
-                                <button type="submit" class="btn btn-primary">Rechercher</button>
+                                <button type="submit" class="btn btn-primary btn-round btn-block btn-lg">Rechercher</button>
                             </form>
-            
+                            
 
                     </div>
                         
@@ -102,9 +103,11 @@
                             <form>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Entrez le nom du sujet</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sujet">
+                                      <input type="text" class="form-control" id="sujetInput" aria-describedby="emailHelp" placeholder="Sujet">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Créer</button>
+                                
+                                
+                                    <button type="submit"  class="btn btnCreer btn-primary btn-round btn-block btn-lg">Créer</button>
                             </form>
 
                     </div>

@@ -5,6 +5,8 @@
     height: 6vh;
     width: 20vw;
     background: var(--color-primary);
+    border: black solid 3px;
+    border-bottom: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: flex;
@@ -18,7 +20,7 @@
 }
 
 #chatbox.closed:hover {
-    height: 8vh;
+    height: 8vh !important;
     transition: 200ms;
 }
 
@@ -114,9 +116,10 @@
 #chatbox-footer>input {
     width: 85%;
     border: none;
-    height: 2.5vh;
+    height: 3vh;
     border-radius: 10px;
     padding-left: 5%;
     padding-right: 5%;
-    font-size: 1.5vh;
+    font-size: 1.75vh;
+    font-weight: bold;
 }

@@ -1,7 +1,7 @@
 <?php
 
-function getConversations($id) {
-    require (dirname(__FILE__) . "/../database.php");
+function queryConversations ($id) {
+    require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `Conversation` WHERE idUser1 = :id1 OR idUser2 = :id2 ORDER BY id";
 
     $convs = array();
@@ -19,8 +19,8 @@ function getConversations($id) {
     return $convs;
 }
 
-function getMessages($idConv) {
-    require (dirname(__FILE__) . "/../database.php");
+function queryMessages($idConv) {
+    require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `MessageConv` WHERE idConv = :id ORDER BY id";
 
     $messages = array();
@@ -37,8 +37,8 @@ function getMessages($idConv) {
     return $messages;
 }
 
-function getUser($id) {
-    require (dirname(__FILE__) . "/../database.php");
+function queryUser($id) {
+    require (dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `Utilisateur` WHERE id = :id";
 
     try {

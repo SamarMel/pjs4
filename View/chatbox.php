@@ -2,8 +2,8 @@
 
 <meta charset="utf-8">
 
-<link rel="stylesheet" href="http://pjs4.ulyssebouchet.fr/View/css/style.css">
-<link rel="stylesheet" href="http://pjs4.ulyssebouchet.fr/View/css/chatbox.css">
+<link rel="stylesheet" href="http://pjs4.ulyssebouchet.fr/View/css/style.css?v=545">
+<link rel="stylesheet" href="http://pjs4.ulyssebouchet.fr/View/css/chatbox.css?v=545">
 
 <div id="chatbox" class="closed">
     <div id="chatbox-header">

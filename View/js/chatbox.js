@@ -1,5 +1,6 @@
 $(document).ready(() => {
     let idConv = -1;
+    let curPseudo;
     let id = 1;
 
     const chat = $("#chatbox");
@@ -16,19 +17,18 @@ $(document).ready(() => {
 
             showConvs();
         } else {
-
+            openConv(idConv, curPseudo);
         }
 
         chat.animate({height: "50vh"}, "slow");
         $("#reduce-chatbox").click(closeChat);
     }
 
-    console.log(3)
     function closeChat() {
         $("#chatbox-header").html("<h1>Preclarity Chat</h1>");
         chat.height("5vh");
-
         chat.addClass("closed");
+
         setTimeout(() => {
             chat.click(openChat);
         }, 1);
@@ -38,14 +38,14 @@ $(document).ready(() => {
         const box = $("#chatbox-box");
         box.empty();
 
-        $.getJSON("http://pjs4.ulyssebouchet.fr/AJAX/getConversations.php?id=" + id, async function (convs) {
+        $.getJSON("http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getConversations&id=" + id, async function (convs) {
             let content = "<ul id='chatbox-convs'>";
             let ids = [];
             let pseudos = [];
             for (let i = 0; i < convs.length; ++i) {
                 let idUser = convs[i]['idUser1'] === id.toString() ? convs[i]['idUser2'] : convs[i]['idUser1'];
 
-                await $.getJSON("http://pjs4.ulyssebouchet.fr/AJAX/getUser.php?id=" + idUser, (person) => {
+                await $.getJSON("http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getUser&id=" + idUser, (person) => {
                     let curId = convs[i]['id'];
                     ids.push(curId);
                     pseudos.push(person['pseudo']);
@@ -82,38 +82,51 @@ $(document).ready(() => {
         }, 4);
     }*/
 
-    function openConv(idConv, pseudo) {
-        console.log("bite");
-        const chat = document.getElementById("chatbox");
-        const header = document.getElementById("chatbox-header");
-        const box = document.getElementById("chatbox-box");
-        const footer = document.getElementById("chatbox-footer");
+    function openConv(id, pseudo) {
+        const header = $("#chatbox-header");
+        const box = $("#chatbox-box");
+        const footer = $("#chatbox-footer");
 
-        header.innerHTML =
+        idConv = id;
+        curPseudo = pseudo;
+
+        header.html(
             '<img src="https://img.icons8.com/android/24/000000/circled-left-2.png" alt="retour" class="chatbox-btn" id="back-to-list">'
             + "<h1>"  + pseudo + "</h1>" +
-            '<img src="https://img.icons8.com/metro/26/000000/cancel.png" alt="réduire" class="chatbox-btn" id="reduce-chatbox">';
+            '<img src="https://img.icons8.com/metro/26/000000/cancel.png" alt="réduire" class="chatbox-btn" id="reduce-chatbox">');
 
-        footer.innerHTML =
+        $("#reduce-chatbox").click(closeChat);
+        $("#back-to-list").click(backToList);
+
+        footer.html(
             "<input type=\"text\" placeholder=\"Entrez votre message ici ...\">" +
-            "<img src=\"https://img.icons8.com/ios-glyphs/30/000000/paper-plane.png\" alt=\"envoyer\" class=\"chatbox-btn\">";
+            "<img src=\"https://img.icons8.com/ios-glyphs/30/000000/paper-plane.png\" alt=\"envoyer\" class=\"chatbox-btn\">");
 
-        box.innerHTML = "";
+        box.empty();
 
+        $.getJSON("http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getMessages&id=" + id, (messages) => {
+            for (let i = 0; i < messages.length; ++i) {
+                if (messages[i]['idAuteur'] !== id.toString())
+                    box.append ("<div class='chat-msg'>" + messages[i]['content'] + "</div>");
+                else
+                    box.append ("<div class='chat-msg user'>" + messages[i]['content'] + "</div>");
+            }
+        });
+/*
         const req = new XMLHttpRequest();
         req.onreadystatechange = () => {
             if(req.status === 200 && req.readyState === 4) {
                 let messages = JSON.parse(req.responseText);
                 for (let i = 0; i < messages.length; ++i) {
                     if (messages[i]['idAuteur'] !== id.toString())
-                        box.innerHTML += "<div class='chat-msg'>" + messages[i]['content'] + "</div>";
+                        box.append ("<div class='chat-msg'>" + messages[i]['content'] + "</div>");
                     else
-                        box.innerHTML += "<div class='chat-msg user'>" + messages[i]['content'] + "</div>";
+                        box.append ("<div class='chat-msg user'>" + messages[i]['content'] + "</div>");
                 }
             }
         };
-        req.open("GET", "http://pjs4.ulyssebouchet.fr/AJAX/getMessages.php?id=" + idConv);
-        req.send('');
+        req.open("GET", "http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getMessages&id=" + idConv);
+        req.send('');*/
     }
 /*
     function showConvs() {
@@ -142,7 +155,7 @@ $(document).ready(() => {
                         }
                     };
                     let idUser = convs[i]['idUser1'] === id.toString() ? convs[i]['idUser2'] : convs[i]['idUser1'];
-                    req.open("GET", "http://pjs4.ulyssebouchet.fr/AJAX/getUser.php?id=" + idUser);
+                    req.open("GET", "http://pjs4.ulyssebouchet.fr/Contoller/ajax.php?query=getUser&id=" + idUser);
                     req.send('');
                 }
             }
@@ -153,6 +166,7 @@ $(document).ready(() => {
     }*/
 
     function backToList() {
-
+        idConv = -1;
+        openChat();
     }
 });

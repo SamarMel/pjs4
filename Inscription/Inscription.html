@@ -1,113 +1,177 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="inscription.css">
-  <script src="script.js"></script>
+    <meta charset="utf-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="Inscription.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript">
+        /* Voici la fonction javascript qui change la propriété "display"
+        pour afficher ou non le div selon que ce soit "none" ou "block". */
+
+        function AfficherMasquer() {
+            divInfo = document.getElementById('Inscription');
+            divInfor = document.getElementById('Connexion');
+
+            if (divInfo.style.display == 'none') {
+                document.getElementById("bouton").innerHTML = "Connexion";
+                divInfo.style.display = 'block';
+                divInfor.style.display = 'none';
+
+            } else {
+                document.getElementById("bouton").innerHTML = "Pas encore inscrit ?";
+                divInfo.style.display = 'none ';
+                divInfor.style.display = 'block ';
+            }
+        }
+
+    </script>
 </head>
-<body>
- <h2>Inscription</h2>
 
+<div id="Inscription">
+
+    <body>
         <div id="container">
-
-            <div>
-
-                <div>
-
-                    <label>Je suis un(e) étudiant(e)
-
-                        <input type="radio" checked="checked" value="etu" name="radioA" class="radioA">
-
-                    </label>
-
-                    <label>Je suis un(e) professeur
-
-                        <input type="radio" name="radioA" value="prof" class="radioA">
-
-                    </label>
-
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 id="titre">INSCRIPTION </h1>
                 </div>
+            </div>
+            <div id="BordureFormulaire">
 
-                <div>
+                <form id="Formulaire">
 
-                    <label>Homme
+                    <div class="row">
+                        <div class="col-md-4 col-xs-3 col-sm-3">
+                            <div class="form-group">
+                                <label for="Prenom">Prénom</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-2  col-xs-1">
+                            <div class="form-group">
+                                <label for="Nom de famille">Nom de famille </label>
+                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                    </div>
 
-                        <input type="radio" checked="checked" value="M." name="genre">
+                    <div class="row">
+                        <div class="col-md-4  col-xs-6 col-sm-3 ">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Pseudo</label>
+                                <input type="text" class="form-control" id="Pseudo" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-xs-6 col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email </label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
 
-                    </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4  col-xs-6 col-sm-3 ">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Mot de passe </label>
+                                <input type="password" class="form-control" id="mdp">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-3">
+                            <label for="Prenom">Sexe </label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Femme
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Homme
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
-                    <label>Femme
 
-                        <input type="radio" value="Mme." name="genre">
-
-                    </label>
-
-                </div>
-
-                <ul>
-
-                    <li class="inputli"><br><input class="inputB" name="nom" placeholder="Nom" required></li>
-
-                    <li class="inputli"><br><input class="inputB" name="prenom" placeholder="Prenom" required></li>
-
-		    <li class="inputli"><br><input class="inputB" name="pseudo" placeholder="Pseudo" required></li>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-3">
+                            <div id="Bouton">
 
 
-                </ul>
-
+                                <button type="submit" class="btn btn-light">Submit</button>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
-            <div>
+            </form>
 
-                <ul>
-
-                    <select name="grp">
-
-                        <option value="201">201</option>
-
-                        <option value="202">202</option>
-
-                        <option value="203">203</option>
-
-                        <option value="204">204</option>
-
-                        <option value="205">205</option>
-
-                        <option value="206">206</option>
-
-                        <option value="207">207</option>
-
-                        <option value="208">208</option>
-
-                        <option value="APP">APP</option>
-
-                    </select>
-
-                    <li class="inputli"><br><input class="inputB" name="mail" placeholder="Adresse mail" required></li>
-
-                    <li class="inputli"><br><input class="inputB" name="cmail" placeholder="Confirmer adresse mail" required></li>
-
-                    <li class="inputli"><br><input type="password" class="inputB" name="mdp" placeholder="Mot de passe" required></li>
-
-                    <li class="inputli"><br><input type="password" class="inputB" name="cmdp" placeholder="Confirmer mot de passe" required></li>
-
-                </ul>
-
-            </div>
 
         </div>
+</div>
+</div>
 
-        <button type="submit" onclick="form_valide()">S'inscrire</button>
+<div id="Connexion">
+    <div id="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 id="titre">CONNEXION </h1>
+            </div>
+        </div>
+        <div id="BordureFormulaire">
 
-        <br>
+            <form id="Formulaire">
 
-        <a href="index.php?controller=user&action=login">Retour à la connexion</a>
-        <br>
+
+                <div class="row">
+
+                    <div class="col-md-4  col-xs-6 col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email </label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4  col-xs-6 col-sm-3 ">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mot de passe </label>
+                            <input type="password" class="form-control" id="mdp">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-6 col-sm-3">
+                        <div id="Bouton">
+
+
+                            <button type="submit" class="btn btn-light">Connexion</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        </form>
+
+
     </div>
-
-</form>
- 
- 
+</div>
+<button id="bouton" type="button" value="Afficher ou Masquer" onClick="AfficherMasquer(); AfficherMasquer2();">Pas encore inscrit ?
+</button>
 </body>
+</div>
+
 </html>

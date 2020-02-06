@@ -1,0 +1,69 @@
+
+@media (min-width: 576px) and (max-width: 1500px) {
+body{
+background-color:var(--color-primary);
+ margin: 0;
+
+ 
+
+}
+#Formulaire{
+    
+    
+    margin-left: 27%;
+    
+   
+    width: 700px; 
+    font-size: x-large;
+   
+    font-size: 100%;   
+    color: white ;
+    overflow: none;
+
+}
+#BordureFormulaire{
+    border-style: solid;
+    
+    padding-bottom: 2%;
+  background-color: black;
+
+}
+#titre {
+    float: left;
+    margin-left: 278px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    
+  
+    text-align: center;
+    font-size: 500%;
+    display: flex; 
+    flex-wrap: wrap;
+}
+#Bouton {
+    margin-top: 5%;
+    margin-left: 178%;
+}
+
+
+}
+
+@media (max-width: 575.98px) { 
+
+    #Bouton {
+        margin-top: 5%;
+       
+    }
+    button{
+        background:rgb(75, 179, 156);
+    }
+    #titre{
+
+        margin-bottom: 5%;
+    }
+ }
+#Inscription{
+
+display: none;
+
+}

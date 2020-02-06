@@ -2,100 +2,124 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Accueil_forum</title>
-  <link rel="stylesheet" href="accueil_forum.css">
+  <title>Forum</title>
+  <link rel="stylesheet" href="./accueil_forum.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- Surement mettre tout ça dans une div pour pas que l'affichage prenne toute la page-->
     <!-- Entete de la page mettre dans header?-->
-    <div class="container">
-        <div class="row" id="header">
-            <div class="col-9" id="pageTitle">
-                    <h1>FORUM</h1>
+    <div class="container" id="frame">
+            <div class="row" id="header">
+                    <div class=" col-9 col-md-9 col-lg-9 col-sm-9 col-xl-9" id="pageTitle">
+                            <h1>FORUM</h1>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 col-xl-3 logo&pseudo">
+                            <div class="logo">
+                                    <img src="" alt="votre logo">
+                            </div>
+                            <div class="pseudo">
+                                Pseudo<!--affichage du pseudo-->
+                            </div>
+        
+                    </div>
+                       
             </div>
-            <div class="logo&pseudo">
-                    <div class="logo">
-                            <img src="" alt="votre logo">
-                    </div>
-                    <div class="pseudo">
-                        Pseudo<!--affichage du pseudo-->
-                    </div>
+        <div id="innerFrame">
+                
+                <div id="topicsBox">
+                            <div class= "row" id="sujet">
+                                    <h2>Les derniers Topics</h2>
+                            </div>
+                            
+                            <div class="row" id="etiquette">
+                                <div class="col-md-5">
+                                    <h5>Sujet</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>Auteur</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>Catégorie</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>Dernier post</h3>
+                                </div>
+                            </div>
+                            <!--Boucle for pour afficher tous les sujets disponibles-->
+                            <div class="row" id="topic">
+                                <div class="col-md-5" id="sujet">
+                                    <p><!--Titre du topic--></p>
+                                </div>
+                                <div class="col-md-2" id="auteur">
+                                        <p><!--auteur du topic--></p>
+                                </div>
+                                <div class="col-md-3" id="categorie">
+                                        <p><!--categorie du topic--></p>
+                                </div>
+                                <div class="col-md-2" id="sujet">
+                                        <p><!--Date dernier post--></p>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                            
+            
+                </div>
+            
+                <div id="rechercherTopic">
+                    <div class="row" id="recherche">
+                            <h2>Rechercher un Topic</h2>
 
-            </div>
-               
+                    </div>
+                    <div class="row" id="rechercheForm">
+                            <form action="/action_page.php">
+                                <input list="browsers">
+                                <datalist id="browsers">
+                                    <!--boucle for pour chercher tout les topic-->
+                                  <option value="Internet Explorer">
+                                  <option value="Firefox">
+                                  <option value="Chrome">
+                                  <option value="Opera">
+                                  <option value="Safari">
+                                </datalist>
+                                </br>
+                                </br>
+                                <button type="submit" class="btn btn-primary">Rechercher</button>
+                            </form>
+            
+
+                    </div>
+                        
+                           
+                </div>
+                <div id="creerTopic">
+                    <div class="row" id="creer">
+                            <h2>Créer un Topic</h2>
+
+                    </div>
+                    <div class="row" id="creerForm">
+                            <form>
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Entrez le nom du sujet</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sujet">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Créer</button>
+                            </form>
+
+                    </div>
+                           
+                            
+            
+                </div>
+            
+                    
+                <!-- Décoration ligne : appliquer le code css suivant: .line{ width: 112px;height: 47px;border-bottom: 1px solid black;position: absolute;}-->
+                <div class="line"></div>
+
         </div>
-        <div class= "row" id="sujet">
-            SUJET : <!-- RajOUTER VARIABLES PHP-->
-        </div>
-        <!-- Décoration ligne : appliquer le code css suivant: .line{ width: 112px;height: 47px;border-bottom: 1px solid black;position: absolute;}-->
-        <div class="line"></div>
+        
 
-        <!--Boucle for pour afficher les commentaires en fonction de ce qu'il y a -->
-        <div class="row">
-            <div class="col-3">
-                <div class="logo&pseudo&role">
-                    <div class ="logo">
-                        <img src="" alt="logo">
-                    </div>
-                <div class="pseudo">
-                    Pseudo <!--Affichage du pseudo-->
-                </div>
-                <div class="role">
-                        <!--Titre du role-->
-                </div>
-             </div>
-            </div>
-            <div class="col-9 comment&date">
-                <div class="comment">
-                    <!--Ajouter le texte de l'utilisateur-->
-                </div>
-                <div class="dateComment">
-                    Dernière modification le : <!-- Ajouter la date -->
-                </div>
-
-            </div>
-        </div>
-
-        <div class="line"></div>
-
-        <!-- Navigation bar-->
-        <div class ="row">
-           <div class="nav-number-bar col-6">
-               <div class="row">
-                    <div class="left-left-button col-1">
-                        <a href=""> <img src=""> </a>  
-                    </div>
-                     <div class="left-button col-1">
-                        <a href=""> <img src=""> </a>  
-                    </div>
-                    <!--Boucle for pour afficher les numéros de page-->
-                    <div class="page-number col-8">
-                        <!--boucle for-->
-                        <a href=""></a>
-                    </div>
-                    <div class="right-button col-1">
-                        <a href=""> <img src=""> </a>  
-                    </div>
-                    <div class="right-right-button col-1">
-                        <a href=""> <img src=""> </a>  
-                    </div>
-               </div>
-    
-            </div>
-            <div class="page-numerotation col-1">
-                    Page <!--numéro de page-->
-            </div>
-
-        </div>
-
-        <!--COMMENT AREA-->
-        <form >
-                <div class="form-group">
-                  <label for="comment">Ajouter un commentaire</label>
-                  <textarea  id="commentArea" rows="4"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">Commenter</button>
-        </form>
 
     </div>
  

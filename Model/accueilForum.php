@@ -1,29 +1,29 @@
 <?php>
 
 /**
- * Recherche d'un topic 
+ * Recherche d'un topic en fonction de ce qu'à demandé le user
  */
 function rechercherTopic($sujetRechercher){
-    require('./Model/connectSQL.php'); 
-    try{
-        $sql = "SELECT titre, idAuteur, dateTopic FROM Topic WHERE Contains(titre, :s)";
+    require('./connectSQL.php'); 
+    
+    $sql = "SELECT titre, idAuteur, dateTopic FROM Topic WHERE Contains(titre, :s)";
 
-        try{
-            $query = $pdo->prepare($sql);
-            $query->bindParam(":s", $sujetRechercher);
-            $bool = $query->execute();
-            if($bool){
-                $resultat=$query->fetchAll(PDO::FETCH_ASSO);
-                $_SESSION["rechercheTopic"] = $resultat;
-               
-            }
-        }catch(PDOException $e){
-            echo utf8_encode("Echec de recherche de topic : " $e->getMessage(). "\n");
-            //LANCER UNE ERREUR 404
-            return false;
+    try{
+        $query = $pdo->prepare($sql);
+        $query->bindParam(":s", $sujetRechercher);
+        $bool = $query->execute();
+        if($bool){
+            $resultat=$query->fetchAll(PDO::FETCH_ASSO);
+            $_SESSION["rechercheTopic"] = $resultat;
+            
         }
+    }catch(PDOException $e){
+        echo utf8_encode("Echec de recherche de topic : " $e->getMessage(). "\n");
+        //LANCER UNE ERREUR 404
+        return false;
     }
-    return true;
+
+return true;
 
 
 }
@@ -33,7 +33,7 @@ function rechercherTopic($sujetRechercher){
  */
 
  function creerTopic($titreSujet){
-     require('./Model/connectSQL.php');
+     require('./connectSQL.php');
      try{
          $sql="INSERT INTO Topic (titre, idAuteur, dateTopic) VALUES (:titre,:idAuteur,:dateTopic)";
          $query = $dpo->prepare($sql);

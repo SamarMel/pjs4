@@ -1,7 +1,7 @@
 :root {
-	--color-primary: rgb(200, 0, 0);
-	--color-primary-light: rgb(230, 0, 0);
-	--color-primary-dark: rgb(170, 0, 0);
+	--color-primary: #df2a36;
+	--color-primary-light: #ff313e;
+	--color-primary-dark: #bf2730;
 
 	--color-secondary: rgb(0, 200, 0);
 	--color-secondary-light: rgb(0, 230, 0);
@@ -10,4 +10,4 @@
 	--color-tertiary: rgb(0, 0, 200);
 	--color-tertiary-light: rgb(0, 0, 230);
 	--color-tertiary-dark: rgb(0, 0, 170);
-};
+}

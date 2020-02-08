@@ -5,10 +5,9 @@
     height: 6vh;
     width: 20vw;
     background: var(--color-primary);
+    color: white;
     border: black solid 3px;
     border-bottom: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +51,6 @@
     width: 95%;
     padding: 5%;
     list-style: none;
-    border-bottom: black solid 1px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -62,7 +60,7 @@
 }
 
 #chatbox-convs>li:hover {
-    background: lightgray;
+    background: var(--color-primary-light);
     transition: 200ms;
     cursor: pointer;
 }
@@ -72,54 +70,59 @@
     width: 5vh;
     height: 5vh;
     margin-right: 1vw;
+    border: white solid 2px;
 }
 
-#chatbox .chatbox-btn, #chatbox-header {
+#chatbox .chatbox-btn, #chatbox.closed #chatbox-header {
     cursor: pointer;
 }
 
-#chatbox .chatbox-btn:hover {
+#chatbox .chatbox-btn {
     filter: invert(100%);
+}
+
+#chatbox .chatbox-btn:hover {
+    filter: invert(0%);
     transition: 300ms;
 }
 
 #chatbox-box {
-    border-radius: 10px;
-    background: white;
-    height: 37.5vh;
-    width: 95%;
+    background: var(--color-primary);
+    height: 40vh;
+    width: 100%;
     overflow-y: scroll;
 }
 
 .chat-msg {
-    width: 50%;
-    max-width: 50%;
-    background: var(--color-primary-light);
+    width: 60%;
+    max-width: 60%;
+    background: white;
     color: black;
-    padding: 2%;
-    margin: 2%;
-    border-radius: 10px 10px 10px 0;
-    font-size: 1.5vh;
+    padding: 3%;
+    margin: 5% 2% 2%;
+    font-size: 1.75vh;
 }
 
 .user {
     background: var(--color-primary-dark);
-    color: white;
-    margin-left: 44%;
-    border-radius: 10px 10px 0 10px;
+    margin-left: 30%;
 }
 
 #chatbox-footer {
-    margin-top: 2vh;
+    margin-top: 0.5vh;
 }
 
 #chatbox-footer>input {
-    width: 85%;
+    width: 90%;
     border: none;
-    height: 3vh;
-    border-radius: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    font-size: 1.75vh;
+    height: 2.5vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 1.25vh;
     font-weight: bold;
+}
+
+#chatbox-send {
+    height: 2vh;
+    width: 2vh;
 }

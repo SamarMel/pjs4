@@ -19,9 +19,26 @@ function queryConversations ($id) {
     return $convs;
 }
 
+function queryConversation ($id) {
+    require(dirname(__FILE__) . "/database.php");
+    $sql = "SELECT * FROM `Conversation` WHERE id = :id";
+
+    try {
+        $result = $database->prepare($sql);
+        $result->bindParam(':id', $id);
+        $result->execute();
+        $conv = $result->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        $conv = null;
+    }
+
+    return $conv;
+}
+
 function queryMessages($idConv) {
     require(dirname(__FILE__) . "/database.php");
-    $sql = "SELECT * FROM `MessageConv` WHERE idConv = :id ORDER BY id";
+    $sql = "SELECT * FROM `MessageConv` WHERE idConv = :id ORDER BY dateMsg";
 
     $messages = array();
 
@@ -52,4 +69,27 @@ function queryUser($id) {
     }
 
     return $user;
+}
+
+/**
+ * Insère dans la BD le message d'une conversation entre 2 personnes
+ * @param $idUser
+ * @param $idConv
+ * @param $message
+ */
+function insertMessage($idUser, $idConv, $message){
+    require(dirname(__FILE__) . '/./database.php');
+    $sql = "INSERT INTO MessageConv(idAuteur, idConv, content) VALUES (:idAuteur, :idConv, :msg)";
+    echo("bite");
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idConv', $idConv);
+        $cde->bindParam(':msg', $message);
+        $cde->bindParam(':idAuteur', $idUser);
+        $cde->execute();
+        echo("bite");
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec d'INSERT : " . $e->getMessage() . "\n");
+        die();
+    }
 }

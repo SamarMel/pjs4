@@ -12,20 +12,25 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    transition: 200ms;
 }
 
 #chatbox-header {
     height: 6vh;
 }
 
+.opened {
+    height: 50vh !important;
+}
+
 #chatbox.closed:hover {
     height: 8vh !important;
-    transition: 200ms;
 }
 
 #chatbox h1 {
     margin-top: 2vh;
     text-align: center;
+    font-size: 2vh;
     flex: 1;
 }
 
@@ -93,7 +98,7 @@
     overflow-y: scroll;
 }
 
-.chat-msg {
+.chat-msg, .bot-msg, .bot-rep {
     width: 60%;
     max-width: 60%;
     background: white;
@@ -103,7 +108,7 @@
     font-size: 1.75vh;
 }
 
-.user {
+.user, .bot-rep {
     background: var(--color-primary-dark);
     margin-left: 30%;
 }
@@ -125,4 +130,130 @@
 #chatbox-send {
     height: 2vh;
     width: 2vh;
+}
+
+.bot-msg, .bot-rep {
+    width: 90%;
+    max-width: 90%;
+}
+
+.bot-rep {
+    margin: 5% 2% 2%;
+}
+
+#bot-choose-ans {
+    display: block;
+    margin: 10% 0 10% 0;
+    width: 100%;
+    color: white;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.bot-rep:hover {
+    background: var(--color-primary-light);
+    cursor: pointer;
+    transform: translateX(2.5%);
+    width: 88%;
+    transition: 200ms;
+}
+
+/* Extra small devices */
+@media (max-width: 768px) {
+    #chatbox {
+        width: 100vw;
+        right: 0;
+        height: 10vh;
+    }
+
+    .opened {
+        height: 95vh !important;
+    }
+
+    #chatbox.closed:hover {
+        height: 10vh !important;
+    }
+
+    #chatbox h1 {
+        font-size: 3vh;
+        margin-top: 5vh;
+    }
+
+    .chatbox-btn {
+        width: 3vh;
+        margin-top: 2.5vh;
+    }
+
+    #chatbox-header {
+        padding-bottom: 2.5vh;
+    }
+
+    #chatbox-box {
+        height: 75vh;
+    }
+
+    #chatbox-footer>input {
+        height: 5vh;
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+
+    #chatbox-send {
+        height: 3.5vh;
+        width: auto;
+    }
+}
+
+/* Small devices */
+@media (max-width: 992px) {
+    #chatbox {
+        width: 100vw;
+        right: 0;
+        height: 10vh;
+    }
+
+    .opened {
+        height: 85vh !important;
+    }
+
+    #chatbox.closed:hover {
+        height: 10vh !important;
+    }
+
+    #chatbox h1 {
+        font-size: 3vh;
+        margin-top: 5vh;
+    }
+
+    .chatbox-btn {
+        width: 3vh;
+        margin-top: 2.5vh;
+    }
+
+    #chatbox-header {
+        padding-bottom: 2.5vh;
+    }
+
+    #chatbox-box {
+        height: 65vh;
+        /*box-shadow: inset 0 0 75px var(--color-primary-dark);*/
+    }
+
+    #chatbox-footer>input {
+        height: 5vh;
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+
+    #chatbox-send {
+        height: 3.5vh;
+        width: auto;
+    }
+}
+
+/* Medium devices */
+@media (max-width: 1200px) {
+    #chatbox {
+        width: 33vw;
+    }
 }

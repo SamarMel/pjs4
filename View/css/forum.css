@@ -1,0 +1,104 @@
+#page {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 15vh;
+    margin-top: 2vh;
+}
+
+#header>h1 {
+    font-size: 13vh;
+    letter-spacing: 3px;
+    font-family: "League Gothic", "OpenSans", sans-serif;
+    margin: 0;
+    color: gray;
+}
+
+#header>#user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#header>#user>img {
+    border-radius: 100px;
+    height: 10vh;
+    width: 10vh;
+}
+
+#header>#user>#pseudo {
+    margin-top: 1vh;
+    font-size: 2vh;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: "OpenSans", sans-serif;
+}
+
+#derniers_topics {
+    width: 100%;
+}
+
+#derniers_topics>h2 {
+    border-bottom: var(--color-forum-1) solid 3px;
+    text-align: center;
+    padding-bottom: 1vh;
+    margin-bottom: 0;
+    font-size: 3vh;
+    letter-spacing: 2px;
+    font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+#topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row {
+    background: white;
+}
+
+.topic:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+#topics .row {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--color-forum-1) solid 2px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.row>* {
+    text-align: left;
+    overflow: hidden;
+}
+
+.row>.sujet {
+    width: 35vw;
+    max-width: 35vw;
+    margin-left: 1vw;
+}
+
+.row>.auteur, .row>.categorie, .row>.last_post {
+    width: 10vw;
+    max-width: 10vw;
+    margin-left: 5vw;
+}

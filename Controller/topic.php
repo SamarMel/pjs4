@@ -1,10 +1,10 @@
 <?php
 function afficher($idTopic){
-	require("./modele/topicBD.php");
+	require(dirname(__FILE__) . "/../Model/topicBD.php");
 	$topic = getTopic($idTopic);
 	$sujet = $topic['titre'];
 	
-	require("./vue/forum/topic.tpl");
+	require(dirname(__FILE__) . "/../View/modules/topic.tpl");
 }
 
 function afficherPosts($idTopic){
@@ -14,24 +14,17 @@ function afficherPosts($idTopic){
 	foreach($posts as $p){
 		$user=getUser($p['idAuteur']);
 		$color=( $user['role'] == "ETU")? "success" : "warning" ;
-		$html = $html .'<div class="post col-md-12">';
-		
-			$html=$html .'<div class="col-md-3">';
-				$html=$html .'<span class="badge badge-' . $color .'">'. $user['role']. '</span>';
-				$html=$html ."<p>". $user['pseudo'] . "</p>";
-				$html=$html ."IMAGE A VENIR";
-			$html=$html .'</div>';
-			
-			$html=$html .'<div class="col-md-10">';
-				$html=$html ."<p>" . $p["content"] . "</p>";
-			$html=$html .'</div>';
-			
-			$html=$html . "<p>" . "BOOL modifié " . $p["dateMsg"] . " à heure" . "</p>";
-			
-		$html=$html .'</div><br/>';
-		
+		$html .= '<div class="post col-md-12">';
+			$html .= '<div class="col-md-3">';
+				$html .= '<span class="badge badge-' . $color .'">'. $user['role']. '</span>';
+				$html .= "<p>". $user['pseudo'] . "</p>";
+				$html .= "IMAGE A VENIR";
+			$html .= '</div>';
+			$html .= '<div class="col-md-10">';
+				$html .= "<p>" . $p["content"] . "</p>";
+			$html .= '</div>';
+			$html .=  "<p>" . "BOOL modifié " . $p["dateMsg"] . " à heure" . "</p>";
+		$html .= '</div><br/>';
 	}
-	
 	return $html;
 }
-?>	

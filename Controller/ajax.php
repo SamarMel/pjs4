@@ -79,7 +79,5 @@ function getBotQuestion ()
 }
 
 if (isset ($_GET['query'])) {
-    $query = $_GET['query'];
-
-    $query ();
+    $_GET['query'] ();
 }

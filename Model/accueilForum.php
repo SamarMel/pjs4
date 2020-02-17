@@ -59,7 +59,7 @@ function rechercherTopic($sujetRechercher){
   function derniersTopic(){
       require("./connectSQL.php"); 
       try{
-          $sql="SELECT * FROM Topic";
+          $sql="SELECT T.*, U.pseudo FROM Topic T, Utilisateur U WHERE T.idAuteur = U.id BY dateTopic LIMIT 5";
           $query= $pdo->prepare($sql);
           $bool=$query->execute();
           if($bool){

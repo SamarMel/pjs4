@@ -21,7 +21,9 @@
                                     <img src="" alt="votre logo">
                             </div>
                             <div class="pseudo">
-                                Pseudo<!--affichage du pseudo-->
+                               <?php     
+                                $_SESSION["rechercheTopic"];
+                                ?>
                             </div>
         
                     </div>
@@ -49,24 +51,28 @@
                                 </div>
                             </div>
                             <!--Boucle for pour afficher tous les sujets disponibles-->
+                                <?php
+                                for($i=0;$i< 6; $i++){?>
                             <div class="row" id="topic">
                                 <div class="col-md-5" id="sujetTopic">
-                                    <p><!--Titre du topic--></p>
+                                    <p><?php $_SESSION["derniersTopics"][$i]["titre"] ?></p>
                                 </div>
                                 <div class="col-md-2" id="auteur">
-                                        <p><!--auteur du topic--></p>
+                                        <p><?php $_SESSION["derniersTopics"][$i]["pseudo"] ?></p>
                                 </div>
                                 <div class="col-md-3" id="categorie">
-                                        <p><!--categorie du topic--></p>
+                                        <p><?php $_SESSION["derniersTopics"][$i]["categorie"] ?></p>
                                 </div>
                                 <div class="col-md-2" id="dernierPost">
-                                        <p><!--Date dernier post--></p>
+                                        <p><?php $_SESSION["derniersTopics"][$i]["dateTopic"] ?></p>
                                 </div>
-                                <div class=""></div>
-                            </div>
+                           </div>
+                           <?php }?>
+                        </div>
+                </div>
                             
             
-                </div>
+               
             
                 <div id="rechercherTopic">
                     <div class="row" id="recherche">
@@ -75,14 +81,12 @@
                     </div>
                     <div class="row" id="rechercheForm">
                             <form action="/action_page.php" method="">
-                                <input list="browsers">
-                                <datalist id="browsers">
+                                <input list="sujet">
+                                <datalist id="sujetRecherche">
                                     <!--boucle for pour chercher tout les topic-->
-                                  <option value="Internet Explorer">
-                                  <option value="Firefox">
-                                  <option value="Chrome">
-                                  <option value="Opera">
-                                  <option value="Safari">
+                                    <?php for($i=0;$i< 6; $i++){?>
+                                  <option value=<?php $_SESSION["derniersTopics"][$i]["titre"]?>>
+                                  <?}?>
                                 </datalist>
                                 </br>
                                 </br>

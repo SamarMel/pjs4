@@ -9,6 +9,11 @@
         <link rel="stylesheet" href="../js/accueil_forum.js">
     </head>
     <body>
+
+        <!-- Menu -->
+        <?php require (dirname(__FILE__) . "/../modules/menu.tpl"); ?>
+        <style>#menu {background: var(--color-forum-2);}</style>
+
         <!-- Surement mettre tout ça dans une div pour pas que l'affichage prenne toute la page-->
         <!-- Entete de la page mettre dans header?-->
         <div id="page">
@@ -19,7 +24,7 @@
                     <span id="pseudo">Pseudo</span>
                 </div>
             </div>
-            <div id="derniers_topics">
+            <div id="derniers-topics">
                 <h2>Derniers Topics</h2>
                 <table id="topics">
                     <tr class="row">
@@ -54,6 +59,23 @@
                     </tr>
                 </table>
             </div>
+
+            <div id="rechercher-topic">
+                <h2>Rechercher un topic</h2>
+                <form class="forum-form" action="???" method="???">
+                    <input type="text" placeholder="Nom du topic" name="topicName">
+                    <select name="categories">
+                        <option value="pedophilie">pedophilie</option>
+                        <option value="conversations">conversations</option>
+                        <option value="haram">haram</option>
+                        <option value="sexe">sexe</option>
+                    </select>
+                    <input type="submit" value="Rechercher">
+                </form>
+            </div>
         </div>
+
+        <!-- Chatbox -->
+        <?php require (dirname(__FILE__) . "/../modules/chatbox.html"); ?>
     </body>
 </html>

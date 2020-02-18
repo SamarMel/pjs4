@@ -1,13 +1,17 @@
 :root {
+	--color-light: #f0f0f0;
+
 	--color-primary: #df2a36;
 	--color-primary-light: #ff313e;
 	--color-primary-dark: #bf2730;
 
 	--color-chatbox-1: #df2a36;
 	--color-chatbox-2: #d0e4ff;
-	--color-chatbox-3: #efefef;
+	--color-chatbox-3: var(--color-light);
 
 	--color-forum-1: #7ed957;
+    --color-forum-2: #83c4a3;
+	--color-forum-3: #628d7a;
 
 	--color-secondary: rgb(0, 200, 0);
 	--color-secondary-light: rgb(0, 230, 0);
@@ -31,4 +35,8 @@
 * {
 	font-family: "OpenSans", sans-serif;
 	transition: 200ms;
+}
+
+body {
+	background: var(--color-light);
 }

@@ -1,10 +1,11 @@
 #page {
     width: 80vw;
-    margin: auto;
+    margin-left: 15vw;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    height: 99vh;
 }
 
 #header {
@@ -45,18 +46,31 @@
     font-family: "OpenSans", sans-serif;
 }
 
-#derniers_topics {
+#derniers_topics, #rechercher-topic {
     width: 100%;
 }
 
-#derniers_topics>h2 {
-    border-bottom: var(--color-forum-1) solid 3px;
+#rechercher-topic {
+    background: var(--color-forum-2);
+}
+
+h2 {
     text-align: center;
     padding-bottom: 1vh;
     margin-bottom: 0;
+    margin-top: 0;
     font-size: 3vh;
     letter-spacing: 2px;
     font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+#derniers-topics>h2 {
+    border-bottom: var(--color-forum-1) solid 3px;
+}
+
+#rechercher-topic>h2 {
+    border-bottom: var(--color-light) solid 3px;
+    color: var(--color-light);
 }
 
 #topics {
@@ -67,7 +81,7 @@
 }
 
 .row {
-    background: white;
+    background: var(--color-light);
 }
 
 .topic:hover {
@@ -101,4 +115,11 @@
     width: 10vw;
     max-width: 10vw;
     margin-left: 5vw;
+}
+
+.forum-form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
 }

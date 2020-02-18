@@ -3,9 +3,10 @@
     margin-left: 15vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    height: 99vh;
+    height: 90vh;
+    padding-bottom: 1vh;
 }
 
 #header {
@@ -46,7 +47,7 @@
     font-family: "OpenSans", sans-serif;
 }
 
-#derniers_topics, #rechercher-topic {
+#derniers_topics, #rechercher-topic, #creer-topic {
     width: 100%;
 }
 
@@ -54,11 +55,15 @@
     background: var(--color-forum-2);
 }
 
+#creer-topic {
+    background: var(--color-forum-3);
+}
+
 h2 {
     text-align: center;
     padding-bottom: 1vh;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 1vh;
     font-size: 3vh;
     letter-spacing: 2px;
     font-family: "League Gothic", "OpenSans", sans-serif;
@@ -68,7 +73,7 @@ h2 {
     border-bottom: var(--color-forum-1) solid 3px;
 }
 
-#rechercher-topic>h2 {
+#rechercher-topic>h2, #creer-topic>h2 {
     border-bottom: var(--color-light) solid 3px;
     color: var(--color-light);
 }
@@ -103,6 +108,7 @@ h2 {
 .row>* {
     text-align: left;
     overflow: hidden;
+    font-size: 1.5vh;
 }
 
 .row>.sujet {
@@ -119,7 +125,44 @@ h2 {
 
 .forum-form {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
+    padding: 1%;
 }
+
+.forum-form>input, .forum-form>select {
+    background: var(--color-light);
+    font-size: 1.75vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    height: 4vh;
+    width: 15vh;
+    border: var(--color-light) solid 2px;
+}
+
+.forum-form>input:not([type="submit"]) {
+    width: 20vw;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.forum-form>input:hover {
+    background: #e0e0e0;
+}
+
+.forum-form>input:focus {
+    background: #d0d0d0;
+    border: black solid 2px;
+}
+
+.forum-form>input[type="submit"]:hover {
+    background: var(--color-forum-1);
+    cursor: pointer;
+}
+
+.forum-form>input[type="submit"]:focus {
+     background: black;
+     color: var(--color-light);
+     cursor: pointer;
+ }

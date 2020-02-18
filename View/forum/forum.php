@@ -63,8 +63,8 @@
             <div id="rechercher-topic">
                 <h2>Rechercher un topic</h2>
                 <form class="forum-form" action="???" method="???">
-                    <input type="text" placeholder="Nom du topic" name="topicName">
-                    <select name="categories">
+                    <input type="text" placeholder="Nom du topic" id="rechercherTopicName" name="topicName">
+                    <select name="categories" id="rechercherTopicCategorie">
                         <option value="pedophilie">pedophilie</option>
                         <option value="conversations">conversations</option>
                         <option value="haram">haram</option>
@@ -73,9 +73,24 @@
                     <input type="submit" value="Rechercher">
                 </form>
             </div>
+
+            <div id="creer-topic">
+                <h2>Créer un topic</h2>
+                <form class="forum-form" action="???" method="???">
+                    <input type="text" placeholder="Nom du topic" id="creerTopicName" name="topicName">
+                    <select name="categories" id="creerTopicCategorie">
+                        <option value="pedophilie">Pédophilie</option>
+                        <option value="conversations">Conversations</option>
+                        <option value="haram">Haram</option>
+                        <option value="sexe">Sexe</option>
+                    </select>
+                    <input type="submit" value="Créer">
+                </form>
+            </div>
         </div>
 
         <!-- Chatbox -->
         <?php require (dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+        <?php require (dirname(__FILE__) . "/../modules/footer.tpl"); ?>
     </body>
 </html>

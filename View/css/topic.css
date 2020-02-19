@@ -112,3 +112,44 @@ input[type="submit"]:hover {
 	color: #000;
 	cursor: pointer;
 }
+
+/* OLD */
+/*
+h1 {
+	font-size: 3em;
+	text-align : left;
+	margin-top:5%;
+}
+
+.sujet{
+	font-size: 1.5em;
+	text-align : center;
+	margin-top:5%;
+}
+
+.post {
+	border-bottom:3px solid grey;
+	padding:1%;
+}
+
+.btnDark{
+	background-color:black;
+	color:white;
+	padding:3px;
+	margin-top:1%;
+	margin-bottom:5%;
+	border-radius:5px;
+}
+
+a{
+	margin-top:5%;
+	margin-bottom:5%;
+	text-decoration:none;
+}
+
+input{
+	background-color:lightgrey;
+	border:1px solid black;
+	height:10%;
+}
+*/

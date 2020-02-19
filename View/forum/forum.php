@@ -5,7 +5,6 @@
         <title>Forum</title>
         <link rel="stylesheet" href="/View/css/forum.css">
         <link rel="stylesheet" href="/View/css/style.css">
-        <link rel="stylesheet" href="/View/js/accueil_forum.js">
     </head>
     <body>
 

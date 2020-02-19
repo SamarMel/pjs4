@@ -91,6 +91,7 @@
 
         <!-- Chatbox -->
         <?php require (dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+        <!-- Footer -->
         <?php require (dirname(__FILE__) . "/../modules/footer.tpl"); ?>
     </body>
 </html>

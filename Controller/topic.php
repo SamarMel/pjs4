@@ -4,7 +4,7 @@ function afficher($idTopic){
 	$topic = getTopic($idTopic);
 	$sujet = $topic['titre'];
 	
-	require(dirname(__FILE__) . "/../View/modules/topic.tpl");
+	require(dirname(__FILE__) . "/../View/modules/topic.php");
 }
 
 function afficherPosts($idTopic){

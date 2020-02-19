@@ -1,3 +1,5 @@
+<?php
+?>
 <html lang="fr">
     <head>
 		<meta charset="utf-8">
@@ -10,19 +12,22 @@
 	</head>
 
 	<body class="col-md-9 offset-md-2">
-		<?php  require ("./vue/modules/menu.tpl"); ?>
+		<?php  require (dirname(__FILE__) . "/menu.tpl"); ?>
 		<h1>FORUM</h1>
 		<h2 class="sujet">SUJET : <?php echo($sujet);?></h2>
 		
 		<div class="posts">
 			<?php echo afficherPosts($idTopic);?>
 			<!-- PAGES -->
-			<input type="text" class="col-md-12"> </input>
+			<input type="text" class="col-md-12">
 			<button class="btnDark offset-11 col-md-1">Envoyer</button>
 		</div>
-		
-		<?php  require ("./vue/modules/footer.tpl");?>
-	
+
+
+		<!-- Chatbox -->
+		<?php require (dirname(__FILE__) . "/chatbox.html"); ?>
+		<!-- Footer -->
+		<?php require (dirname(__FILE__) . "/footer.tpl"); ?>
 	</body>
 	
 </html>

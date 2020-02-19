@@ -1,56 +1,114 @@
+h2 {
+	text-align: center;
+	padding-bottom: 1vh;
+	margin-bottom: 0;
+	margin-top: 1vh;
+	font-size: 3vh;
+	letter-spacing: 2px;
+	font-family: "League Gothic", "OpenSans", sans-serif;
+	border-bottom: var(--color-forum-1) solid 3px;
+	display: block;
+	width: 100%;
+}
 
-/*************** COMMUN ***************/
+#first-post {
+	height: 15vh;
+	overflow-y: scroll;
+}
 
-*{
-	font-family : Verdana;
-	border : 0;
+#posts {
+	width: 100%;
+	overflow-y: scroll;
+	height: 30vh;
+}
+
+.post {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	position: relative;
+	border-bottom: var(--color-forum-1) solid 2px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: row;
+}
+
+.user-info {
+	width: 10vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100%;
+}
+
+.user-info>img {
+	height: 7.5vh;
+	width: 7.5vh;
+	border-radius: 100px;
+}
+
+.user-info>h4, .user-info>h5 {
 	margin: 0;
-	padding: 0px;
-	box-sizing: border-box;
-	transition : all 1s;
+	padding: 0;
 }
 
-a {text-decoration:none; }
-
-/*************************************/
-
-h1 {
-	font-size: 3em;
-	text-align : left;
-	margin-top:5%;
+.user-info>h4 {
+	font-size: 1.5vh;
 }
 
-.sujet{
-	font-size: 1.5em;
-	text-align : center;
-	margin-top:5%;
+.user-info>h5 {
+	font-size: 1.3vh;
 }
 
-.post { 
-	border-bottom:3px solid grey;	
-	/*background-color:lightgrey;*/
-	padding:1%;
+.post-content>p {
+	font-size: 1.5vh;
+	max-width: 65vw;
 }
 
-.btnDark{
-	background-color:black;
-	color:white;
-	padding:3px;
-	margin-top:1%;
-	margin-bottom:5%;
-	border-radius:5px;
+.post-info {
+	position: absolute;
+	bottom: 0.5vh;
+	right: 0.5vh;
+	font-size: 1.5vh;
 }
 
-a{
-	margin-top:5%;
-	margin-bottom:5%;
-	text-decoration:none;
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
+textarea {
+	margin-top: 1vh;
+	resize: none;
+	width: 100%;
+	height: 10vh;
+	border: black solid 3px;
+	padding: 0.5%;
+	color: var(--color-forum-3);
+}
 
+textarea:focus {
+	border: var(--color-forum-1) solid 3px;
+}
 
-input{
-	background-color:lightgrey;
-	border:1px solid black;
-	height:10%;
+input[type="submit"] {
+	background: black;
+	border: black solid 3px;
+	font-size: 1.5vh;
+	width: 10vw;
+	height: 3vh;
+	color: var(--color-light);
+	margin-top: 1vh;
+}
+
+input[type="submit"]:hover {
+	background: var(--color-forum-1);
+	border-color: var(--color-forum-1);
+	color: #000;
+	cursor: pointer;
 }

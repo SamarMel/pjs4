@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href = "/Controller/?controller=forum&action=home">
+            <a href = "/?controller=forum&action=home">
                 <img class="img-link" src="/View/images/forum.png" alt="forum">
                 <span class="link">Forum</span>
             </a>

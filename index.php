@@ -1,4 +1,19 @@
-﻿<?php 
+﻿<?php session_start();
+
+if (isset($_GET['controller']) && isset($_GET['action'])) {
+	$controller = $_GET['controller'];
+	$action = $_GET['action'];
+
+    try {
+	    require (dirname(__FILE__) . "/Controller/" . $controller . ".php");
+        $action();
+    } catch (Error $e) {
+        header('Location: /?controller=forum&action=home');
+    }
+} else
+    header('Location: /?controller=forum&action=home');
+
+/*
 session_start();
 
 //MAL des Valeurs Controle Action Arg
@@ -29,5 +44,4 @@ else {
 	require ('./controle/' . $controle . '.php');   
 	$action (); 	
 }
-
-?>
+*/

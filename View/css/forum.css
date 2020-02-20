@@ -20,8 +20,15 @@ h2 {
     font-family: "League Gothic", "OpenSans", sans-serif;
 }
 
-#derniers-topics>h2 {
+#derniers-topics>h2, #searched-topics>h2 {
     border-bottom: var(--color-forum-1) solid 3px;
+}
+
+#searched-topics {
+    width: 105%;
+    height: 50vh;
+    max-height: 50vh;
+    overflow-y: scroll;
 }
 
 #rechercher-topic>h2, #creer-topic>h2 {

@@ -9,14 +9,14 @@
     <body>
 
         <!-- Menu -->
-        <?php require_once (dirname(__FILE__) . "/menu.tpl"); ?>
+        <?php require_once(dirname(__FILE__) . "/../modules/menu.tpl"); ?>
         <style>#menu {background: var(--color-forum-2);}</style>
 
         <div id="page">
             <?php
             $page_name = "FORUM";
-            require_once (dirname(__FILE__) . "/header.php") ;
-            require_once (dirname(__FILE__) . "/../../Model/forum.php");
+            require_once(dirname(__FILE__) . "/../modules/header.php");
+            require_once(dirname(__FILE__) . "/../../Model/forum.php");
             ?>
             <h2>Sujet : <? echo $topic['titre'] ?></h2>
             <div id="first-post" class="post">
@@ -58,9 +58,9 @@
         </div>
 
         <!-- Chatbox -->
-        <?php require_once (dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+        <?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
         <!-- Footer -->
-        <?php require_once (dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+        <?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
     </body>
 </html>
 

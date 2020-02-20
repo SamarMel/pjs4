@@ -14,7 +14,22 @@ function seeTopic() {
         require_once (dirname(__FILE__) . "/../Model/forum.php");
         $topic = getTopic($id);
         $posts = getPosts($id);
-        require_once (dirname(__FILE__) . "/../View/modules/topic.php");
+        require_once(dirname(__FILE__) . "/../View/forum/topic.php");
     } else
-        header('Location: /Controller/?controller=forum&action=home');
+        header('Location: /?controller=forum&action=home');
+}
+
+function searchTopic() {
+    if (isset($_GET['topicCategory'])) {
+        $topicName = isset($_GET['topicName']) ? $_GET['topicName'] : "";
+        $topicCategory = $_GET['topicCategory'];
+
+        require_once (dirname(__FILE__) . "/../Model/forum.php");
+
+        $topics = getTopics($topicName, $topicCategory);
+        $categories = getCategories();
+
+        require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
+
+    }
 }

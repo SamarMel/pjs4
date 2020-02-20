@@ -32,13 +32,13 @@
                     ?>
                         <tr class="row topic">
                             <td class="sujet">
-                                <a href="/Controller/?controller=forum&action=seeTopic&id=<? echo $topic['id']?>">
+                                <a href="/?controller=forum&action=seeTopic&id=<? echo $topic['id']?>">
                                     <? echo $topic['titre'] ?>
                                 </a>
                             </td>
                             <td class="auteur"><? echo getAuthorName ($topic['idAuteur']) ?></td>
                             <td class="categorie"><? echo getCategorieName ($topic['idCategorie']) ?></td>
-                            <td class="last_post"><? echo $topic['dateTopic'] ?></td>
+                            <td class="last_post"><? echo getLastPostDate($topic['id']) ?></td>
                         </tr>
                     <?
                     endforeach;
@@ -48,9 +48,11 @@
 
             <div id="rechercher-topic">
                 <h2>Rechercher un topic</h2>
-                <form class="forum-form" action="???" method="???">
+                <form class="forum-form" action="/" method="get">
+                    <input type="hidden" name="controller" value="forum">
+                    <input type="hidden" name="action" value="searchTopic">
                     <input type="text" placeholder="Nom du topic" id="rechercherTopicName" name="topicName">
-                    <select name="categories" id="rechercherTopicCategorie">
+                    <select name="topicCategory" id="rechercherTopicCategorie">
                         <?php
                         foreach ($categories as $category):
                         ?>
@@ -67,7 +69,7 @@
                 <h2>Créer un topic</h2>
                 <form class="forum-form" action="???" method="???">
                     <input type="text" placeholder="Nom du topic" id="creerTopicName" name="topicName">
-                    <select name="categories" id="creerTopicCategorie">
+                    <select name="topicCategory" id="creerTopicCategorie">
                         <?php
                         foreach ($categories as $category):
                         ?>

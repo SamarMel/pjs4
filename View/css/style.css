@@ -13,6 +13,10 @@
     --color-forum-2: #83c4a3;
 	--color-forum-3: #628d7a;
 
+	--color-home-1: #00c4cc;
+	--color-home-2: #0582a4;
+	--color-home-3: #00c9ff;
+
 	--color-secondary: rgb(0, 200, 0);
 	--color-secondary-light: rgb(0, 230, 0);
 	--color-secondary-dark: rgb(0, 170, 0);
@@ -40,12 +44,13 @@
 body {
 	background: var(--color-light);
 }
+
 #page {
 	width: 80vw;
 	margin-left: 15vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	align-items: center;
 	height: 90vh;
 	padding-bottom: 1vh;

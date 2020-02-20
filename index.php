@@ -11,7 +11,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         header('Location: /?controller=forum&action=home');
     }
 } else
-    header('Location: /?controller=forum&action=home');
+    require (dirname(__FILE__) ."/View/index.php");
 
 /*
 session_start();

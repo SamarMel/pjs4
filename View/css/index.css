@@ -1,0 +1,54 @@
+.container {
+    margin-top: 5vh;
+    width: 75vw;
+    height: 15vh;
+    color: var(--color-light);
+    background: var(--color-home-1);
+}
+
+.container h3 {
+    display: block;
+    position: absolute;
+    bottom: -7.5vh;
+    width: 75vw;
+    text-align: center;
+    font-size: 10vh;
+    font-family: "League Gothic", "OpenSans", sans-serif;
+    letter-spacing: 3px;
+    color: var(--color-light);
+    text-shadow: black 0 0 2vh;
+}
+
+.slick-slide {
+    text-align: center;
+    color: #419be0;
+    background: white;
+}
+
+.carousel-img {
+    max-height: 20vh;
+    width: 75vw;
+    object-fit: cover;
+}
+
+.slick-dots li button::before {
+    font-size: 1vh !important;
+}
+
+.slick-prev, .slick-next {
+    z-index: 100;
+}
+
+.slick-prev {
+    left: 3vw !important;
+}
+
+.slick-next {
+    right: 3vw !important;
+}
+
+.slick-prev::before, .slick-next::before {
+    z-index: 100;
+    color: black !important;
+    font-size: 3vh !important;
+}

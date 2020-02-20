@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/View/css/menu.css">
 <div id="menu">
-    <img id="logo" src="/View/images/preclarity.png" alt="logo preclarity">
+    <a href="/"><img id="logo" src="/View/images/preclarity.png" alt="logo preclarity"></a>
     <ul id="nav">
         <li>
             <a href = "">

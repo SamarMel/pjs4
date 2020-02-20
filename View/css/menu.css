@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-#menu>#logo {
+#menu #logo {
     width: 5vw;
     height: 5vw;
     background: var(--color-light);

@@ -81,7 +81,7 @@
 	<body class="col-md-9 offset-md-2">
 		<?php  //require (dirname(__FILE__) . "/menu.tpl"); ?>
 		<h1>FORUM</h1>
-		<h2 class="sujet">SUJET : <?php echo($sujet);?></h2>
+		<h2 class="sujet">SUJET : <?php //echo($sujet);?></h2>
 
 		<div class="posts">
 			<?php //echo afficherPosts($idTopic);?>

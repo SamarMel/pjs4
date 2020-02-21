@@ -24,9 +24,25 @@
 
         <div class='container'>
             <div class='single-item'>
-                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><h3>Actualité</h3></div>
-                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><h3>Actualité</h3></div>
-                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><h3>Actualité</h3></div>
+                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><a href="#">Article 1</a></div>
+                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><a href="#">Article 2</a></div>
+                <div><img class="carousel-img" src="/View/images/home.jpg" alt="home"><a href="#">Article 3</a></div>
+            </div>
+        </div>
+
+        <div id="body">
+            <video width="600" height="300" controls>
+                <source src="/View/images/kx3ib-s5to6.webm" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="vid-invite">
+                <span>Voulez-vous être accompagné vous aussi ?</span>
+                <a href="#">Par ici !</a>
+            </div>
+            <div id="need-help">
+                <h3>Besoin d'aide ?</h3>
+                <p>Répondez à notre <a href="#">Questionnaire</a> ou participez au <a href="/?controller=forum&action=home">Forum</a>!</p>
+                <img src="/View/images/help.png" alt="?">
             </div>
         </div>
 

@@ -99,12 +99,19 @@ $(document).ready(() => {
                         (person) => {
 
                             header.html(
-                                '<img src="http://img.icons8.com/android/24/000000/circled-left-2.png" alt="retour" class="chatbox-btn" id="back-to-list">'
-                                + "<h1>" + person['pseudo'] + "</h1>" +
+                                '<img src="http://img.icons8.com/android/24/000000/circled-left-2.png" alt="retour" class="chatbox-btn" id="back-to-list">' +
+                                "<h1>" +
+                                    person['pseudo'] + " " +
+                                    "<img src=\"https://img.icons8.com/material-outlined/24/000000/flag.png\" alt='signaler' class='chatbox-btn' id='signal-user'>" +
+                                "</h1>" +
                                 '<img src="http://img.icons8.com/metro/26/000000/cancel.png" alt="réduire" class="chatbox-btn" id="reduce-chatbox">');
 
                             $("#reduce-chatbox").click(closeChat);
                             $("#back-to-list").click(backToList);
+                            $("#signal-user").click(() => {
+                                if (confirm("Voulez-vous vraiment signaler cet utilisateur ?"))
+                                    alert ("Pour l'instant ça marche pas mdr");
+                            });
                             nbMessages = -1;
                             refreshMessages();
                         });

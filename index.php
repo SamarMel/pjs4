@@ -8,10 +8,11 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 	    require (dirname(__FILE__) . "/Controller/" . $controller . ".php");
         $action();
     } catch (Error $e) {
-        header('Location: /?controller=forum&action=home');
+        echo $e;
+        //header('Location: /');
     }
 } else
-    require (dirname(__FILE__) ."/View/index.php");
+    require(dirname(__FILE__) . "/View/home.php");
 
 /*
 session_start();

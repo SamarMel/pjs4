@@ -1,14 +1,43 @@
+/* Large devices (Desktops) */
+
 #footer {
     background: #000;
     color: var(--color-light);
     text-align: center;
-    height: 2vh;
-    font-size: 1.25vh;
+
     position: fixed;
     bottom: 0;
     left: 0;
+    width: 100vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+
+    height: 2vh;
+    font-size: 1.25vh;
+}
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    #footer {
+        height: 3.5vh;
+        font-size: 2vh;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #footer {
+        height: 3vh;
+        font-size: 1.5vh;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    #footer {
+        height: 2vh;
+        font-size: 1.25vh;
+    }
 }

@@ -2,9 +2,10 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Preclarity</title>
         <link rel="stylesheet" href="/View/css/style.css">
-        <link rel="stylesheet" href="/View/css/index.css">
+        <link rel="stylesheet" href="/View/css/home.css">
 
         <!-- SLICK Carousel -->
         <link rel="stylesheet" type="text/css" href="/View/slick/slick.css"/>

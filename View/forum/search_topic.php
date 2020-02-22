@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Forum</title>
     <link rel="stylesheet" href="/View/css/forum.css">
     <link rel="stylesheet" href="/View/css/style.css">
@@ -31,6 +32,7 @@
                 </tr>
                 <?php
                 require_once (dirname(__FILE__) . "/../../Model/forum.php");
+                require_once (dirname(__FILE__) . "/../../Model/names.php");
                 foreach ($topics as $topic):
                     ?>
                     <tr class="row topic">
@@ -39,7 +41,7 @@
                                 <? echo $topic['titre'] ?>
                             </a>
                         </td>
-                        <td class="auteur"><? echo getAuthorName ($topic['idAuteur']) ?></td>
+                        <td class="auteur"><? echo getUserName ($topic['idAuteur']) ?></td>
                         <td class="categorie"><? echo getCategorieName ($topic['idCategorie']) ?></td>
                         <td class="last_post"><? echo getLastPostDate($topic['id']) ?></td>
                     </tr>

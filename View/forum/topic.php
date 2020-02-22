@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Forum</title>
         <link rel="stylesheet" href="/View/css/topic.css">
         <link rel="stylesheet" href="/View/css/style.css">
@@ -17,6 +18,7 @@
             $page_name = "FORUM";
             require_once(dirname(__FILE__) . "/../modules/header.php");
             require_once(dirname(__FILE__) . "/../../Model/forum.php");
+            require_once(dirname(__FILE__) . "/../../Model/names.php");
             ?>
             <h2>Sujet : <? echo $topic['titre'] ?></h2>
             <div id="first-post" class="post">
@@ -27,13 +29,18 @@
                     <h5><? echo $author['role'] ?></h5>
                 </div>
                 <div class="post-content">
-                    <p><? echo $topic['question'] ?></p>
+                    <p><? echo $posts[0]['content'] ?></p>
                     <span class="post-info"><? echo getCategorieName($topic['idCategorie'])." | ".$topic['dateTopic']?></span>
                 </div>
             </div>
             <div id="posts">
                 <?php
+                $passed = false;
                 foreach ($posts as $post):
+                    if(!$passed) {
+                        $passed = true;
+                        continue;
+                    }
                     $author = getAuthor($post['idAuteur']);
                 ?>
                     <div class="post">

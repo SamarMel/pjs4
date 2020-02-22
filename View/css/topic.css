@@ -13,15 +13,12 @@ h2 {
 
 #first-post {
 	height: 15vh;
-	overflow-y: scroll;
 	background: var(--color-forum-2);
 	color: var(--color-light);
 }
 
 #posts {
 	width: 100%;
-	overflow-y: scroll;
-	height: 30vh;
 }
 
 .post {

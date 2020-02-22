@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    z-index: 1000;
 }
 
 #chatbox-header {
@@ -164,27 +165,70 @@
     width: 88%;
 }
 
-/* Medium devices */
-@media (max-width: 1200px) {
-    #chatbox {
-        width: 33vw;
-    }
-}
 
-/* Small devices */
-@media (max-width: 992px) {
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
     #chatbox {
         width: 100vw;
         right: 0;
-        height: 10vh;
+        bottom: 3.5vh;
+        height: 7.5vh;
     }
 
     .opened {
-        height: 85vh !important;
+        height: 80vh !important;
     }
 
     #chatbox.closed:hover {
-        height: 10vh !important;
+        height: 7.5vh !important;
+    }
+
+    #chatbox h1 {
+        font-size: 4vh;
+        margin-top: 5vh;
+    }
+
+    .chatbox-btn {
+        width: 3vh;
+        margin-top: 2.5vh;
+    }
+
+    #chatbox-header {
+        padding-bottom: 2.5vh;
+    }
+
+    #chatbox-box {
+        height: 60vh;
+    }
+
+    #chatbox-footer>input {
+        height: 5vh;
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+        width: 70vw;
+    }
+
+    #chatbox-send {
+        height: 5vh !important;
+        width: auto !important;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #chatbox {
+        width: 100vw;
+        right: 0;
+        height: 8vh;
+        bottom: 3vh;
+    }
+
+    .opened {
+        height: 75vh !important;
+    }
+
+    #chatbox.closed:hover {
+        height: 8vh !important;
     }
 
     #chatbox h1 {
@@ -202,7 +246,7 @@
     }
 
     #chatbox-box {
-        height: 65vh;
+        height: 55vh;
         /*box-shadow: inset 0 0 75px var(--color-primary-dark);*/
     }
 
@@ -218,48 +262,9 @@
     }
 }
 
-/* Extra small devices */
-@media (max-width: 768px) {
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
     #chatbox {
-        width: 100vw;
-        right: 0;
-        height: 10vh;
-    }
-
-    .opened {
-        height: 95vh !important;
-    }
-
-    #chatbox.closed:hover {
-        height: 10vh !important;
-    }
-
-    #chatbox h1 {
-        font-size: 3vh;
-        margin-top: 5vh;
-    }
-
-    .chatbox-btn {
-        width: 3vh;
-        margin-top: 2.5vh;
-    }
-
-    #chatbox-header {
-        padding-bottom: 2.5vh;
-    }
-
-    #chatbox-box {
-        height: 75vh;
-    }
-
-    #chatbox-footer>input {
-        height: 5vh;
-        font-size: 2.5vh;
-        margin-top: 2.5vh;
-    }
-
-    #chatbox-send {
-        height: 3.5vh;
-        width: auto;
+        width: 33vw;
     }
 }

@@ -1,10 +1,6 @@
 :root {
 	--color-light: #f0f0f0;
 
-	--color-primary: #df2a36;
-	--color-primary-light: #ff313e;
-	--color-primary-dark: #bf2730;
-
 	--color-chatbox-1: #df2a36;
 	--color-chatbox-2: #d0e4ff;
 	--color-chatbox-3: var(--color-light);
@@ -16,14 +12,6 @@
 	--color-home-1: #00c4cc;
 	--color-home-2: #0582a4;
 	--color-home-3: #00c9ff;
-
-	--color-secondary: rgb(0, 200, 0);
-	--color-secondary-light: rgb(0, 230, 0);
-	--color-secondary-dark: rgb(0, 170, 0);
-
-	--color-tertiary: rgb(0, 0, 200);
-	--color-tertiary-light: rgb(0, 0, 230);
-	--color-tertiary-dark: rgb(0, 0, 170);
 }
 
 @font-face {
@@ -48,11 +36,11 @@ body {
 #page {
 	width: 80vw;
 	margin-left: 15vw;
+	margin-bottom: 5vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	height: 90vh;
 	padding-bottom: 1vh;
 }
 

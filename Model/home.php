@@ -1,4 +1,22 @@
 <?php
+
+/**
+ * @return array|null
+ */
+function getRecentArticles() {
+    require (dirname(__FILE__) . '/database.php');
+    try {
+        $sql = "SELECT * FROM Article ORDER BY datePubli DESC";
+        $query = $database->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $result = array_slice($result, 0, 4);
+        return $result;
+    } catch(PDOException $e) {
+        return null;
+    }
+}
+
 /**
  * @param $id
  * @return null

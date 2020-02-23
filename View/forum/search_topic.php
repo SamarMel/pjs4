@@ -38,7 +38,10 @@
                     <tr class="row topic">
                         <td class="sujet">
                             <a href="/?controller=forum&action=seeTopic&id=<? echo $topic['id']?>">
-                                <? echo $topic['titre'] ?>
+                                <? echo (strlen($topic['titre']) > 64)
+                                ? substr($topic['titre'], 0, 64) . "..."
+                                : $topic['titre']
+                                ?>
                             </a>
                         </td>
                         <td class="auteur"><? echo getUserName ($topic['idAuteur']) ?></td>

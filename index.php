@@ -11,8 +11,10 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         echo $e;
         //header('Location: /');
     }
-} else
-    require(dirname(__FILE__) . "/View/home.php");
+} else {
+    require (dirname(__FILE__) . "/Controller/home.php");
+    home();
+}
 
 /*
 session_start();

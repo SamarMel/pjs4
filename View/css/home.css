@@ -1,6 +1,9 @@
+.container, .container a, .carousel-img {
+    width: 80vw;
+}
+
 .container {
     margin-top: 2.5vh;
-    width: 80vw;
     height: 20vh;
     color: var(--color-light);
     background: var(--color-home-1);
@@ -10,7 +13,6 @@
     display: block;
     position: absolute;
     bottom: 5vh;
-    width: 80vw;
     text-align: center;
     font-size: 8vh;
     font-family: "League Gothic", "OpenSans", sans-serif;
@@ -32,7 +34,6 @@
 
 .carousel-img {
     max-height: 20vh;
-    width: 80vw;
     object-fit: cover;
 }
 
@@ -81,7 +82,7 @@ video {
 
 #vid-invite {
     position: absolute;
-    z-index: 1000;
+    z-index: 10;
     left: 35vw;
     width: 15vw;
     height: 15vh;
@@ -119,7 +120,8 @@ video {
     align-items: center;
     flex-direction: column;
     margin-right: 5vw;
-
+    width: 20vw;
+    text-align: center;
 }
 
 #need-help h3 {
@@ -144,4 +146,79 @@ video {
     margin: 1.5vh;
     width: 7.5vh;
     height: 7.5vh;
+}
+
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    .container, .container a, .carousel-img {
+        width: 90vw;
+    }
+
+    .container a {
+        font-size: 5vh;
+        bottom: 6vh;
+    }
+
+    #body {
+        flex-direction: column;
+        height: unset;
+    }
+
+    video {
+        width: 90vw;
+        height: auto;
+    }
+
+    #vid-invite {
+        position: unset;
+        width: 35vw;
+        margin-top: 5vh;
+        padding: 1vh;
+    }
+
+    #need-help {
+        width: 90vw;
+        margin-right: 0;
+        margin-top: 5vh;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container, .container a, .carousel-img {
+        width: 90vw;
+    }
+
+    .container a {
+        font-size: 5vh;
+        bottom: 6vh;
+    }
+
+    #body {
+        flex-direction: column;
+        height: unset;
+    }
+
+    video {
+        width: 90vw;
+        height: auto;
+    }
+
+    #vid-invite {
+        position: unset;
+        width: 35vw;
+        margin-top: 5vh;
+        padding: 1vh;
+    }
+
+    #need-help {
+        width: 90vw;
+        margin-right: 0;
+        margin-top: 5vh;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
 }

@@ -43,8 +43,8 @@ h2 {
 }
 
 .user-info>img {
-	height: 10vh;
-	width: 10vh;
+	height: 5vw;
+	width: 5vw;
 	border-radius: 100px;
 }
 
@@ -110,6 +110,50 @@ input[type="submit"]:hover {
 	border-color: var(--color-forum-1);
 	color: #000;
 	cursor: pointer;
+}
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+	input[type="submit"] {
+		width: 25vw;
+	}
+
+	.user-info {
+		width: 25vw;
+	}
+
+	.user-info>img {
+		width: 12.5vw;
+		height: 12.5vw;
+	}
+
+	.post-content>p {
+		max-width: 60vw;
+	}
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+	input[type="submit"] {
+		width: 25vw;
+	}
+
+	.user-info {
+		width: 25vw;
+	}
+
+	.user-info>img {
+		width: 12.5vw;
+		height: 12.5vw;
+	}
+
+	.post-content>p {
+		max-width: 60vw;
+	}
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
 }
 
 /* OLD */

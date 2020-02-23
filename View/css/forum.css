@@ -1,4 +1,4 @@
-#derniers_topics, #rechercher-topic, #creer-topic {
+#derniers-topics, #rechercher-topic, #creer-topic, #searched-topics {
     width: 100%;
     margin-top: 7.5vh;
 }
@@ -26,10 +26,8 @@ h2 {
 }
 
 #searched-topics {
-    width: 105%;
     height: 50vh;
     max-height: 50vh;
-    overflow-y: scroll;
 }
 
 #rechercher-topic>h2, #creer-topic>h2 {
@@ -98,10 +96,10 @@ h2 {
 .forum-form>input, .forum-form>select {
     background: var(--color-light);
     font-size: 1.75vh;
-    margin-left: 10vh;
-    margin-right: 10vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
     height: 4vh;
-    width: 15vh;
+    width: 15vw;
     border: var(--color-light) solid 2px;
 }
 
@@ -130,3 +128,47 @@ h2 {
      color: var(--color-light);
      cursor: pointer;
  }
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    #derniers-topics, #searched-topics {
+        margin-top: 2.5vh;
+    }
+
+    .row {
+        width: 90vw;
+    }
+
+    #topics .row {
+        width: 90vw;
+    }
+
+    .row>.last_post {
+        width: 15vw;
+        max-width: 12.5vw;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #derniers-topics, #searched-topics {
+        margin-top: 2.5vh;
+    }
+
+    .row {
+        width: 90vw;
+    }
+
+    #topics .row {
+        width: 90vw;
+    }
+
+    .row>.last_post {
+        width: 15vw;
+        max-width: 12.5vw;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+}

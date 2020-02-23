@@ -31,12 +31,14 @@
 
 body {
 	background: var(--color-light);
+	margin: 0;
+	padding: 0;
 }
 
 #page {
 	width: 80vw;
 	margin-left: 15vw;
-	margin-bottom: 5vh;
+	margin-bottom: 10vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -80,4 +82,28 @@ body {
 	font-weight: bold;
 	letter-spacing: 2px;
 	font-family: "OpenSans", sans-serif;
+}
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+	#page {
+		width: 90vw;
+		margin-left: 5vw;
+		margin-top: 12.5vh;
+		margin-bottom: 15vh;
+	}
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+	#page {
+		width: 90vw;
+		margin-left: 5vw;
+		margin-top: 12.5vh;
+		margin-bottom: 15vh;
+	}
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
 }

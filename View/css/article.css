@@ -38,3 +38,31 @@
     font-size: 1.5vh;
     text-align: justify;
 }
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    #article {
+        width: 90vw;
+    }
+
+    #article-illus {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #article {
+        width: 90vw;
+    }
+
+    #article-illus {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+}

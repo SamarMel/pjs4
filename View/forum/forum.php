@@ -72,7 +72,7 @@
 
             <div id="creer-topic">
                 <h2>Créer un topic</h2>
-                <form class="forum-form" action="???" method="???">
+                <form class="forum-form" action="???" method="get">
                     <input type="text" placeholder="Nom du topic" id="creerTopicName" name="topicName">
                     <select name="topicCategory" id="creerTopicCategorie">
                         <?php

@@ -33,3 +33,17 @@ function searchTopic() {
 
     }
 }
+
+function createTopic(){
+    if(isset($_GET['topicName']) && isset($_GET['topicCategory'])){
+
+        require_once (dirname(__FILE__) . "/../Model/forum.php");
+        $sujet = $_GET['topicName'];
+        createTopic($name);
+
+        require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
+        
+
+    }
+
+}

@@ -30,7 +30,7 @@ function rechercherTopic($sujet) {
  * @param $sujet
  * @return bool
  */
-function creerTopic($sujet) {
+function createTopic($sujet) {
     require (dirname(__FILE__) . '/database.php');
     try {
         $sql = "INSERT INTO Topic (titre, idAuteur, dateTopic) VALUES (:titre, :idAuteur, :dateTopic)";

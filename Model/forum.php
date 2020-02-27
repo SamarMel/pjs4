@@ -122,3 +122,36 @@ function getPosts($id) {
         return null;
     }
 }
+
+/**
+ *  Créer un topic
+ * @param $sujet
+ * @return bool
+ */
+function createTopic($sujet) {
+    require (dirname(__FILE__) . '/database.php');
+    try {
+        $sql = "INSERT INTO Topic (titre, idAuteur, dateTopic) VALUES (:titre, :idAuteur, :dateTopic)";
+        $query = $database->prepare($sql);
+        $query->bindParam(':titre', $sujet);
+        $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
+        $query->bindParam(':dateTopic', SYSDATE());
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        return false;
+    }
+    return true;
+}
+
+/**
+ * DEMANDER A SAMAR SA FONCTION DE POST COMME CA J'AI PAS A RECODER SA FONCTION
+ */
+
+function saveDescription($description){
+    require (dirname(__FILE__) . '/database.php');
+
+    
+
+}

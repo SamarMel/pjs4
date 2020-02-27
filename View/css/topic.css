@@ -46,6 +46,7 @@ h2 {
 	height: 5vw;
 	width: 5vw;
 	border-radius: 100px;
+	object-fit: cover;
 }
 
 .user-info>h4, .user-info>h5 {

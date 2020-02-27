@@ -163,7 +163,7 @@ $(document).ready(() => {
 
     function loadBot(id) {
         if (id === -1)
-            id = 1;
+            id = 0;
         infos['botQuestion'] = id;
         $.getJSON("http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getBotQuestion&id=" + id, (question) => {
             box.empty();

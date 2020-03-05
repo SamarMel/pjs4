@@ -3,10 +3,8 @@
     body{
     background-color:var(--color-primary);
      margin: 0;
-    
-     
-    
     }
+
     #Formulaire{
         
         margin-top: 5%;
@@ -43,6 +41,7 @@
     #Bouton {
         margin-top: 5%;
         margin-left: 178%;
+        transition-timing-function: linear;
     }
     
     
@@ -52,6 +51,7 @@
     
         #Bouton {
             margin-top: 5%;
+            transition-timing-function: linear;
            
         }
         #titre{

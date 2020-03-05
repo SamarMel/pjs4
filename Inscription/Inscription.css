@@ -7,6 +7,11 @@ background-color:var(--color-primary);
  
 
 }
+
+#Bouton{
+    transition-timing-function: linear;
+}
+
 #Formulaire{
     
     

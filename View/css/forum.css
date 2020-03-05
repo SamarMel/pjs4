@@ -56,10 +56,6 @@ h2 {
     color: var(--color-forum-1);
 }
 
-.btn{
-    transition-timing-function: linear;
-}
-
 #topics .row {
     width: 80vw;
     display: flex;

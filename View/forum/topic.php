@@ -17,8 +17,8 @@
             <?php
             $page_name = "FORUM";
             require_once(dirname(__FILE__) . "/../modules/header.php");
-            require_once(dirname(__FILE__) . "/../../Model/forum.php");
-            require_once(dirname(__FILE__) . "/../../Model/names.php");
+            require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
+            require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
             ?>
             <h2>Sujet : <? echo $topic['titre'] ?></h2>
             <div id="first-post" class="post">

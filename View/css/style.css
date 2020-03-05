@@ -63,25 +63,37 @@ body {
 	color: gray;
 }
 
-#header>#user {
+#header #user {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
 }
 
-#header>#user>img {
+#header #user>img {
 	border-radius: 100px;
 	height: 10vh;
 	width: 10vh;
 }
 
-#header>#user>#pseudo {
+#header #user>#pseudo {
 	margin-top: 1vh;
 	font-size: 2vh;
 	font-weight: bold;
 	letter-spacing: 2px;
 	font-family: "OpenSans", sans-serif;
+}
+
+a.user {
+	text-decoration: none;
+	background: transparent;
+	color: black;
+	padding: 1%;
+}
+
+a.user:hover{
+	background: #e3e3e3;
+	transition: 200ms;
 }
 
 /* Extra-small devices (Phones) */

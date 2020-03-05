@@ -1,7 +1,7 @@
 <?php
 
 function queryConversations ($id) {
-    require(dirname(__FILE__) . "/database.php");
+    require(dirname(__FILE__) . "/../database.php");
     $sql = "SELECT * FROM `Conversation` WHERE idUser1 = :id1 OR idUser2 = :id2 ORDER BY id";
 
     $convs = array();
@@ -20,7 +20,7 @@ function queryConversations ($id) {
 }
 
 function queryConversation ($id) {
-    require(dirname(__FILE__) . "/database.php");
+    require(dirname(__FILE__) . "/../database.php");
     $sql = "SELECT * FROM `Conversation` WHERE id = :id";
 
     try {
@@ -37,7 +37,7 @@ function queryConversation ($id) {
 }
 
 function queryMessages($idConv) {
-    require(dirname(__FILE__) . "/database.php");
+    require(dirname(__FILE__) . "/../database.php");
     $sql = "SELECT * FROM `MessageConv` WHERE idConv = :id ORDER BY dateMsg";
 
     $messages = array();
@@ -55,7 +55,7 @@ function queryMessages($idConv) {
 }
 
 function queryUser($id) {
-    require (dirname(__FILE__) . "/database.php");
+    require(dirname(__FILE__) . "/../database.php");
     $sql = "SELECT * FROM `Utilisateur` WHERE id = :id";
 
     try {
@@ -78,7 +78,7 @@ function queryUser($id) {
  * @param $message
  */
 function insertMessage($idUser, $idConv, $message){
-    require(dirname(__FILE__) . '/./database.php');
+    require(dirname(__FILE__) . '/../database.php');
     $sql = "INSERT INTO MessageConv(idAuteur, idConv, content) VALUES (:idAuteur, :idConv, :msg)";
     echo("bite");
     try {
@@ -95,7 +95,7 @@ function insertMessage($idUser, $idConv, $message){
 }
 
 function queryBotQuestion($id) {
-    $string = file_get_contents("http://pjs4.ulyssebouchet.fr/Model/bot.json");
+    $string = file_get_contents("http://pjs4.ulyssebouchet.fr/Model/bot/bot.json");
 
     $json_a = json_decode($string, true);
 

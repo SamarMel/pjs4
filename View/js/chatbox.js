@@ -1,6 +1,13 @@
 $(document).ready(() => {
     let infos = [];
-    infos ['id'] = 1; //Il faudra dans le futur récupérer l'id de l'utilisateur connecté via les cookies
+
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    infos ['id'] = getCookie("idUser"); //Il faudra dans le futur récupérer l'id de l'utilisateur connecté via les cookies
     infos ['idConv'] = -1;
     infos ['curPseudo'] = "";
     infos ['botQuestion'] = -1;

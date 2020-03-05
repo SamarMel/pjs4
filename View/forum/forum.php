@@ -28,8 +28,8 @@
                         <th class="last_post">Dernier post</th>
                     </tr>
                     <?php
-                    require_once (dirname(__FILE__) . "/../../Model/forum.php");
-                    require_once (dirname(__FILE__) . "/../../Model/names.php");
+                    require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
+                    require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
                     foreach ($topics as $topic):
                     ?>
                         <tr class="row topic">

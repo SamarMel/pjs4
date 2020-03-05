@@ -5,7 +5,7 @@
  * @return mixed|null
  */
 function getCategorieName ($idCategorie) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Categorie WHERE id = :idCategorie";
         $query = $database->prepare($sql);
@@ -22,7 +22,7 @@ function getCategorieName ($idCategorie) {
  * @return mixed|null
  */
 function getUserName ($idAuteur) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Utilisateur WHERE id = :idAuteur";
         $query = $database->prepare($sql);

@@ -22,7 +22,7 @@
     $page_name = "ARTICLE";
     require_once (dirname(__FILE__) . "/modules/header.php");
 
-    require_once(dirname(__FILE__) . "/../Model/names.php");
+    require_once(dirname(__FILE__) . "/../Model/queries/names.php");
     $categorie = getCategorieName($article['idCategorie']);
     $auteur = getUserName($article['idAuteur']);
 

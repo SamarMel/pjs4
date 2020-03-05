@@ -1,6 +1,6 @@
 <?php
 function afficher($idTopic){
-	require(dirname(__FILE__) . "/../Model/topicBD.php");
+	require(dirname(__FILE__) . "/../Model/forum/topicBD.php");
 	$topic = getTopic($idTopic);
 	$sujet = $topic['titre'];
 	

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Inscription</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/View/css/login.css">
+</head>
+<body>
+
+<form method="POST" action="/?controller=user&action=login">
+    <span class="titreForm">Inscription</span>
+    <label for="mail">Email</label>
+    <input type="text" id="mail" placeholder="exemple@gmail.com">
+
+    <label for="pseudo">Pseudo</label>
+    <input type="text" id="pseudo" placeholder="Toto">
+
+    <label for="pass">Mot de Passe</label>
+    <input type="password" id="pass" placeholder="●●●●●●●●">
+
+
+    <input type="radio" id="default1" name="img" value="default1"
+           checked>
+    <label for="default1"><img src="https://freesvg.org/img/smiling_teen_face.png"></label>
+
+    <input type="radio" id="default2" name="img" value="default2"
+           checked>
+    <label for="default2"><img src="https://freesvg.org/img/Caricatura_de_una_chica_soriendo.png"></label>
+
+    <input type="radio" id="default3" name="img" value="default3"
+           checked>
+    <label for="default3"><img src="https://freesvg.org/img/Dog_01_Face_Cartoon_Grey.png"></label>
+
+
+    <input type="radio" id="default4" name="img" value="default4"
+           checked>
+    <label for="default4"><img src="https://freesvg.org/img/Cat_001_Face_Cartoon.png"></label>
+
+
+
+    <input type="submit" value="Créer">
+</form>
+
+</body>
+</html>

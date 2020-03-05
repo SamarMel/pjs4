@@ -4,7 +4,7 @@
  * @return array|null
  */
 function getLastTopics () {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql =
             "SELECT T.* 
@@ -28,7 +28,7 @@ function getLastTopics () {
  * @return null
  */
 function getTopics ($name, $category) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Topic WHERE titre LIKE :name AND idCategorie = :category ORDER BY dateTopic DESC";
 
@@ -44,7 +44,7 @@ function getTopics ($name, $category) {
 }
 
 function getLastPostDate($id) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT P.* FROM Post P, Topic T WHERE P.idTopic = T.id AND T.id = :id ORDER BY P.datePost DESC";
 
@@ -61,7 +61,7 @@ function getLastPostDate($id) {
  * @return array|null
  */
 function getCategories () {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Categorie ORDER BY intitulé";
         $query = $database->prepare($sql);
@@ -77,7 +77,7 @@ function getCategories () {
  * @return null
  */
 function getAuthor($idAuteur) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Utilisateur WHERE id = :idAuteur";
         $query = $database->prepare($sql);
@@ -94,7 +94,7 @@ function getAuthor($idAuteur) {
  * @return null
  */
 function getTopic($id) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Topic WHERE id = :id";
         $query = $database->prepare($sql);
@@ -111,7 +111,7 @@ function getTopic($id) {
  * @return null
  */
 function getPosts($id) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Post WHERE idTopic = :id ORDER BY datePost";
         $query = $database->prepare($sql);
@@ -128,14 +128,13 @@ function getPosts($id) {
  * @param $sujet
  * @return bool
  */
-function createTopic($sujet) {
-    require (dirname(__FILE__) . '/database.php');
+function insertTopic($sujet) {
+    require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Topic (titre, idAuteur, dateTopic) VALUES (:titre, :idAuteur, :dateTopic)";
+        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur)";
         $query = $database->prepare($sql);
         $query->bindParam(':titre', $sujet);
         $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
-        $query->bindParam(':dateTopic', SYSDATE());
         $query->execute();
     }
     catch(PDOException $e) {
@@ -150,8 +149,5 @@ function createTopic($sujet) {
  */
 
 function saveDescription($description){
-    require (dirname(__FILE__) . '/database.php');
-
-    
-
+    require(dirname(__FILE__) . '/../database.php');
 }

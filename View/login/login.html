@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Connexion</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/View/css/login.css">
+</head>
+<body>
+
+    <form method="post" action="/?controller=user&action=login">
+        <h1>Connexion</h1>
+
+        <label for="identifiant">Identifiant</label>
+        <input name="identifiant" type="text" id="identifiant" placeholder="Pseudo ou Email">
+
+        <label for="pwd">Mot de Passe</label>
+        <input name="pwd" type="password" id="pwd" placeholder="●●●●●●●●">
+
+        <input type="submit" value="Se connecter">
+    </form>
+
+</body>
+</html>

@@ -5,7 +5,7 @@ function getConversations ()
     if (isset ($_GET['id'])) {
         $id = $_GET['id'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
         $conversations = queryConversations($id);
 
@@ -18,7 +18,7 @@ function getConversation ()
     if (isset ($_GET['id'])) {
         $id = $_GET['id'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
         $conversation = queryConversation($id);
 
@@ -33,7 +33,7 @@ function sendMessage ()
         $idUser = $_GET['idUser'];
         $msg = $_GET['msg'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
          insertMessage($idUser, $idConv, $msg);
     }
@@ -44,7 +44,7 @@ function getMessages()
     if (isset ($_GET['id'])) {
         $id = $_GET['id'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
         $messages = queryMessages($id);
 
@@ -57,7 +57,7 @@ function getUser()
     if (isset ($_GET['id'])) {
         $id = $_GET['id'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
         $user = queryUser($id);
 
@@ -70,7 +70,7 @@ function getBotQuestion ()
     if (isset ($_GET['id'])) {
         $id = $_GET['id'];
 
-        require(dirname(__FILE__) . "/../Model/ajaxQueries.php");
+        require(dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
 
         $question = queryBotQuestion($id);
 

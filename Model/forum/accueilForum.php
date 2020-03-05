@@ -5,7 +5,7 @@
  * @return bool
  */
 function rechercherTopic($sujet) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
 
     $sql = "SELECT titre, idAuteur, dateTopic FROM Topic WHERE Contains(titre, :s)";
 
@@ -31,13 +31,12 @@ function rechercherTopic($sujet) {
  * @return bool
  */
 function createTopic($sujet) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Topic (titre, idAuteur, dateTopic) VALUES (:titre, :idAuteur, :dateTopic)";
+        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur)";
         $query = $database->prepare($sql);
         $query->bindParam(':titre', $sujet);
         $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
-        $query->bindParam(':dateTopic', SYSDATE());
         $query->execute();
     }
     catch(PDOException $e) {
@@ -51,13 +50,13 @@ function createTopic($sujet) {
  * Donne les derniers topic
  */
 function derniersTopic() {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Topic";
         $query = $database->prepare($sql);
         $bool = $query->execute();
         if ($bool) {
-            $resultat = $query->fetchAll(PDO::FETCH_ASSO);
+            $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
             $_SESSION["derniersTopics"] = $resultat;
         }
     }

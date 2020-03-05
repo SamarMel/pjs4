@@ -175,6 +175,7 @@ video {
         width: 35vw;
         margin-top: 5vh;
         padding: 1vh;
+        transition-timing-function: linear;
     }
 
     #need-help {

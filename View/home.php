@@ -6,6 +6,7 @@
     <title>Preclarity</title>
     <link rel="stylesheet" href="/View/css/style.css">
     <link rel="stylesheet" href="/View/css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css">
 
     <!-- SLICK Carousel -->
     <link rel="stylesheet" type="text/css" href="/View/slick/slick.css"/>

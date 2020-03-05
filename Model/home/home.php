@@ -4,7 +4,7 @@
  * @return array|null
  */
 function getRecentArticles() {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Article ORDER BY datePubli DESC";
         $query = $database->prepare($sql);
@@ -22,7 +22,7 @@ function getRecentArticles() {
  * @return null
  */
 function getArticle($id) {
-    require (dirname(__FILE__) . '/database.php');
+    require(dirname(__FILE__) . '/../database.php');
     try {
         $sql = "SELECT * FROM Article WHERE id = :id";
         $query = $database->prepare($sql);

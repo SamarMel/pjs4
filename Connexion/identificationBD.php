@@ -26,7 +26,7 @@ function createUserBD($mail, $pseudo, $password){
 }
 
 /**
- * Verifie si un login est présent dans la BD (pseudo ou mail)
+ * Verifie si un user est présent dans la BD (pseudo ou mail)
  */
 function estPrisBD($login){
     require (dirname(__FILE__) .  '/database.php');
@@ -71,7 +71,7 @@ function estPrisBD($login){
  */
 function modificationRole($login, $role){
     require (dirname(__FILE__) .  '/database.php');
-    $sql = "UPDATE Utilisateur set role=:role WHERE login=:pseudo";
+    $sql = "UPDATE Utilisateur set role=:role WHERE user=:pseudo";
     try {
         $cde = $database->prepare($sql);
         $cde->bindParam(':pseudo', $login);

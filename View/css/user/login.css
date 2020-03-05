@@ -1,0 +1,108 @@
+#forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 75vw;
+}
+
+form {
+    padding: 2vh;
+    margin-top: 7.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+#forms #bar {
+    width: 0.25vw;
+    height: 70vh;
+    background: var(--color-dark);
+    position: relative;
+}
+
+#forms #bar::before {
+    position: absolute;
+    top: 32.5vh;
+    left: -3.5vh;
+    font-size: 5vh;
+    font-weight: bold;
+    content: "OU";
+    background: var(--color-light);
+}
+
+label {
+    margin-top: 2.5vh;
+    background: var(--color-dark);
+    color: var(--color-light);
+    font-size: 1.5vh;
+    padding: 1.5%;
+    width: 25vw;
+    border: var(--color-dark) solid 0.25vh;
+}
+
+input {
+    background: var(--color-light);
+    color: var(--color-dark);
+    font-size: 2.5vh;
+    font-weight: bold;
+    padding: 1.5%;
+    width: 25vw;
+    border: var(--color-dark) solid 0.25vh;
+}
+
+input:focus {
+    background: var(--color-dark);
+    color: var(--color-light);
+}
+
+input[type="submit"] {
+    margin-top: 7.5vh;
+    background: var(--color-dark);
+    color: var(--color-light);
+    border: var(--color-dark) solid 0.25vh;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--color-light);
+    color: var(--color-dark);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+h6 {
+    margin-top: 2.5vh;
+    margin-bottom: 0;
+    font-size: 1.5vh;
+    font-weight: normal;
+}
+
+#images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 25vw;
+}
+
+#images img {
+    height: 5vh;
+    width: 5vh;
+}
+
+input[type="radio"]+label:hover {
+    cursor:  pointer;
+}
+
+input[type="radio"]:checked+label {
+    background-color: var(--color-light);
+}
+
+.img {
+    width: unset;
+}

@@ -11,7 +11,6 @@ function loginBD($identifiant, $pwd) {
         AND mdp = :pwd
         ";
     $pwd = hash("sha256", $pwd);
-    var_dump($pwd);
 
     try {
         $req = $database->prepare($sql);
@@ -19,9 +18,10 @@ function loginBD($identifiant, $pwd) {
         $req->bindParam(':mail', $identifiant);
         $req->bindParam(':pwd', $pwd);
         $res = $req->execute();
-        var_dump($res);
         if ($res) {
-            $res = $req->fetch(PDO::FETCH_ASSOC)['idUser'];
+            $res = $req->fetch(PDO::FETCH_ASSOC)['id'];
+            if ($res == null)
+                return false;
             $_SESSION['idUser'] = $res;
             setcookie("idUser", $res);
             return true;

@@ -1,5 +1,6 @@
 :root {
 	--color-light: #f0f0f0;
+	--color-dark: #333;
 
 	--color-chatbox-1: #df2a36;
 	--color-chatbox-2: #d0e4ff;
@@ -16,12 +17,12 @@
 
 @font-face {
 	font-family: "OpenSans";
-	src: url("../fonts/OpenSans-Regular.ttf");
+	src: url("../../Resources/fonts/OpenSans-Regular.ttf");
 }
 
 @font-face {
 	font-family: "League Gothic";
-	src: url("../fonts/LeagueGothic-Regular.otf");
+	src: url("../../Resources/fonts/LeagueGothic-Regular.otf");
 }
 
 * {

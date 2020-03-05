@@ -1,5 +1,8 @@
 ﻿<?php session_start();
 
+if (isset($_COOKIE['idUser']))
+    $_SESSION['idUser'] = $_COOKIE['idUser'];
+
 if (isset($_GET['controller']) && isset($_GET['action'])) {
 	$controller = $_GET['controller'];
 	$action = $_GET['action'];

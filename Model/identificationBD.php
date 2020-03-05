@@ -8,7 +8,7 @@
  * @return bool
  */
 function createUserBD($login, $password, $mail){
-    require(dirname(__FILE__) . '/./database.php');
+    require(dirname(__FILE__) . '/database.php');
     if (estPrisBD($login))
         return false;
     else {
@@ -30,7 +30,7 @@ function createUserBD($login, $password, $mail){
 }
 
 /**
- * Verifie si un login est présent dans la BD
+ * Verifie si un user est présent dans la BD
  * @param $login
  * @return bool
  */

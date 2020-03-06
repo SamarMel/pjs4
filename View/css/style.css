@@ -75,6 +75,7 @@ body {
 	border-radius: 100px;
 	height: 10vh;
 	width: 10vh;
+	object-fit: cover;
 }
 
 #header #user>#pseudo {

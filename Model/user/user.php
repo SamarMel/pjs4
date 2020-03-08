@@ -1,6 +1,6 @@
 <?php
 
-function loginBD($identifiant, $pwd) {
+function loginDB($identifiant, $pwd) {
     require (dirname(__FILE__) .  '/../database.php');
 
     $sql =
@@ -26,37 +26,55 @@ function loginBD($identifiant, $pwd) {
             setcookie("idUser", $res);
             return true;
         }
+        return false;
     } catch (PDOException $e) {
         echo $e->getMessage();
         return false;
     }
-    return false;
 }
 
-function inscription(){
-    $mail = isset($_POST['mail'])?($_POST['mail']):'';
-    $pseudo = isset($_POST['pseudo'])?($_POST['pseudo']):'';
-    $pass = isset($_POST['pass'])?($_POST['pass']):'';
-    $acces = false;
-    if  (count($_POST) < 3)
-        require ("./vue/utilisateur/ident.tpl") ;
+function registerDB($pseudo, $mail, $pwd, $img) {
+    require (dirname(__FILE__) .  '/../database.php');
+    if (isTaken($pseudo) && isTaken($mail))
+        return false;
     else {
-        $acces = createUser($login, $password);
-        if  (!$acces) {
-            $_SESSION['profil']=array();
-            require ("./vue/utilisateur/ident.tpl") ;
-        }
-        else {
-            $_SESSION['profil']= $profil;
-            $url = "index.php?controller=utilisateur&action=accueil";
-            header ("Location:" .$url) ;
+        $sql = "INSERT INTO Utilisateur(pseudo, mdp, mail, imageProfil) VALUES (:pseudo, :pwd, :mail, :img)";
+        $pwd = hash("sha256", $pwd);
+        try {
+            $req = $database->prepare($sql);
+            $req->bindParam(':pseudo', $pseudo);
+            $req->bindParam(':pwd', $pwd);
+            $req->bindParam(':mail', $mail);
+            $req->bindParam(':img', $img);
+            $res = $req->execute();
+            if ($res)
+                return true;
+            return false;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
         }
     }
 }
 
-function createUser($mail, $pseudo, $password){
-    require ('./modele/utilisateurBD.php');
-    return createUserBD($mail, $pseudo, $password);
-}
+function isTaken($ident) {
+    require (dirname(__FILE__) .  '/../database.php');
+    $sql = "SELECT * FROM Utilisateur WHERE UPPER(pseudo) = UPPER(:pseudo) OR UPPER(mail) = UPPER(:mail)";
 
-?>
+    try {
+        $req = $database->prepare($sql);
+        $req->bindParam(':pseudo', $ident);
+        $req->bindParam(':mail', $ident);
+        $res = $req->execute();
+        if ($res) {
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            if($res == null)
+                return false;
+            return true;
+        }
+        return true;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return true;
+    }
+}

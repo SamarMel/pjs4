@@ -11,7 +11,7 @@
 <style>#menu {background: var(--color-dark);}</style>
     <div id="page">
         <?
-        $page_name = "Connexion";
+        $page_name = "CONNEXION";
         require(dirname(__FILE__) . "/../modules/header.php");
         ?>
         <div id="forms">

@@ -86,23 +86,41 @@ body {
 	font-family: "OpenSans", sans-serif;
 }
 
-a.user {
+a#user-login {
 	text-decoration: none;
 	background: transparent;
 	color: black;
 	padding: 1%;
 }
 
-a.user:hover{
+a#user-login:hover{
 	background: #e3e3e3;
 	transition: 200ms;
 }
 
 /* Extra-small devices (Phones) */
 @media (max-width: 767px) {
+	#header {
+		height: 6.5vh;
+		margin-bottom: 2.5vh;
+	}
+
+	#header>h1 {
+		font-size: 6.5vh;
+	}
+
+	#header #user>img {
+		height: 3.5vh;
+		width: 3.5vh;
+	}
+
+	#header #user>#pseudo {
+		font-size: 1.5vh;
+	}
+
 	#page {
 		width: 90vw;
-		margin-left: 5vw;
+		margin-left: 2.5vw;
 		margin-top: 12.5vh;
 		margin-bottom: 15vh;
 	}

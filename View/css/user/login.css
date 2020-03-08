@@ -96,7 +96,7 @@ h6 {
 }
 
 input[type="radio"]+label:hover {
-    cursor:  pointer;
+    cursor: pointer;
 }
 
 input[type="radio"]:checked+label {
@@ -105,4 +105,68 @@ input[type="radio"]:checked+label {
 
 .img {
     width: unset;
+}
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    #forms {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #forms #bar {
+        height: 0.2vh;
+        width: 75vw;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    #forms #bar::before {
+        top: -3.5vh;
+        left: 45%;
+    }
+
+    form {
+        margin-top: unset;
+        width: 75vw;
+        height: unset;
+    }
+
+    label, input, #images {
+        width: 100%;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #forms {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #forms #bar {
+        height: 0.2vh;
+        width: 75vw;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    #forms #bar::before {
+        top: -3.5vh;
+        left: 25vh;
+    }
+
+    form {
+        margin-top: unset;
+        width: 75vw;
+        height: unset;
+    }
+
+    label, input, #images {
+        width: 100%;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
 }

@@ -83,8 +83,8 @@
 /* Extra-small devices (Phones) */
 @media (max-width: 767px) {
     #menu {
-        height: 10vh;
-        width: 100vw;
+        height: 8vh;
+        width: 95vw;
 
         flex-direction: row;
         align-items: flex-start;

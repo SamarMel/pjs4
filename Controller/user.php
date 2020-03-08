@@ -4,11 +4,11 @@ function login() {
     if (isset($_SESSION['idUser']))
         header("Location: http://pjs4.ulyssebouchet.fr");
     elseif (isset($_POST['identifiant']) && isset($_POST['pwd'])) {
-        require (dirname(__FILE__) . "/../Model/user/user.php");
+        require_once (dirname(__FILE__) . "/../Model/user/user.php");
         $identifiant = $_POST['identifiant'];
         $pwd = $_POST['pwd'];
 
-        if (loginBD($identifiant, $pwd))
+        if (loginDB($identifiant, $pwd))
             header("Location: http://pjs4.ulyssebouchet.fr");
         else
             header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=login");
@@ -20,14 +20,19 @@ function login() {
 function register() {
     if (isset($_SESSION['idUser']))
         header("Location: http://pjs4.ulyssebouchet.fr");
-    elseif (isset($_POST['identifiant']) && isset($_POST['pwd'])) {
-        require (dirname(__FILE__) . "/../Model/user/user.php");
-        $identifiant = $_POST['identifiant'];
-        $pwd = $_POST['pwd'];
+    elseif (isset($_POST['pseudo-input']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['img'])
+    && !empty($_POST['pseudo-input']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
+        require_once (dirname(__FILE__) . "/../Model/user/user.php");
+        $pseudo = $_POST['pseudo-input'];
+        $mail = $_POST['mail'];
+        $pwd = $_POST['password'];
+        $img = $_POST['img'];
 
-        if (loginBD($identifiant, $pwd))
-            header("Location: http://pjs4.ulyssebouchet.fr");
-        else
+        if (registerDB($pseudo, $mail, $pwd, $img)){
+            $_POST['identifiant'] = $pseudo;
+            $_POST['pwd'] = $pwd;
+            login();
+        } else
             header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=register");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");

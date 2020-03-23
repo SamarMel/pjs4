@@ -1,6 +1,13 @@
 $(document).ready(() => {
     let infos = [];
-    infos ['id'] = 1; //Il faudra dans le futur récupérer l'id de l'utilisateur connecté via les cookies
+
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    infos ['id'] = getCookie("idUser"); //Il faudra dans le futur récupérer l'id de l'utilisateur connecté via les cookies
     infos ['idConv'] = -1;
     infos ['curPseudo'] = "";
     infos ['botQuestion'] = -1;
@@ -99,12 +106,19 @@ $(document).ready(() => {
                         (person) => {
 
                             header.html(
-                                '<img src="http://img.icons8.com/android/24/000000/circled-left-2.png" alt="retour" class="chatbox-btn" id="back-to-list">'
-                                + "<h1>" + person['pseudo'] + "</h1>" +
+                                '<img src="http://img.icons8.com/android/24/000000/circled-left-2.png" alt="retour" class="chatbox-btn" id="back-to-list">' +
+                                "<h1>" +
+                                    person['pseudo'] + " " +
+                                    "<img src=\"https://img.icons8.com/material-outlined/24/000000/flag.png\" alt='signaler' class='chatbox-btn' id='signal-user'>" +
+                                "</h1>" +
                                 '<img src="http://img.icons8.com/metro/26/000000/cancel.png" alt="réduire" class="chatbox-btn" id="reduce-chatbox">');
 
                             $("#reduce-chatbox").click(closeChat);
                             $("#back-to-list").click(backToList);
+                            $("#signal-user").click(() => {
+                                if (confirm("Voulez-vous vraiment signaler cet utilisateur ?"))
+                                    alert ("Pour l'instant ça marche pas mdr");
+                            });
                             nbMessages = -1;
                             refreshMessages();
                         });
@@ -156,7 +170,7 @@ $(document).ready(() => {
 
     function loadBot(id) {
         if (id === -1)
-            id = 1;
+            id = 0;
         infos['botQuestion'] = id;
         $.getJSON("http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=getBotQuestion&id=" + id, (question) => {
             box.empty();

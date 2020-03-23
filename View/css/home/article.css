@@ -1,0 +1,68 @@
+#article {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    width: 80vw;
+
+    margin-top: 3vh;
+}
+
+#article-titre {
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+#article-infos {
+    width: 100%;
+    font-style: italic;
+    font-size: 1.25vh;
+}
+
+#article-accroche {
+    margin-top: 1vh;
+    font-size: 1.75vh;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+#article-illus {
+    margin-top: 2vh;
+    height: 25vh;
+    width: auto;
+}
+
+#article-texte {
+    margin-top: 2vh;
+    font-size: 1.5vh;
+    text-align: justify;
+}
+
+/* Extra-small devices (Phones) */
+@media (max-width: 767px) {
+    #article {
+        width: 90vw;
+    }
+
+    #article-illus {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+/* Small devices (Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #article {
+        width: 90vw;
+    }
+
+    #article-illus {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+/* Medium devices (Laptops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+}

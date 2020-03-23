@@ -1,4 +1,25 @@
-﻿<?php 
+﻿<?php session_start();
+
+if (isset($_COOKIE['idUser']))
+    $_SESSION['idUser'] = $_COOKIE['idUser'];
+
+if (isset($_GET['controller']) && isset($_GET['action'])) {
+	$controller = $_GET['controller'];
+	$action = $_GET['action'];
+
+    try {
+	    require (dirname(__FILE__) . "/Controller/" . $controller . ".php");
+        $action();
+    } catch (Error $e) {
+        echo $e;
+        //header('Location: /');
+    }
+} else {
+    require (dirname(__FILE__) . "/Controller/home.php");
+    home();
+}
+
+/*
 session_start();
 
 //MAL des Valeurs Controle Action Arg
@@ -29,5 +50,4 @@ else {
 	require ('./controle/' . $controle . '.php');   
 	$action (); 	
 }
-
-?>
+*/

@@ -93,3 +93,15 @@ function insertMessage($idUser, $idConv, $message){
         die();
     }
 }
+
+function queryBotQuestion($id) {
+    $string = file_get_contents("http://pjs4.ulyssebouchet.fr/Model/bot.json");
+
+    $json_a = json_decode($string, true);
+
+    foreach ($json_a as $question) {
+        if ($question['id'] == $id)
+            return $question;
+    }
+    return null;
+}

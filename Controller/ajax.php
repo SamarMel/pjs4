@@ -65,8 +65,19 @@ function getUser()
     }
 }
 
-if (isset ($_GET['query'])) {
-    $query = $_GET['query'];
+function getBotQuestion ()
+{
+    if (isset ($_GET['id'])) {
+        $id = $_GET['id'];
 
-    $query ();
+        require(dirname(__FILE__) . "/../Model/queries.php");
+
+        $question = queryBotQuestion($id);
+
+        echo json_encode($question);
+    }
+}
+
+if (isset ($_GET['query'])) {
+    $_GET['query'] ();
 }

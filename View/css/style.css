@@ -3,6 +3,12 @@
 	--color-primary-light: #ff313e;
 	--color-primary-dark: #bf2730;
 
+	--color-chatbox-1: #df2a36;
+	--color-chatbox-2: #d0e4ff;
+	--color-chatbox-3: #efefef;
+
+	--color-forum-1: #7ed957;
+
 	--color-secondary: rgb(0, 200, 0);
 	--color-secondary-light: rgb(0, 230, 0);
 	--color-secondary-dark: rgb(0, 170, 0);
@@ -10,4 +16,19 @@
 	--color-tertiary: rgb(0, 0, 200);
 	--color-tertiary-light: rgb(0, 0, 230);
 	--color-tertiary-dark: rgb(0, 0, 170);
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+	font-family: "League Gothic";
+	src: url("../fonts/LeagueGothic-Regular.otf");
+}
+
+* {
+	font-family: "OpenSans", sans-serif;
+	transition: 200ms;
 }

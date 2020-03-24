@@ -1,0 +1,11 @@
+table {
+    width: 80vw;
+    height: 60vh;
+    border-collapse:separate;
+    border-spacing:2vh;
+}
+
+td {
+    width: 38vw;
+    background: red;
+}

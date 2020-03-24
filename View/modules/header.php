@@ -13,7 +13,7 @@
     require_once (dirname(__FILE__) . "/../../Model/queries/ajaxQueries.php");
     $user = queryUser($_SESSION['idUser']);
     ?>
-        <a id="user-login" href="/?controller=user&action=seeProfile">
+        <a id="user-login" href="/?controller=user&action=personalSpace">
             <div id="user">
                 <img src="<? echo $user['imageProfil'] ?>" alt="photo de profil">
                 <span id="pseudo"><? echo $user['pseudo'] ?></span>

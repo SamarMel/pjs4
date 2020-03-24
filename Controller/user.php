@@ -38,3 +38,14 @@ function register() {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
 }
+
+function personalSpace () {
+    if (!isset($_SESSION['idUser']))
+        login();
+
+    require_once (dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
+    $user = queryUser($_SESSION['idUser']);
+    $role = $user['role'];
+
+    require(dirname(__FILE__) . "/../View/user/personal_place.php");
+}

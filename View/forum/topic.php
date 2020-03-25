@@ -58,11 +58,15 @@
                 endforeach;
                 ?>
             </div>
-            <form action="/index?controller=forum&action=post">
-                <input type="hidden" name="id" value=<?php $id ?>>
-                <textarea name="post"></textarea>
-                <input type="submit" value="Répondre">
-            </form>
+            <?php if ($_SESSION['idUser'] == null)
+                echo "<p>Vous devez être connecté pour pouvir participer à la conversation.</p>"
+            else {
+                echo <form action="/index?controller=forum&action=post" method="get">
+                    echo <input type="hidden" name="id" value=<?php $id ?>>
+                    echo <textarea name="post" placeholder="Entrez ici votre message..."></textarea>
+                    echo <input type="submit" value="Répondre">
+                echo </form>
+            }
         </div>
 
         <!-- Chatbox -->

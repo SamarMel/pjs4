@@ -153,7 +153,7 @@ function postBD($post, $idTopic){
     try {
         $sql = "INSERT INTO Post (idAuteur, idTopic, content, dateMsg) VALUES (:idA, :idT, :c, now())";
         $query = $database->prepare($sql);
-        $query->bindParam(':idA', $_SESSION['idAuteur']);
+        $query->bindParam(':idA', $_SESSION['idUser']);
         $query->bindParam(':idT', $idTopic);
         $query->bindParam(':c', $post);
         $query->execute();

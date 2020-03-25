@@ -47,3 +47,16 @@ function createTopic(){
     }
 
 }
+
+function post(){
+    if(isset($_POST['post'])){
+        //BONUS : prendre en compte si qqn a écrit entre temps, actualiser
+        //et remettre son message dans le champ
+        require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+        postBD($_POST['post'], $_POST['id']);
+        seeTopic();
+    }
+
+}
+
+?>

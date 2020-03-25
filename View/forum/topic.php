@@ -58,8 +58,9 @@
                 endforeach;
                 ?>
             </div>
-            <form>
-                <textarea></textarea>
+            <form action="/index?controller=forum&action=post">
+                <input type="hidden" name="id" value=<?php $id ?>>
+                <textarea name="post"></textarea>
                 <input type="submit" value="Répondre">
             </form>
         </div>

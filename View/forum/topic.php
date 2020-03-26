@@ -18,7 +18,6 @@
             $page_name = "FORUM";
             require_once(dirname(__FILE__) . "/../modules/header.php");
             require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
-            require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
             ?>
             <h2>Sujet : <? echo $topic['titre'] ?></h2>
             <div id="first-post" class="post">
@@ -30,7 +29,7 @@
                 </div>
                 <div class="post-content">
                     <p><? echo $posts[0]['content'] ?></p>
-                    <span class="post-info"><? echo getCategorieName($topic['idCategorie'])." | ".$topic['dateTopic']?></span>
+                    <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
                 </div>
             </div>
             <div id="posts">

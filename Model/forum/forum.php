@@ -7,9 +7,11 @@ function getLastTopics () {
     require(dirname(__FILE__) . '/../database.php');
     try {
         $sql =
-            "SELECT T.* 
-            FROM Topic T, Post P
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', P.datePost AS 'lastPost'
+            FROM Topic T, Post P, Utilisateur U, Categorie C
             WHERE T.id = P.idTopic
+            AND T.idAuteur = U.id
+            AND T.idCategorie = C.id
             GROUP BY T.id
             ORDER BY P.datePost DESC";
         $query = $database->prepare($sql);
@@ -30,7 +32,16 @@ function getLastTopics () {
 function getTopics ($name, $category) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Topic WHERE titre LIKE :name AND idCategorie = :category ORDER BY dateTopic DESC";
+        $sql =
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', P.datePost AS 'lastPost'
+            FROM Topic T, Post P, Utilisateur U, Categorie C
+            WHERE T.titre LIKE :name
+            AND T.idCategorie = :category
+            AND T.idCategorie = C.id
+            AND T.id = P.idTopic
+            AND T.idAuteur = U.id
+            GROUP BY T.id
+            ORDER BY P.datePost DESC";
 
         $name = "%$name%";
         $query = $database->prepare($sql);
@@ -38,20 +49,6 @@ function getTopics ($name, $category) {
         $query->bindParam(':category', $category);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
-    } catch(PDOException $e) {
-        return null;
-    }
-}
-
-function getLastPostDate($id) {
-    require(dirname(__FILE__) . '/../database.php');
-    try {
-        $sql = "SELECT P.* FROM Post P, Topic T WHERE P.idTopic = T.id AND T.id = :id ORDER BY P.datePost DESC";
-
-        $query = $database->prepare($sql);
-        $query->bindParam(':id', $id);
-        $query->execute();
-        return $query->fetch(PDO::FETCH_ASSOC)['datePost'];
     } catch(PDOException $e) {
         return null;
     }
@@ -79,7 +76,7 @@ function getCategories () {
 function getAuthor($idAuteur) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Utilisateur WHERE id = :idAuteur";
+        $sql = "SELECT U.*, R.role FROM Utilisateur U, Role R WHERE U.id = :idAuteur AND U.idRole = R.id ";
         $query = $database->prepare($sql);
         $query->bindParam(':idAuteur', $idAuteur);
         $query->execute();
@@ -96,7 +93,7 @@ function getAuthor($idAuteur) {
 function getTopic($id) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Topic WHERE id = :id";
+        $sql = "SELECT T.*, C.intitulé AS 'categorie' FROM Topic T, Categorie C WHERE T.id = :id";
         $query = $database->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();

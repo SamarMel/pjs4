@@ -43,19 +43,19 @@ function personalSpace () {
     if (!isset($_SESSION['idUser']))
         login();
 
-    require_once (dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
-    $user = queryUser($_SESSION['idUser']);
+    require_once(dirname(__FILE__) . "/../Model/queries.php");
+    $user = $_SESSION['user'];
     $role = $user['role'];
 
-    require (dirname(__FILE__) . "/../View/user/personal_place.php");
+    require(dirname(__FILE__) . "/../View/user/personal_space.php");
 }
 
 function users() {
     if (!isset($_SESSION['idUser']))
         login();
 
-    require_once (dirname(__FILE__) . "/../Model/queries/ajaxQueries.php");
-    $user = queryUser($_SESSION['idUser']);
+    require_once(dirname(__FILE__) . "/../Model/queries.php");
+    $user = $_SESSION['user'];
     $role = $user['role'];
 
     if ($role != "Administrateur")

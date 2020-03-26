@@ -1,7 +1,7 @@
 <?php
 
 function queryConversations ($id) {
-    require(dirname(__FILE__) . "/../database.php");
+    require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `Conversation` WHERE idUser1 = :id1 OR idUser2 = :id2 ORDER BY id";
 
     $convs = array();
@@ -20,7 +20,7 @@ function queryConversations ($id) {
 }
 
 function queryConversation ($id) {
-    require(dirname(__FILE__) . "/../database.php");
+    require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `Conversation` WHERE id = :id";
 
     try {
@@ -37,7 +37,7 @@ function queryConversation ($id) {
 }
 
 function queryMessages($idConv) {
-    require(dirname(__FILE__) . "/../database.php");
+    require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT * FROM `MessageConv` WHERE idConv = :id ORDER BY dateMsg";
 
     $messages = array();
@@ -55,8 +55,8 @@ function queryMessages($idConv) {
 }
 
 function getAllUsers() {
-    require(dirname(__FILE__) . "/../database.php");
-    $sql = "SELECT * FROM `Utilisateur`";
+    require(dirname(__FILE__) . "/database.php");
+    $sql = "SELECT U.*, R.role FROM Utilisateur U, Role R WHERE U.idRole = R.id GROUP BY U.id";
 
     try {
         $result = $database->prepare($sql);
@@ -71,8 +71,8 @@ function getAllUsers() {
 }
 
 function queryUser($id) {
-    require(dirname(__FILE__) . "/../database.php");
-    $sql = "SELECT * FROM `Utilisateur` WHERE id = :id";
+    require(dirname(__FILE__) . "/database.php");
+    $sql = "SELECT U.*, R.role FROM Utilisateur U, Role R WHERE U.id = :id AND U.idRole = R.id GROUP BY U.id";
 
     try {
         $result = $database->prepare($sql);
@@ -94,18 +94,30 @@ function queryUser($id) {
  * @param $message
  */
 function insertMessage($idUser, $idConv, $message){
-    require(dirname(__FILE__) . '/../database.php');
+    require(dirname(__FILE__) . '/database.php');
     $sql = "INSERT INTO MessageConv(idAuteur, idConv, content) VALUES (:idAuteur, :idConv, :msg)";
-    echo("bite");
     try {
         $cde = $database->prepare($sql);
         $cde->bindParam(':idConv', $idConv);
         $cde->bindParam(':msg', $message);
         $cde->bindParam(':idAuteur', $idUser);
         $cde->execute();
-        echo("bite");
     } catch (PDOException $e) {
         echo utf8_encode("Echec d'INSERT : " . $e->getMessage() . "\n");
+        die();
+    }
+}
+
+function updateRole($idUser, $idRole){
+    require(dirname(__FILE__) . '/database.php');
+    $sql = "UPDATE Utilisateur SET idRole = :idRole WHERE id = :id";
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idRole', $idRole);
+        $cde->bindParam(':id', $idUser);
+        $cde->execute();
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec d'UPDATE : " . $e->getMessage() . "\n");
         die();
     }
 }

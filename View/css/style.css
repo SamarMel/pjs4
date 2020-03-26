@@ -1,6 +1,6 @@
 :root {
 	--color-light: #f0f0f0;
-	--color-light-2: #d0d0d0;
+	--color-light-2: #c0c0c0;
 	--color-dark: #333;
 
 	--color-chatbox-1: #df2a36;
@@ -14,6 +14,12 @@
 	--color-home-1: #00c4cc;
 	--color-home-2: #0582a4;
 	--color-home-3: #00c9ff;
+
+	--color-action-1: #ca4aff;
+	--color-action-2: var(--color-home-1);
+	--color-action-3: var(--color-chatbox-1);
+	--color-action-4: var(--color-forum-1);
+	--color-action-5: #fd9a30;
 }
 
 @font-face {

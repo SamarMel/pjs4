@@ -1,7 +1,10 @@
 ﻿<?php session_start();
 
-if (isset($_COOKIE['idUser']))
+if (isset($_COOKIE['idUser'])) {
     $_SESSION['idUser'] = $_COOKIE['idUser'];
+    require_once (dirname(__FILE__) . "/Model/queries.php");
+    $_SESSION['user'] = queryUser($_SESSION['idUser']);
+}
 
 if (isset($_GET['controller']) && isset($_GET['action'])) {
 	$controller = $_GET['controller'];

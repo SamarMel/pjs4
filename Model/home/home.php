@@ -24,7 +24,11 @@ function getRecentArticles() {
 function getArticle($id) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Article WHERE id = :id";
+        $sql = "SELECT A.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie'
+                FROM Article A, Utilisateur U, Categorie C 
+                WHERE A.id = :id
+                AND U.id = A.idAuteur
+                AND C.id = A.idCategorie";
         $query = $database->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();

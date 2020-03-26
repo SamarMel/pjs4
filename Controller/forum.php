@@ -42,10 +42,7 @@ function createTopic(){
         insertTopic($name);
 
         require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
-        
-
     }
-
 }
 
 function post(){

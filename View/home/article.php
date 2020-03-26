@@ -21,16 +21,11 @@
     <?php
     $page_name = "ARTICLE";
     require_once(dirname(__FILE__) . "/../modules/header.php");
-
-    require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
-    $categorie = getCategorieName($article['idCategorie']);
-    $auteur = getUserName($article['idAuteur']);
-
     ?>
     <div id="article">
         <span id="article-titre"><? echo $article['titre'] ?></span>
         <span id="article-infos">
-            [<? echo $categorie ?>] Par <? echo $auteur ?>, le <? echo $article['datePubli'] ?>
+            [<? echo $article['categorie'] ?>] Par <? echo $article['auteur'] ?>, le <? echo $article['datePubli'] ?>
             (dernière modification le <? echo $article['dateMaj']?>)
         </span>
         <span id="article-accroche"><? echo $article['accroche'] ?></span>

@@ -29,7 +29,6 @@
                     </tr>
                     <?php
                     require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
-                    require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
                     foreach ($topics as $topic):
                     ?>
                         <tr class="row topic">
@@ -41,9 +40,9 @@
                                     ?>
                                 </a>
                             </td>
-                            <td class="auteur"><? echo getUserName ($topic['idAuteur']) ?></td>
-                            <td class="categorie"><? echo getCategorieName ($topic['idCategorie']) ?></td>
-                            <td class="last_post"><? echo getLastPostDate($topic['id']) ?></td>
+                            <td class="auteur"><? echo $topic['auteur'] ?></td>
+                            <td class="categorie"><? echo $topic['categorie'] ?></td>
+                            <td class="last_post"><? echo $topic['lastPost']?></td>
                         </tr>
                     <?
                     endforeach;

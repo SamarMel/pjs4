@@ -145,8 +145,25 @@ function insertTopic($sujet) {
 }
 
 /**
- * DEMANDER A SAMAR SA FONCTION DE POST COMME CA J'AI PAS A RECODER SA FONCTION
+ * Poster un message
+ * 
  */
+function postBD($post, $idTopic){
+    require(dirname(__FILE__) . '/../database.php');
+    try {
+        $sql = "INSERT INTO Post (idAuteur, idTopic, content, dateMsg) VALUES (:idA, :idT, :c, now())";
+        $query = $database->prepare($sql);
+        $query->bindParam(':idA', $_SESSION['idAuteur']);
+        $query->bindParam(':idT', $idTopic);
+        $query->bindParam(':c', $post);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        return false;
+    }
+    return true;
+}
 
 function saveDescription($description){
     require(dirname(__FILE__) . '/../database.php');

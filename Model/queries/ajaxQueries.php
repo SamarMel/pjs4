@@ -54,6 +54,22 @@ function queryMessages($idConv) {
     return $messages;
 }
 
+function getAllUsers() {
+    require(dirname(__FILE__) . "/../database.php");
+    $sql = "SELECT * FROM `Utilisateur`";
+
+    try {
+        $result = $database->prepare($sql);
+        $result->execute();
+        $user = $result->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return null;
+    }
+
+    return $user;
+}
+
 function queryUser($id) {
     require(dirname(__FILE__) . "/../database.php");
     $sql = "SELECT * FROM `Utilisateur` WHERE id = :id";

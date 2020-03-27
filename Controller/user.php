@@ -61,7 +61,38 @@ function users() {
     if ($role != "Administrateur")
         login();
 
-    $users = getAllUsers();
+    $s = "";
+    if (isset($_GET['s']))
+        $s = $_GET['s'];
+
+    $users = getAllUsers($s);
+    foreach ($users as $k => $u)
+        if ($u['role'] == "Administrateur")
+            unset($users[$k]);
+
+    $p = 1;
+    if (isset($_GET['p']))
+        $p = $_GET['p'];
+
+
+    $users = array_splice($users, ($p - 1) * 10, 10);
 
     require (dirname(__FILE__) . "/../View/user/users.php");
+}
+
+function report() {
+    if (!isset($_SESSION['idUser']))
+        login();
+
+    require_once(dirname(__FILE__) . "/../Model/queries.php");
+    $user = $_SESSION['user'];
+
+    if (!isset($_GET['idSignale']) || !isset($_GET['page']))
+        login();
+
+    $idS = $_GET['idSignale'];
+    $userS = queryUser($idS);
+    $pageS = $_GET['page'];
+
+    require (dirname(__FILE__) . "/../View/user/signaler.php");
 }

@@ -54,12 +54,20 @@ function queryMessages($idConv) {
     return $messages;
 }
 
-function getAllUsers() {
+function getAllUsers($s) {
     require(dirname(__FILE__) . "/database.php");
-    $sql = "SELECT U.*, R.role FROM Utilisateur U, Role R WHERE U.idRole = R.id GROUP BY U.id";
+    $sql = "SELECT U.*, R.role 
+            FROM Utilisateur U, Role R 
+            WHERE U.idRole = R.id 
+            AND (U.pseudo LIKE :s
+            OR U.mail LIKE :s)
+            GROUP BY U.id 
+            ORDER BY U.pseudo";
 
+    $s = "%$s%";
     try {
         $result = $database->prepare($sql);
+        $result->bindParam(':s', $s);
         $result->execute();
         $user = $result->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {

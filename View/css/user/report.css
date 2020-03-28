@@ -1,6 +1,80 @@
 form#report {
+    width: 25vw;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+}
+
+input[type="submit"] {
+    align-self: center;
+}
+
+label {
+    margin-top: 2.5vh;
+    background: var(--color-action-5-dark);
+    color: var(--color-light);
+    font-size: 1.5vh;
+    padding: 1.5%;
+    width: 25vw;
+    border: var(--color-action-5-dark) solid 0.25vh;
+    text-align: left;
+}
+
+input {
+    background: var(--color-light);
+    color: var(--color-action-5-dark);
+    font-size: 2.5vh;
+    font-weight: bold;
+    padding: 1.5%;
+    width: 25vw;
+    border: var(--color-action-5-dark) solid 0.25vh;
+}
+
+input:focus {
+    background: var(--color-action-5-dark);
+    color: var(--color-light);
+}
+
+input[disabled] {
+    filter: brightness(90%);
+}
+
+input[type="submit"] {
+    margin-top: 7.5vh;
+    background: var(--color-action-5-dark);
+    color: var(--color-light);
+    border: var(--color-action-5-dark) solid 0.25vh;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--color-light);
+    color: var(--color-action-5-dark);
+}
+
+textarea {
+    border: var(--color-action-5-dark) solid 0.25vh;
+    width: 25vw;
+    height: 25vh;
+    padding: 1.5%;
+    font-size: 1.75vh;
+    font-weight: bold;
+    background: var(--color-light);
+    font-family: "Open Sans", sans-serif;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea:hover {
+    filter: brightness(90%);
+}
+
+textarea:focus {
+    background: var(--color-action-5-dark);
+    color: var(--color-light);
 }

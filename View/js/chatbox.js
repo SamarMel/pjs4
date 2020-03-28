@@ -151,6 +151,7 @@ $(document).ready(() => {
     function sendMessage() {
         let input = $("#input-msg");
         let msg = input.val();
+        msg = encodeURIComponent(msg);
         if (msg.length !== 0) {
             $.ajax(`http://pjs4.ulyssebouchet.fr/Controller/ajax.php?query=sendMessage&idUser=${status.idUser}&idConv=${status.idConv}&msg=${msg}`);
             input.val("");
@@ -166,6 +167,7 @@ $(document).ready(() => {
                         box.empty();
                         for (let i = 0; i < messages.length; ++i) {
                             let msg = messages[i].content;
+                            msg = decodeURIComponent(msg);
                             if (messages[i].idAuteur !== status.idUser.toString())
                                 box.append(`<div class='chat-msg'>${msg}</div>`);
                             else

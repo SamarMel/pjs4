@@ -35,7 +35,7 @@ function sendMessage ()
 
         require_once (dirname(__FILE__) . "/../Model/queries.php");
 
-         insertMessage($idUser, $idConv, $msg);
+        insertMessage($idUser, $idConv, $msg);
     }
 }
 

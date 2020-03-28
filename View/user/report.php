@@ -28,14 +28,15 @@
     ?>
 
     <form id="report" action="" method="get">
-        <label for="userS">Signalé</label>
-        <input id="userS" type="text" disabled value="<? echo $idS ?>" placeholder="<? echo $userS['pseudo'] ?>">
+        <label for="userS">Utilisateur signalé</label>
+        <input id="userS" type="text" disabled value="<? echo $userS['pseudo'] ?>">
+        <input name="userS" value="<? echo $idS ?>" type="hidden">
 
         <label for="pageS">Origine du signalement</label>
-        <input id="pageS" type="text" disabled value="<? echo $pageS ?>" placeholder="<? echo $pageS ?>">
+        <input id="pageS" name="pageS" type="text" disabled value="<? echo $pageS ?>">
 
         <label for="motif">Motif</label>
-        <textarea id="motif"></textarea>
+        <textarea id="motif" name="motif"></textarea>
 
         <input type="submit" value="Envoyer">
     </form>

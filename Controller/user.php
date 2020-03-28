@@ -40,8 +40,10 @@ function register() {
 }
 
 function personalSpace () {
-    if (!isset($_SESSION['idUser']))
+    if (!isset($_SESSION['idUser'])) {
         login();
+        return;
+    }
 
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
@@ -51,15 +53,19 @@ function personalSpace () {
 }
 
 function users() {
-    if (!isset($_SESSION['idUser']))
+    if (!isset($_SESSION['idUser'])) {
         login();
+        return;
+    }
 
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
     $role = $user['role'];
 
-    if ($role != "Administrateur")
+    if ($role != "Administrateur") {
         login();
+        return;
+    }
 
     $s = "";
     if (isset($_GET['s']))
@@ -81,18 +87,22 @@ function users() {
 }
 
 function report() {
-    if (!isset($_SESSION['idUser']))
+    if (!isset($_SESSION['idUser'])){
         login();
+        return;
+    }
 
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
 
-    if (!isset($_GET['idSignale']) || !isset($_GET['page']))
+    if (!isset($_GET['idSignale']) || !isset($_GET['page'])){
         login();
+        return;
+    }
 
     $idS = $_GET['idSignale'];
     $userS = queryUser($idS);
     $pageS = $_GET['page'];
 
-    require (dirname(__FILE__) . "/../View/user/signaler.php");
+    require(dirname(__FILE__) . "/../View/user/report.php");
 }

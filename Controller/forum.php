@@ -39,21 +39,57 @@ function createTopic(){
 
         require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
         $sujet = $_GET['topicName'];
-        insertTopic($name);
+        $categorie = $_GET['topicCategory'];
+        insertTopic($sujet, $categorie);
 
         require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
     }
 }
 
-function post(){
-    if(isset($_GET['post'])){
         //BONUS : prendre en compte si qqn a écrit entre temps, actualiser
         //et remettre son message dans le champ
+function post(){
+    if(isset($_GET['post'])){
         require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
         postBD($_GET['post'], $_GET['id']);
-        seeTopic();
     }
+    seeTopic2($_POST['id']);
 
+}
+
+function moderation(){
+    $idSignalé = $_POST["idSignalé"];
+    $idMsg = $_POST["idPost"];
+    if (isset($_POST["modif"]))
+        modifierPost($idSignalé, $idMsg);
+    else if (isset($_POST["supp"]))
+        supprimerPost($idSignalé, $idMsg);
+    else if (isset($_POST["signal"]))
+        signalerPost($idSignalé, $idMsg);
+}
+
+function modifierPost($idSignalé, $idMsg){
+   
+    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+    //Faire en sorte que le message se transforme en "textarea" modifier puis update...... LOL..... A VOIR
+}
+
+function supprimerPost($idSignalé, $idMsg){
+    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+    supprimerPostBD($idMsg);
+    seeTopic2($_POST['id']);
+}
+
+//ADAPTER LES NOMS -> Voir avec Ulysse
+function signalerPost($idSignalé, $idMsg){
+    require_once (dirname(__FILE__) . "/../View/user/report.php");
+}
+
+function seeTopic2($id) {
+        require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+        $topic = getTopic($id);
+        $posts = getPosts($id);
+        require_once(dirname(__FILE__) . "/../View/forum/topic.php");
 }
 
 ?>

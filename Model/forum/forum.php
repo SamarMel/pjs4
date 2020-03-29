@@ -125,13 +125,14 @@ function getPosts($id) {
  * @param $sujet
  * @return bool
  */
-function insertTopic($sujet) {
+function insertTopic($sujet, $idC) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur)";
+        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur, :idC)";
         $query = $database->prepare($sql);
         $query->bindParam(':titre', $sujet);
         $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
+        $query->bindParam(':idC', $idC);
         $query->execute();
     }
     catch(PDOException $e) {
@@ -161,6 +162,29 @@ function postBD($post, $idTopic){
     }
     return true;
 }
+
+
+/**
+ * Manque un truc :
+ * - Si le signalement existait déjà -->UPDATE en traité = SELECT * FROM Signalement WHERE ??? IDK (il manque l'id du message genre)
+ *           puis si count == 1 UPDATE Signalement SET traité = 1; 
+ * - Sinon INSERT INTO Signalement (idSignaleur, idSignalé, motif, traité) VALUES (:idT, :idU, 'Modération', 1)
+ */
+function  supprimerPostBD($idMsg){
+    require(dirname(__FILE__) . '/../database.php');
+    try {
+        $sql = "UPDATE Post SET content='Ce message a été supprimé par un modérateur.' WHERE id=:id";
+        $query = $database->prepare($sql);
+        $query->bindParam(':id', $idMsg);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        return false;
+    }
+    return true;
+}
+
 
 function saveDescription($description){
     require(dirname(__FILE__) . '/../database.php');

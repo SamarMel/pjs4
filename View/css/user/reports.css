@@ -1,0 +1,67 @@
+div#reports-nav {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a.reports-nav-link, label.reports-nav-link {
+    cursor: not-allowed;
+    color: var(--color-action-5-dark);
+    font-size: 1.5vh;
+}
+
+a.reports-nav-link[href], label.reports-nav-link {
+    cursor: pointer;
+    color: var(--color-action-5);
+}
+
+a.reports-nav-link[href]:hover, label.reports-nav-link:hover {
+    filter: brightness(80%);
+}
+
+input#filter {
+    height: 2vh;
+    width: 2vh;
+    margin-left: 0.75vw;
+}
+
+div#filter-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+div#reports-list {
+    margin-top: 2vh;
+    width: 100%;
+    font-size: 1.75vh;
+}
+
+div#reports-list-header {
+    font-size: 2vh;
+    background: var(--color-action-5);
+    color: var(--color-light);
+}
+
+div.report {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1%;
+    border-bottom: var(--color-action-5) solid 0.25vh;
+    color: var(--color-dark);
+}
+
+div.report span {
+    width: 10vw;
+}
+
+div.report span.motif {
+    width: 30vw;
+}

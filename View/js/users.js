@@ -8,7 +8,6 @@ $(document).ready(() => {
     const input = $("input#search-user");
 
     input.on("keypress", (e) => {
-        console.log(e);
         if (e.which === 13)
             search();
     })

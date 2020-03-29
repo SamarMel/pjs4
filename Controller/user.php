@@ -52,6 +52,42 @@ function personalSpace () {
     require(dirname(__FILE__) . "/../View/user/personal_space.php");
 }
 
+function gerer () {
+    if (!isset($_SESSION['idUser'])) {
+        login();
+        return;
+    }
+
+    require_once(dirname(__FILE__) . "/../Model/queries.php");
+    $user = $_SESSION['user'];
+    $role = $user['role'];
+
+    switch ($role):
+        case "Administrateur":
+        case "Modérateur":
+
+            $filter = "";
+            if (isset($_GET['filter']))
+                $filter = $_GET['filter'];
+
+            $reports = getReports($filter);
+
+            $p = 1;
+            if (isset($_GET['p']))
+                $p = $_GET['p'];
+
+            $reports = array_splice($reports, ($p - 1) * 10, 10);
+
+            require (dirname(__FILE__) . "/../View/user/reports.php");
+            break;
+        case "Rédacteur":
+            break;
+        case "Étudiant":
+            header("Location: http://pjs4.ulyssebouchet.fr");
+            return;
+    endswitch;
+}
+
 function users() {
     if (!isset($_SESSION['idUser'])) {
         login();
@@ -63,7 +99,7 @@ function users() {
     $role = $user['role'];
 
     if ($role != "Administrateur") {
-        login();
+        header("Location: http://pjs4.ulyssebouchet.fr");
         return;
     }
 
@@ -104,7 +140,7 @@ function report() {
     }
 
     if (!isset($_GET['idSignale']) || !isset($_GET['page'])){
-        login();
+        header("Location: http://pjs4.ulyssebouchet.fr");
         return;
     }
 

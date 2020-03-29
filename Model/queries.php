@@ -54,6 +54,30 @@ function queryMessages($idConv) {
     return $messages;
 }
 
+function getReports($filter) {
+    require(dirname(__FILE__) . "/database.php");
+    $sql = "SELECT S.*, U1.pseudo AS 'reporter', U2.pseudo AS 'reported' 
+            FROM Signalement S, Utilisateur U1, Utilisateur U2 
+            WHERE S.idSignaleur = U1.id 
+            AND S.idSignalé = U2.id
+            AND S.traité LIKE :filter
+            GROUP BY S.id
+            ORDER BY S.date DESC";
+
+    $filter = "%$filter%";
+    try {
+        $result = $database->prepare($sql);
+        $result->bindParam(':filter', $filter);
+        $result->execute();
+        $user = $result->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return null;
+    }
+
+    return $user;
+}
+
 function getAllUsers($s) {
     require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT U.*, R.role 
@@ -118,12 +142,13 @@ function insertMessage($idUser, $idConv, $message){
 
 function insertReport ($idUser, $idReported, $page, $motif){
     require(dirname(__FILE__) . '/database.php');
-    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `motif`) VALUES (:idUser, :idReported, :motif)";
-    $motif = "Origine du signalement : $page <br> Motif : $motif";
+    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `Origine`, `motif`) 
+            VALUES (:idUser, :idReported, :origine, :motif)";
     try {
         $cde = $database->prepare($sql);
         $cde->bindParam(':idUser', $idUser);
         $cde->bindParam(':idReported', $idReported);
+        $cde->bindParam(':origine', $page);
         $cde->bindParam(':motif', $motif);
         $cde->execute();
     } catch (PDOException $e) {

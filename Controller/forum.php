@@ -53,43 +53,49 @@ function post(){
         require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
         postBD($_GET['post'], $_GET['id']);
     }
-    seeTopic2($_POST['id']);
-
+    seeTopic2($_GET['id']);
 }
 
 function moderation(){
-    $idSignalé = $_POST["idSignalé"];
+    $idSignale = $_POST["idSignale"];
     $idMsg = $_POST["idPost"];
+    $idTopic = $_POST["id"];
     if (isset($_POST["modif"]))
-        modifierPost($idSignalé, $idMsg);
+        modifierPost($idSignale, $idMsg);
     else if (isset($_POST["supp"]))
-        supprimerPost($idSignalé, $idMsg);
+        supprimerPost($idSignale, $idMsg);
     else if (isset($_POST["signal"]))
-        signalerPost($idSignalé, $idMsg);
+        signalerPost($idSignale, $idMsg, $idTopic);
 }
 
-function modifierPost($idSignalé, $idMsg){
-   
+function modifierPost($idSignale, $idMsg){
     require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
     //Faire en sorte que le message se transforme en "textarea" modifier puis update...... LOL..... A VOIR
 }
 
-function supprimerPost($idSignalé, $idMsg){
+function supprimerPost($idSignale, $idMsg){
     require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
     supprimerPostBD($idMsg);
     seeTopic2($_POST['id']);
 }
 
 //ADAPTER LES NOMS -> Voir avec Ulysse
-function signalerPost($idSignalé, $idMsg){
+function signalerPost($idSignale, $idMsg, $idTopic){
+    require_once (dirname(__FILE__) . "/../Model/queries.php");
+    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+
+    $idS = $idSignale;
+    $userS = queryUser($idSignale);
+    $topic = getTopic($idTopic);
+    $topic['titre'] = str_replace("\"", "&quot;", $topic['titre']);
+    $pageS = "Forum : " . $topic["titre"] . " - message #$idMsg";
+
     require_once (dirname(__FILE__) . "/../View/user/report.php");
 }
 
 function seeTopic2($id) {
-        require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
-        $topic = getTopic($id);
-        $posts = getPosts($id);
-        require_once(dirname(__FILE__) . "/../View/forum/topic.php");
+    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+    $topic = getTopic($id);
+    $posts = getPosts($id);
+    require_once(dirname(__FILE__) . "/../View/forum/topic.php");
 }
-
-?>

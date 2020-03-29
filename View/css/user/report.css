@@ -1,5 +1,5 @@
 form#report {
-    width: 25vw;
+    width: 50vw;
 
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@ label {
     color: var(--color-light);
     font-size: 1.5vh;
     padding: 1.5%;
-    width: 25vw;
+    width: 50vw;
     border: var(--color-action-5-dark) solid 0.25vh;
     text-align: left;
 }
@@ -28,8 +28,12 @@ input {
     font-size: 2.5vh;
     font-weight: bold;
     padding: 1.5%;
-    width: 25vw;
+    width: 50vw;
     border: var(--color-action-5-dark) solid 0.25vh;
+}
+
+input#pageS {
+    font-size: 2vh;
 }
 
 input:focus {
@@ -56,7 +60,7 @@ input[type="submit"]:hover{
 
 textarea {
     border: var(--color-action-5-dark) solid 0.25vh;
-    width: 25vw;
+    width: 50vw;
     height: 25vh;
     padding: 1.5%;
     font-size: 1.75vh;
@@ -77,4 +81,19 @@ textarea:hover {
 textarea:focus {
     background: var(--color-action-5-dark);
     color: var(--color-light);
+}
+
+h3#msg {
+    color: var(--color-action-5-dark);
+    font-size: 2vh;
+}
+
+a#back_home {
+    color: var(--color-action-5-dark);
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+a#back_home:hover {
+    color: var(--color-action-5);
 }

@@ -116,6 +116,22 @@ function insertMessage($idUser, $idConv, $message){
     }
 }
 
+function insertReport ($idUser, $idReported, $page, $motif){
+    require(dirname(__FILE__) . '/database.php');
+    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `motif`) VALUES (:idUser, :idReported, :motif)";
+    $motif = "Origine du signalement : $page <br> Motif : $motif";
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser', $idUser);
+        $cde->bindParam(':idReported', $idReported);
+        $cde->bindParam(':motif', $motif);
+        $cde->execute();
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec d'INSERT : " . $e->getMessage() . "\n");
+        die();
+    }
+}
+
 function updateRole($idUser, $idRole){
     require(dirname(__FILE__) . '/database.php');
     $sql = "UPDATE Utilisateur SET idRole = :idRole WHERE id = :id";
@@ -140,4 +156,58 @@ function queryBotQuestion($id) {
             return $question;
     }
     return null;
+}
+
+
+/**
+ * Return la conversation associée à deux personnes et la crée si elle n'existe pas
+ * @param $user1
+ * @param $user2
+ * @return mixed
+ */
+function getIdConv($user1, $user2){
+    require(dirname(__FILE__) . '/./database.php');
+    if ($user1 > $user2){
+        $user1 += $user2;
+        $user2 = $user1 - $user2;
+        $user1 -= $user2;
+    }
+
+    $sql = "SELECT id FROM Conversation WHERE idUser1 = :idUser1 AND idUser2 = :idUser2";
+    $res = array();
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser1', $user1);
+        $cde->bindParam(':idUser2', $user2);
+        $cde->execute();
+        $res = $cde->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e){
+        echo utf8_encode("Echec du SELECT : " . $e->getMessage() . "\n");
+    }
+    return $res;
+}
+
+/**
+ * Crée une conversation entre deux utilisateurs
+ * @param $user1
+ * @param $user2
+ * @return mixed
+ */
+function createConv($user1, $user2){
+    require(dirname(__FILE__) . '/./database.php');
+    if ($user1 > $user2){
+        $user1 += $user2;
+        $user2 = $user1 - $user2;
+        $user1 -= $user2;
+    }
+    $sql = "INSERT INTO Conversation(idUser1, idUser2) VALUES (:idUser1, :idUser2)";
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser1', $user1);
+        $cde->bindParam(':idUser2', $user2);
+        $b = $cde->execute();
+    } catch (PDOException $e){
+        echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
+    }
+    return getIdConv($user1, $user2);
 }

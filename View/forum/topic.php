@@ -1,90 +1,97 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Forum</title>
-        <link rel="stylesheet" href="/View/css/forum/topic.css">
-        <link rel="stylesheet" href="/View/css/style.css">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Forum</title>
+    <link rel="stylesheet" href="/View/css/forum/topic.css">
+    <link rel="stylesheet" href="/View/css/style.css">
+</head>
+<body>
 
-        <!-- Menu -->
-        <?php require_once(dirname(__FILE__) . "/../modules/menu.tpl"); ?>
-        <style>#menu {background: var(--color-forum-2);}</style>
+<!-- Menu -->
+<?php require_once(dirname(__FILE__) . "/../modules/menu.tpl"); ?>
+<style>#menu {background: var(--color-forum-2);}</style>
 
-        <div id="page">
-            <?php
-            $page_name = "FORUM";
-            require_once(dirname(__FILE__) . "/../modules/header.php");
-            require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
+<div id="page">
+    <?php
+    $page_name = "FORUM";
+    require_once(dirname(__FILE__) . "/../modules/header.php");
+    require_once(dirname(__FILE__) . "/../../Model/forum/forum.php");
+    ?>
+    <h2>Sujet : <? echo $topic['titre'] ?></h2>
+    <div id="first-post" class="post">
+        <div class="user-info">
+            <? $author = getAuthor($topic['idAuteur']);?>
+            <img src="<? echo $author['imageProfil'] ?>" alt="image de profil">
+            <h4><? echo $author['pseudo'] ?></h4>
+            <h5><? echo $author['role'] ?></h5>
+        </div>
+        <div class="post-content">
+            <p><? echo $posts[0]['content'] ?></p>
+            <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
+        </div>
+    </div>
+    <div id="posts">
+        <?php
+        $passed = false;
+        foreach ($posts as $post):
+            if(!$passed) {
+                $passed = true;
+                continue;
+            }
+            $author = getAuthor($post['idAuteur']);
             ?>
-            <h2>Sujet : <? echo $topic['titre'] ?></h2>
-            <div id="first-post" class="post">
+            <div class="post">
                 <div class="user-info">
-                    <? $author = getAuthor($topic['idAuteur']);?>
                     <img src="<? echo $author['imageProfil'] ?>" alt="image de profil">
                     <h4><? echo $author['pseudo'] ?></h4>
                     <h5><? echo $author['role'] ?></h5>
                 </div>
                 <div class="post-content">
-                    <p><? echo $posts[0]['content'] ?></p>
-                    <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
+                    <p><? echo $post['content'] ?></p>
+                    <span class="post-info"><? echo ($post['modifie'] == 1 ? "Modifié | " : "") . $post['datePost']?></span>
                 </div>
-            </div>
-            <div id="posts">
-                <?php
-                $passed = false;
-                foreach ($posts as $post):
-                    if(!$passed) {
-                        $passed = true;
-                        continue;
-                    }
-                    $author = getAuthor($post['idAuteur']);
-                ?>
-                    <div class="post">
-                        <div class="user-info">
-                            <img src="<? echo $author['imageProfil'] ?>" alt="image de profil">
-                            <h4><? echo $author['pseudo'] ?></h4>
-                            <h5><? echo $author['role'] ?></h5>
-                        </div>
-                        <div class="post-content">
-                            <p><? echo $post['content'] ?></p>
-                            <span class="post-info"><? echo ($post['modifie'] == 1 ? "Modifié | " : "") . $post['datePost']?></span>
-                        </div>
-                        <form action="/?controller=forum&action=moderation" method="POST" name="moderation">
-                            <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
-                            <input type="hidden" name="idSignalé" value="<?php echo $post['idAuteur'] ?>">
-                            <input type='hidden' name='id' value=" <?php echo $id ?>">
-                        <?php
-                        if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4) {
-                            echo "<input type='submit' name='modif' value='Modifier'>";
-                            echo "<input type='submit' name='supp' value='Supprimer'>";
-                        } else if($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2)
-                            echo "<input type='submit' name='signal' value='Signaler'>";
-                        ?>
-                        </form>
-                    </div>
-                <?
-                endforeach;
-                ?>
-            </div>
-            <?php if ($_SESSION['idUser'] == null)
-                echo "<p>Vous devez être connecté pour pouvir participer à la conversation.</p>"
-            else {
-                echo <form action="/index?controller=forum&action=post" method="get">
-                    echo <input type="hidden" name="id" value=<?php $id ?>>
-                    echo <textarea name="post" placeholder="Entrez ici votre message..."></textarea>
-                    echo <input type="submit" value="Répondre">
-                echo </form>
-            }
-        </div>
 
-        <!-- Chatbox -->
-        <?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
-        <!-- Footer -->
-        <?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
-    </body>
+                <form id="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
+                    <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
+                    <input type="hidden" name="idSignale" value="<?php echo $post['idAuteur'] ?>">
+                    <input type='hidden' name='id' value="<?php echo $id ?>">
+                    <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
+                        <input type='submit' name='modif' value='Modifier'>
+                        <input type='submit' name='supp' value='Supprimer'>
+                    <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
+                        <input type='submit' name='signal' value='Signaler'>
+                    <? endif; ?>
+                    <? if ($_SESSION["idUser"] != $post['idAuteur']): ?>
+                    <button type="button" class='contact-person' id="b<? echo $post['idAuteur'] ?>">Contacter</button>
+                    <? endif; ?>
+                </form>
+            </div>
+        <?
+        endforeach;
+        ?>
+    </div>
+    <?php if ($_SESSION['idUser'] == null): ?>
+        <p>Vous devez être connecté pour pouvoir participer à la conversation.</p>
+    <? else: ?>
+        <form id="send-response" action='/' name='msg' method='get'>
+            <input type='hidden' name='controller' value="forum">
+            <input type='hidden' name='action' value="post">
+
+            <input type='hidden' name='id' value="<? echo $id ?>">
+            <textarea name='post' placeholder='Entrez ici votre message...'></textarea>
+            <input type='submit' value='Répondre'>
+        </form>
+    <? endif; ?>
+</div>
+
+<!-- Chatbox -->
+<?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+<!-- Footer -->
+<?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+</body>
+<script src="/View/js/topic.js"></script>
 </html>
 
 <!-- OLD -->

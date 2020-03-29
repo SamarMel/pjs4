@@ -95,14 +95,24 @@ function report() {
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
 
+    if (isset($_GET['userS']) && isset($_GET['pageS']) && isset($_GET['motif'])) {
+        insertReport($user['id'], $_GET['userS'], $_GET['pageS'], $_GET['motif']);
+
+        $reported = true;
+        require (dirname(__FILE__) . "/../View/user/report.php");
+        return;
+    }
+
     if (!isset($_GET['idSignale']) || !isset($_GET['page'])){
         login();
         return;
     }
 
+    $reported = false;
+
     $idS = $_GET['idSignale'];
     $userS = queryUser($idS);
     $pageS = $_GET['page'];
 
-    require(dirname(__FILE__) . "/../View/user/report.php");
+    require (dirname(__FILE__) . "/../View/user/report.php");
 }

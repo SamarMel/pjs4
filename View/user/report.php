@@ -25,21 +25,30 @@
     <?php
     $page_name = "SIGNALER";
     require_once (dirname(__FILE__) . "/../modules/header.php");
+    if (!$reported):
     ?>
 
-    <form id="report" action="" method="get">
+    <form id="report" action="http://pjs4.ulyssebouchet.fr/" method="get">
+        <input name="controller" value="user" type="hidden">
+        <input name="action" value="report" type="hidden">
+
         <label for="userS">Utilisateur signalé</label>
         <input id="userS" type="text" disabled value="<? echo $userS['pseudo'] ?>">
         <input name="userS" value="<? echo $idS ?>" type="hidden">
 
         <label for="pageS">Origine du signalement</label>
-        <input id="pageS" name="pageS" type="text" disabled value="<? echo $pageS ?>">
+        <input id="pageS" type="text" disabled value="<? echo $pageS ?>">
+        <input name="pageS" value="<? echo $pageS ?>" type="hidden">
 
         <label for="motif">Motif</label>
         <textarea id="motif" name="motif"></textarea>
 
         <input type="submit" value="Envoyer">
     </form>
+    <? else: ?>
+    <h3 id="msg">Utilisateur signalé.</h3>
+    <a id="back_home" href="http://pjs4.ulyssebouchet.fr">Retour à l'accueil</a>
+    <? endif; ?>
 </div>
 
 
@@ -48,9 +57,6 @@
 <!-- Footer -->
 <?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
 
-<!-- SLICK Carousel -->
-<script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
-<script src="/View/js/index.js"></script>
 <script src="/View/js/report.js"></script>
 </body>
 </html>

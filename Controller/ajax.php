@@ -90,6 +90,18 @@ function changeRole ()
     }
 }
 
+function newConv()
+{
+    if (isset ($_GET['idPerson'])) {
+        $idPerson = $_GET['idPerson'];
+        $idUser = $_SESSION['idUser'];
+
+        require_once(dirname(__FILE__) . "/../Model/queries.php");
+
+        echo json_encode(createConv($idUser, $idPerson));
+    }
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

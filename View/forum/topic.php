@@ -52,6 +52,18 @@
                             <p><? echo $post['content'] ?></p>
                             <span class="post-info"><? echo ($post['modifie'] == 1 ? "Modifié | " : "") . $post['datePost']?></span>
                         </div>
+                        <form action="/?controller=forum&action=moderation" method="POST" name="moderation">
+                            <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
+                            <input type="hidden" name="idSignalé" value="<?php echo $post['idAuteur'] ?>">
+                            <input type='hidden' name='id' value=" <?php echo $id ?>">
+                        <?php
+                        if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4) {
+                            echo "<input type='submit' name='modif' value='Modifier'>";
+                            echo "<input type='submit' name='supp' value='Supprimer'>";
+                        } else if($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2)
+                            echo "<input type='submit' name='signal' value='Signaler'>";
+                        ?>
+                        </form>
                     </div>
                 <?
                 endforeach;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Création d'un article</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./article.css">
+	</head>
+
+	<body>
+		
+
+		<form method="post" action="/?controller=creerArticle&action=nouvelArticle">
+			<h1> Création d'un article</h1>
+
+			<label for="idCategorie">Choisir une catégorie : </label>
+			<SELECT name="idCategorie">
+				<option value="1">Santé</option>
+				<option value="2">Aides</option>
+				<option value="3">Logement</option>
+				<option value="4">Études</option>
+				<option value="5">Divers</option>
+			</SELECT>
+
+			<label for="titre">Titre : </label>
+			<textarea name="titre" id="titre" placeholder="Titre de l'article ..."  required></textarea>
+
+			<label for="accroche">Accroche : </label>
+			<textarea name="accroche" id="accroche" placeholder="Phrase d'accroche ..." required></textarea>
+
+			<label for="textArticle">Article : </label>
+			<textarea name="textArticle" id="textArticle" placeholder="Écrivez votre article ..." required></textarea>
+
+			<label for="image">Image d'illustration : </label>
+			<textarea name="image" id="image" placeholder="Image d'illustration ..." required></textarea>
+
+			<input type="submit" value="Créer"></input>
+		</form>
+	</body>

@@ -31,6 +31,22 @@
             <p><? echo $posts[0]['content'] ?></p>
             <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
         </div>
+
+        <form id="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
+            <input type="hidden" name="idSignale" value="<?php echo $topic['idAuteur'] ?>">
+            <input type='hidden' name='idTopic' value="<?php echo $id ?>">
+            <input type="hidden" name="idPost" value="<?php echo $posts[0]['id'] ?>">
+
+            <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
+                <input type='submit' name='modif' value='Modifier'>
+                <input type='submit' name='supp' value='Supprimer'>
+            <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
+                <input type='submit' name='signal' value='Signaler'>
+            <? endif; ?>
+            <? if ($_SESSION["idUser"] != $posts[0]['idAuteur']): ?>
+                <button type="button" class='contact-person' id="b<? echo $topic['idAuteur'] ?>">Contacter</button>
+            <? endif; ?>
+        </form>
     </div>
     <div id="posts">
         <?php
@@ -54,9 +70,10 @@
                 </div>
 
                 <form id="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
-                    <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
                     <input type="hidden" name="idSignale" value="<?php echo $post['idAuteur'] ?>">
-                    <input type='hidden' name='id' value="<?php echo $id ?>">
+                    <input type='hidden' name='idTopic' value="<?php echo $id ?>">
+                    <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
+
                     <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
                         <input type='submit' name='modif' value='Modifier'>
                         <input type='submit' name='supp' value='Supprimer'>
@@ -64,7 +81,7 @@
                         <input type='submit' name='signal' value='Signaler'>
                     <? endif; ?>
                     <? if ($_SESSION["idUser"] != $post['idAuteur']): ?>
-                    <button type="button" class='contact-person' id="b<? echo $post['idAuteur'] ?>">Contacter</button>
+                        <button type="button" class='contact-person' id="b<? echo $post['idAuteur'] ?>">Contacter</button>
                     <? endif; ?>
                 </form>
             </div>

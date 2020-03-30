@@ -58,14 +58,15 @@ function post(){
 
 function moderation(){
     $idSignale = $_POST["idSignale"];
-    $idMsg = $_POST["idPost"];
-    $idTopic = $_POST["id"];
+    $idPost = $_POST["idPost"];
+    $idTopic = $_POST["idTopic"];
+
     if (isset($_POST["modif"]))
-        modifierPost($idSignale, $idMsg);
+        modifierPost($idSignale, $idPost);
     else if (isset($_POST["supp"]))
-        supprimerPost($idSignale, $idMsg);
+        supprimerPost($idSignale, $idPost);
     else if (isset($_POST["signal"]))
-        signalerPost($idSignale, $idMsg, $idTopic);
+        signalerPost($idSignale, $idPost, $idTopic);
 }
 
 function modifierPost($idSignale, $idMsg){
@@ -80,17 +81,14 @@ function supprimerPost($idSignale, $idMsg){
 }
 
 //ADAPTER LES NOMS -> Voir avec Ulysse
-function signalerPost($idSignale, $idMsg, $idTopic){
+function signalerPost($idSignale, $idPost, $idTopic){
     require_once (dirname(__FILE__) . "/../Model/queries.php");
     require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
 
-    $idS = $idSignale;
-    $userS = queryUser($idSignale);
+    $userSignale = queryUser($idSignale);
     $topic = getTopic($idTopic);
-    $topic['titre'] = str_replace("\"", "&quot;", $topic['titre']);
-    $pageS = "Forum : " . $topic["titre"] . " - message #$idMsg";
 
-    require_once (dirname(__FILE__) . "/../View/user/report.php");
+    require_once(dirname(__FILE__) . "/../View/user/personal_space/report.php");
 }
 
 function seeTopic2($id) {

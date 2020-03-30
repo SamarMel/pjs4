@@ -195,7 +195,7 @@ function openConv (id) {
                                 let i = status.idUser2;
                                 let p = "Conversation";
                                 document.location =
-                                    `http://pjs4.ulyssebouchet.fr/?controller=${c}&action=${a}&idSignale=${i}&page=${p}`;
+                                    `http://pjs4.ulyssebouchet.fr/?controller=${c}&action=${a}&idSignale=${i}&origine=${p}`;
 
                             }
                         });

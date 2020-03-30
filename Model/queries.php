@@ -140,16 +140,20 @@ function insertMessage($idUser, $idConv, $message){
     }
 }
 
-function insertReport ($idUser, $idReported, $page, $motif){
+function insertReport ($idUser, $idReported, $page, $motif, $idTopic, $idPost) {
+    $idTopic = $idTopic == -1 ? null : $idTopic;
+    $idPost = $idPost == -1 ? null : $idPost;
     require(dirname(__FILE__) . '/database.php');
-    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `Origine`, `motif`) 
-            VALUES (:idUser, :idReported, :origine, :motif)";
+    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `Origine`, `motif`, `idTopic`, `idPost`) 
+            VALUES (:idUser, :idReported, :origine, :motif, :idTopic, :idPost)";
     try {
         $cde = $database->prepare($sql);
         $cde->bindParam(':idUser', $idUser);
         $cde->bindParam(':idReported', $idReported);
         $cde->bindParam(':origine', $page);
         $cde->bindParam(':motif', $motif);
+        $cde->bindParam(':idTopic', $idTopic);
+        $cde->bindParam(':idPost', $idPost);
         $cde->execute();
     } catch (PDOException $e) {
         echo utf8_encode("Echec d'INSERT : " . $e->getMessage() . "\n");

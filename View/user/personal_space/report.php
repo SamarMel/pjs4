@@ -18,13 +18,13 @@
 <body>
 
 <!-- MENU -->
-<?php require_once(dirname(__FILE__) . "/../modules/menu.tpl");?>
+<?php require_once(dirname(__FILE__) . "/../../modules/menu.tpl");?>
 <style>#menu {background: var(--color-action-5-dark);}</style>
 
 <div id="page">
     <?php
     $page_name = "SIGNALER";
-    require_once (dirname(__FILE__) . "/../modules/header.php");
+    require_once(dirname(__FILE__) . "/../../modules/header.php");
     if (!$reported):
     ?>
 
@@ -32,13 +32,16 @@
         <input name="controller" value="user" type="hidden">
         <input name="action" value="report" type="hidden">
 
+        <input name="idTopic" value="<? echo $idTopic ?? -1 ?>" type="hidden">
+        <input name="idPost" value="<? echo $idPost ?? -1 ?>" type="hidden">
+
         <label for="userS">Utilisateur signalé</label>
-        <input id="userS" type="text" disabled value="<? echo $userS['pseudo'] ?>">
-        <input name="userS" value="<? echo $idS ?>" type="hidden">
+        <input id="userS" type="text" disabled value="<? echo $userSignale['pseudo'] ?>">
+        <input name="idSignale" value="<? echo $idSignale ?>" type="hidden">
 
         <label for="pageS">Origine du signalement</label>
-        <input id="pageS" type="text" disabled value="<? echo $pageS ?>">
-        <input name="pageS" value="<? echo $pageS ?>" type="hidden">
+        <input id="pageS" type="text" disabled value="<? echo $idTopic == null ? "Conversation" : "Forum" ?>">
+        <input name="origine" value="<? echo $idTopic == null ? "Conversation" : "Forum" ?>" type="hidden">
 
         <label for="motif">Motif</label>
         <textarea id="motif" name="motif"></textarea>
@@ -53,9 +56,9 @@
 
 
 <!-- Chatbox -->
-<?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/chatbox.html"); ?>
 <!-- Footer -->
-<?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/footer.tpl"); ?>
 
 <script src="/View/js/report.js"></script>
 </body>

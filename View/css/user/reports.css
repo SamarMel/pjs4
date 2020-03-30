@@ -63,5 +63,9 @@ div.report span {
 }
 
 div.report span.motif {
-    width: 30vw;
+    width: 25vw;
+}
+
+div.report span.traité {
+    width: 5vw;
 }

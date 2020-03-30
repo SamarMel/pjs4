@@ -18,13 +18,13 @@
 <body>
 
 <!-- MENU -->
-<?php require_once(dirname(__FILE__) . "/../modules/menu.tpl");?>
+<?php require_once(dirname(__FILE__) . "/../../modules/menu.tpl");?>
 <style>#menu {background: var(--color-action-5);}</style>
 
 <div id="page">
     <?php
     $page_name = "SIGNALEMENTS";
-    require_once (dirname(__FILE__) . "/../modules/header.php");
+    require_once(dirname(__FILE__) . "/../../modules/header.php");
     ?>
 
     <div id="reports-nav">
@@ -56,33 +56,30 @@
     </div>
     <div id="reports-list">
         <div id="reports-list-header" class="report">
-            <span>Utilisateur signalé</span>
+            <span>Signalé</span>
             <span>Signalé par</span>
-            <span>Date</span>
+            <span>Origine</span>
             <span class="motif">Motif</span>
-            <span>Statut</span>
+            <span>Date</span>
             <span>Action</span>
+            <span class="traité">Traité</span>
         </div>
     <? foreach ($reports as $report): ?>
         <div class="report">
             <span><? echo $report['reported'] ?></span>
             <span><? echo $report['reporter'] ?></span>
+            <span><? echo $report['origine'] ?></span>
+            <span class="motif"><? echo $report['motif'] ?></span>
             <span><? echo $report['date'] ?></span>
-            <span class="motif">
-                Origine : <? echo $report['origine'] ?>
-                <br>
-                Motif : <? echo $report['motif'] ?>
-            </span>
-            <span>
-            <label for="filter<? echo $report['id'] ?>">Traité</label>
-            <input id="filter<? echo $report['id'] ?>" type="checkbox" <? echo $report['traité'] == 1 ? "checked" : "" ?>>
-            </span>
             <span>
                 <a href="#">Bannir cet utilisateur</a>
                 <br>
                 <? if ($report['origine'] != "Conversation"): ?>
-                <a href="#">Aller voir</a>
+                    <a href="#">Aller voir</a>
                 <? endif; ?>
+            </span>
+            <span class="traité">
+            <input id="filter<? echo $report['id'] ?>" type="checkbox" <? echo $report['traité'] == 1 ? "checked" : "" ?>>
             </span>
         </div>
     <? endforeach; ?>
@@ -91,9 +88,9 @@
 
 
 <!-- Chatbox -->
-<?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/chatbox.html"); ?>
 <!-- Footer -->
-<?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/footer.tpl"); ?>
 
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>

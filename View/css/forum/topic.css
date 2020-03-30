@@ -117,7 +117,7 @@ input[type="submit"]:hover, button.contact-person:hover {
 
 form#buttons {
 	position: absolute;
-	right: 0;
+	right: 0.5vw;
 	top: 2.5vh;
 	display: flex;
 	flex-direction: column;

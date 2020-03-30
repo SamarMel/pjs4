@@ -18,13 +18,13 @@
 <body>
 
 <!-- MENU -->
-<?php require_once(dirname(__FILE__) . "/../modules/menu.tpl");?>
+<?php require_once(dirname(__FILE__) . "/../../modules/menu.tpl");?>
 <style>#menu {background: var(--color-action-5);}</style>
 
 <div id="page">
     <?php
     $page_name = "UTILISATEURS";
-    require_once (dirname(__FILE__) . "/../modules/header.php");
+    require_once(dirname(__FILE__) . "/../../modules/header.php");
     ?>
 
     <div id="users-nav">
@@ -105,9 +105,9 @@
 
 
 <!-- Chatbox -->
-<?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/chatbox.html"); ?>
 <!-- Footer -->
-<?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/footer.tpl"); ?>
 
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>

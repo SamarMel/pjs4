@@ -13,7 +13,9 @@ $(document).ready(() => {
             $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=newConv&idPerson=${callerId}`,
                 (response) => {
                     openChat();
-                    openConv(response.id);
+                    setTimeout(() => {
+                        openConv(response.id);
+                    }, 500);
                 });
         }
     })

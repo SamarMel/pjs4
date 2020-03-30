@@ -78,7 +78,7 @@ function gerer () {
 
             $reports = array_splice($reports, ($p - 1) * 10, 10);
 
-            require (dirname(__FILE__) . "/../View/user/reports.php");
+            require(dirname(__FILE__) . "/../View/user/personal_space/reports.php");
             break;
         case "Rédacteur":
             break;
@@ -119,11 +119,11 @@ function users() {
 
     $users = array_splice($users, ($p - 1) * 10, 10);
 
-    require (dirname(__FILE__) . "/../View/user/users.php");
+    require(dirname(__FILE__) . "/../View/user/personal_space/users.php");
 }
 
 function report() {
-    if (!isset($_SESSION['idUser'])){
+    if (!isset($_SESSION['idUser'])) {
         login();
         return;
     }
@@ -131,24 +131,31 @@ function report() {
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
 
-    if (isset($_GET['userS']) && isset($_GET['pageS']) && isset($_GET['motif'])) {
-        insertReport($user['id'], $_GET['userS'], $_GET['pageS'], $_GET['motif']);
+    if (isset($_GET['idSignale']) && isset($_GET['origine']) && isset($_GET['motif'])) {
+        $idSignaleur = $user['id'];
+        $idSignale = $_GET['idSignale'];
+        $origine = $_GET['origine'];
+        $motif = $_GET['motif'];
+        $idTopic = $_GET['idTopic'];
+        $idPost = $_GET['idPost'];
+
+        insertReport($idSignaleur, $idSignale, $origine, $motif, $idTopic, $idPost);
 
         $reported = true;
-        require (dirname(__FILE__) . "/../View/user/report.php");
+        require(dirname(__FILE__) . "/../View/user/personal_space/report.php");
         return;
     }
 
-    if (!isset($_GET['idSignale']) || !isset($_GET['page'])){
+    if (!isset($_GET['idSignale']) || !isset($_GET['origine'])){
         header("Location: http://pjs4.ulyssebouchet.fr");
         return;
     }
 
     $reported = false;
 
-    $idS = $_GET['idSignale'];
-    $userS = queryUser($idS);
-    $pageS = $_GET['page'];
+    $idSignale = $_GET['idSignale'];
+    $userSignale = queryUser($idSignale);
+    $origine = $_GET['origine'];
 
-    require (dirname(__FILE__) . "/../View/user/report.php");
+    require(dirname(__FILE__) . "/../View/user/personal_space/report.php");
 }

@@ -7,7 +7,7 @@ if (isset($_COOKIE['idUser'])) {
 }
 
 if ($_SESSION['user']['role'] == "Banni")
-    header("Location: http://pjs4.ulyssebouchet.fr/banned.html");
+    header("Location: http://preclarity.ulyssebouchet.fr/banned.html");
 
 if (isset($_GET['controller']) && isset($_GET['action'])) {
 	$controller = $_GET['controller'];

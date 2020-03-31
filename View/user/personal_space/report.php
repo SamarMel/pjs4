@@ -28,7 +28,7 @@
     if (!$reported):
     ?>
 
-    <form id="report" action="http://pjs4.ulyssebouchet.fr/" method="get">
+    <form id="report" action="http://preclarity.ulyssebouchet.fr/" method="get">
         <input name="controller" value="user" type="hidden">
         <input name="action" value="report" type="hidden">
 
@@ -50,7 +50,7 @@
     </form>
     <? else: ?>
     <h3 id="msg">Utilisateur signalé.</h3>
-    <a id="back_home" href="http://pjs4.ulyssebouchet.fr">Retour à l'accueil</a>
+    <a id="back_home" href="http://preclarity.ulyssebouchet.fr">Retour à l'accueil</a>
     <? endif; ?>
 </div>
 

@@ -2,16 +2,16 @@
 
 function login() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
     elseif (isset($_POST['identifiant']) && isset($_POST['pwd'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
         $identifiant = $_POST['identifiant'];
         $pwd = $_POST['pwd'];
 
         if (loginDB($identifiant, $pwd))
-            header("Location: http://pjs4.ulyssebouchet.fr");
+            header("Location: http://preclarity.ulyssebouchet.fr");
         else
-            header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=login");
+            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=login");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -19,7 +19,7 @@ function login() {
 
 function register() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
     elseif (isset($_POST['pseudo-input']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['img'])
     && !empty($_POST['pseudo-input']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
@@ -33,7 +33,7 @@ function register() {
             $_POST['pwd'] = $pwd;
             login();
         } else
-            header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=register");
+            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=register");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -83,7 +83,7 @@ function gerer () {
         case "Rédacteur":
             break;
         case "Étudiant":
-            header("Location: http://pjs4.ulyssebouchet.fr");
+            header("Location: http://preclarity.ulyssebouchet.fr");
             return;
     endswitch;
 }
@@ -99,7 +99,7 @@ function users() {
     $role = $user['role'];
 
     if ($role != "Administrateur") {
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
         return;
     }
 
@@ -147,7 +147,7 @@ function report() {
     }
 
     if (!isset($_GET['idSignale']) || !isset($_GET['origine'])){
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
         return;
     }
 

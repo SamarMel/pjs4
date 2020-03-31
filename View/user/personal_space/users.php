@@ -30,11 +30,11 @@
     <div id="users-nav">
         <? if ($p > 1): ?>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>">
                 Première page
             </a>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
                 Page précédente
             </a>
         <? else: ?>
@@ -43,7 +43,7 @@
         <? endif; ?>
         <? if (count($users) == 10): ?>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
                 Page suivante
             </a>
         <? else: ?>
@@ -67,7 +67,7 @@
             <span class="error-msg">Aucun utilisateur n'a été trouvé.</span>
             <br>
             <span class="error-msg">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users">Revenir à la liste</a>
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users">Revenir à la liste</a>
             </span>
         <? else:
             foreach ($users as $u):

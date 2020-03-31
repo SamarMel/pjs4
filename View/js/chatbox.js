@@ -58,7 +58,7 @@ function closeChat() {
 }
 
 function showConvs() {
-    $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getConversations&id=${status.idUser}`,
+    $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getConversations&id=${status.idUser}`,
         async function (convs) {
 
             let content = "<ul id='chatbox-convs'>";
@@ -75,7 +75,7 @@ function showConvs() {
                 let idConv = convs[i].id;
                 ids.push(idConv);
 
-                await $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getUser&id=${idPerson}`,
+                await $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getUser&id=${idPerson}`,
                     (person) => {
                         content +=
                             `<li id='p${idConv}'>
@@ -105,14 +105,14 @@ function sendMessage() {
     let msg = input.val();
     msg = encodeURIComponent(msg);
     if (msg.length !== 0) {
-        $.ajax(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=sendMessage&idUser=${status.idUser}&idConv=${status.idConv}&msg=${msg}`);
+        $.ajax(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=sendMessage&idUser=${status.idUser}&idConv=${status.idConv}&msg=${msg}`);
         input.val("");
     }
 }
 
 function refreshMessages() {
     if (status.idConv !== -1) {
-        $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getMessages&id=${status.idConv}`,
+        $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getMessages&id=${status.idConv}`,
             (messages) => {
                 if (nbMessages !== messages.length) {
                     nbMessages = messages.length;
@@ -138,7 +138,7 @@ function loadBot(id) {
         id = 0;
 
     status.botQuestion = id;
-    $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getBotQuestion&id=${id}`, (question) => {
+    $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getBotQuestion&id=${id}`, (question) => {
         box.empty();
 
         box.append(`<div class='bot-msg'>${question.txt}</div>
@@ -173,11 +173,11 @@ function openConv (id) {
 
         loadBot(status.botQuestion);
     } else {
-        $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getConversation&id=${id}`,
+        $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getConversation&id=${id}`,
             (conv) => {
                 let idPerson = conv.idUser1 === status.idUser.toString() ? conv.idUser2 : conv.idUser1;
                 status.idUser2 = idPerson;
-                $.getJSON(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=getUser&id=${idPerson}`,
+                $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=getUser&id=${idPerson}`,
                     (person) => {
 
                         header.empty();
@@ -195,7 +195,7 @@ function openConv (id) {
                                 let i = status.idUser2;
                                 let p = "Conversation";
                                 document.location =
-                                    `http://pjs4.ulyssebouchet.fr/?controller=${c}&action=${a}&idSignale=${i}&origine=${p}`;
+                                    `http://preclarity.ulyssebouchet.fr/?controller=${c}&action=${a}&idSignale=${i}&origine=${p}`;
 
                             }
                         });

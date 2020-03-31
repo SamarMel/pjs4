@@ -60,6 +60,6 @@
 <!-- Footer -->
 <?php require_once(dirname(__FILE__) . "/../../modules/footer.tpl"); ?>
 
-<script src="/View/js/report.js"></script>
+<script src="/View/js/personal_space/report.js"></script>
 </body>
 </html>

@@ -24,7 +24,11 @@ a.reports-nav-link[href]:hover, label.reports-nav-link:hover {
 input#filter {
     height: 2vh;
     width: 2vh;
-    margin-left: 0.75vw;
+    cursor: pointer;
+}
+
+label[for="filter"] {
+    padding-right: 0.75vw;
 }
 
 div#filter-div {
@@ -68,4 +72,21 @@ div.report span.motif {
 
 div.report span.traité {
     width: 5vw;
+}
+
+span.traité input {
+    width: 1.5vh;
+    height: 1.5vh;
+}
+
+span#no-found {
+    font-size: 1.75vh;
+}
+
+span a {
+    color: var(--color-action-5);
+}
+
+span a:hover {
+    filter: brightness(90%);
 }

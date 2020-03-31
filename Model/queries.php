@@ -56,10 +56,11 @@ function queryMessages($idConv) {
 
 function getReports($filter) {
     require(dirname(__FILE__) . "/database.php");
-    $sql = "SELECT S.*, U1.pseudo AS 'reporter', U2.pseudo AS 'reported' 
-            FROM Signalement S, Utilisateur U1, Utilisateur U2 
+    $sql = "SELECT S.*, U1.pseudo AS 'reporter', U2.pseudo AS 'reported', R.role AS 'reportedRole'
+            FROM Signalement S, Utilisateur U1, Utilisateur U2, Role R
             WHERE S.idSignaleur = U1.id 
             AND S.idSignalé = U2.id
+            AND U2.idRole = R.id
             AND S.traité LIKE :filter
             GROUP BY S.id
             ORDER BY S.date DESC";
@@ -223,7 +224,7 @@ function getIdConv($user1, $user2){
  * @return mixed
  */
 function createConv($user1, $user2){
-    require(dirname(__FILE__) . '/./database.php');
+    require (dirname(__FILE__) . '/./database.php');
     if ($user1 > $user2){
         $user1 += $user2;
         $user2 = $user1 - $user2;
@@ -239,4 +240,35 @@ function createConv($user1, $user2){
         echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
     }
     return getIdConv($user1, $user2);
+}
+
+function setAsTraite ($id, $t) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "UPDATE Signalement
+			SET traité = :t
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':t', $t);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function banUser ($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "UPDATE Utilisateur
+			SET idRole = 5
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
 }

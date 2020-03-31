@@ -58,7 +58,7 @@
             }
             $author = getAuthor($post['idAuteur']);
             ?>
-            <div class="post">
+            <div id="post-<? echo $post['id'] ?>" class="post">
                 <div class="user-info">
                     <img src="<? echo $author['imageProfil'] ?>" alt="image de profil">
                     <h4><? echo $author['pseudo'] ?></h4>

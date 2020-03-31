@@ -112,6 +112,6 @@
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
 <script src="/View/js/index.js"></script>
-<script src="/View/js/users.js"></script>
+<script src="/View/js/personal_space/users.js"></script>
 </body>
 </html>

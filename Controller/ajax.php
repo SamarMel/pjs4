@@ -102,6 +102,27 @@ function newConv()
     }
 }
 
+function traiter () {
+    if (isset ($_GET ['id']) && isset ($_GET ['t'])) {
+    	$id = $_GET ['id'];
+	    $t = $_GET ['t'];
+    	
+    	require_once (dirname (__FILE__) . "/../Model/queries.php");
+    	
+    	setAsTraite ($id, $t);
+    }
+}
+
+function ban () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		banUser ($id);
+	}
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

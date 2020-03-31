@@ -30,11 +30,11 @@
     <div id="reports-nav">
         <? if ($p > 1): ?>
             <a class="reports-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=gerer&s=<? echo $s ?>">
+               href="/?controller=user&action=gerer&s=<? echo $s ?>&filter=<? echo $filter ?>">
                 Première page
             </a>
             <a class="reports-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=gerer&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
+               href="/?controller=user&action=gerer&s=<? echo $s ?>&p=<? echo ($p - 1) ?>&filter=<? echo $filter ?>">
                 Page précédente
             </a>
         <? else: ?>
@@ -43,7 +43,7 @@
         <? endif; ?>
         <? if (count($reports) == 10): ?>
             <a class="reports-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=gerer&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
+               href="/?controller=user&action=gerer&s=<? echo $s ?>&p=<? echo ($p + 1) ?>&filter=<? echo $filter ?>">
                 Page suivante
             </a>
         <? else: ?>
@@ -51,7 +51,7 @@
         <? endif; ?>
         <div id="filter-div">
             <label class="reports-nav-link" for="filter">Afficher uniquement les cas non traités</label>
-            <input id="filter" type="checkbox" value="0">
+            <input id="filter" type="checkbox" <? if ($filter == 0 && $filter != "") echo "checked" ?>>
         </div>
     </div>
     <div id="reports-list">
@@ -64,6 +64,9 @@
             <span>Action</span>
             <span class="traité">Traité</span>
         </div>
+        <? if (count($reports) == 0): ?>
+        <span id="no-found">Aucun signalement trouvé</span>
+        <? endif; ?>
     <? foreach ($reports as $report): ?>
         <div class="report">
             <span><? echo $report['reported'] ?></span>
@@ -72,10 +75,16 @@
             <span class="motif"><? echo $report['motif'] ?></span>
             <span><? echo $report['date'] ?></span>
             <span>
-                <a href="#">Bannir cet utilisateur</a>
+                <? if ($report['reportedRole'] == "Banni"): ?>
+                <span>Utilisateur banni</span>
+                <? else: ?>
+                <a class="ban" href="#" id="ban<? echo $report['idSignalé'] ?>">Bannir cet utilisateur</a>
+                <? endif; ?>
                 <br>
                 <? if ($report['origine'] != "Conversation"): ?>
-                    <a href="#">Aller voir</a>
+                    <a class="see" href="#" id='{"id":<? echo $report['idTopic'] ?>, "idPost":<? echo $report['idPost'] ?>}'>
+                        Aller voir
+                    </a>
                 <? endif; ?>
             </span>
             <span class="traité">
@@ -95,6 +104,6 @@
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
 <script src="/View/js/index.js"></script>
-<script src="/View/js/reports.js"></script>
+<script src="/View/js/personal_space/reports.js"></script>
 </body>
 </html>

@@ -146,7 +146,7 @@ function report() {
         return;
     }
 
-    if (!isset($_GET['idSignale']) || !isset($_GET['origine'])){
+    if (!isset($_GET['idSignale']) || !isset($_GET['origine'])) {
         header("Location: http://preclarity.ulyssebouchet.fr");
         return;
     }
@@ -157,5 +157,17 @@ function report() {
     $userSignale = queryUser($idSignale);
     $origine = $_GET['origine'];
 
-    require(dirname(__FILE__) . "/../View/user/personal_space/report.php");
+    require (dirname(__FILE__) . "/../View/user/personal_space/report.php");
+}
+
+function demarches () {
+	if (!isset($_SESSION['idUser'])) {
+		login();
+		return;
+	}
+	
+	require_once(dirname(__FILE__) . "/../Model/queries.php");
+	$user = $_SESSION['user'];
+	
+	require (dirname(__FILE__) . "/../View/user/personal_space/demarches.php");
 }

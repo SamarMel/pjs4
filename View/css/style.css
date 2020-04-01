@@ -16,9 +16,9 @@
 	--color-home-3: #00c9ff;
 
 	--color-action-1: #ca4aff;
-	--color-action-2: var(--color-home-1);
+	--color-action-2: var(--color-forum-1);
 	--color-action-3: var(--color-chatbox-1);
-	--color-action-4: var(--color-forum-1);
+	--color-action-4: var(--color-home-1);
 	--color-action-5: #fd9a30;
 	--color-action-5-dark: #8a551d;
 }

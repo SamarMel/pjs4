@@ -1,0 +1,63 @@
+#formulaire{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+form{
+	display: table;
+	border-spacing: 50px 1rem;
+}
+
+#btnCreation{
+	font-size: 2vh;
+	font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+#btnCreation:hover{
+	background-color: #00c4cc;
+	outline-color: white;
+	color: white;
+}
+
+div{
+	display: table-row;
+}
+
+h1{
+	font-size: 5vh;
+	color: gray;
+	letter-spacing: -5px;
+	font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+option{
+	font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+label{
+	display: table-cell;
+	font-size: 20px;
+	font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+textarea{
+	display: table-cell;
+	outline: #0000ff;
+	resize: none;
+}
+
+textarea:hover{
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+select{
+	display: table-cell;
+}
+
+select option {
+	width: 100px;
+}
+

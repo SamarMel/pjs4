@@ -1,0 +1,27 @@
+$(document).ready(() => {
+    $("#send-response").submit((event) => {
+        if (!validation()) {
+            event.preventDefault();
+            alert("Le message ne peut pas être vide.");
+        }
+    });
+
+    $(".contact-person").click((event) => {
+        event.preventDefault();
+        let callerId = event.target.id.substring(1);
+        if (confirm("Voulez-vous contacter cet utilisateur ?")) {
+            $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=newConv&idPerson=${callerId}`,
+                (response) => {
+                    openChat();
+                    setTimeout(() => {
+                        openConv(response.id);
+                    }, 500);
+                });
+        }
+    })
+
+    function validation(){
+        let post = document.forms["msg"]["post"].value.trim();
+        return !!post;
+    }
+});

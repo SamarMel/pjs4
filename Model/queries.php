@@ -54,6 +54,31 @@ function queryMessages($idConv) {
     return $messages;
 }
 
+function getReports($filter) {
+    require(dirname(__FILE__) . "/database.php");
+    $sql = "SELECT S.*, U1.pseudo AS 'reporter', U2.pseudo AS 'reported', R.role AS 'reportedRole'
+            FROM Signalement S, Utilisateur U1, Utilisateur U2, Role R
+            WHERE S.idSignaleur = U1.id 
+            AND S.idSignalé = U2.id
+            AND U2.idRole = R.id
+            AND S.traité LIKE :filter
+            GROUP BY S.id
+            ORDER BY S.date DESC";
+
+    $filter = "%$filter%";
+    try {
+        $result = $database->prepare($sql);
+        $result->bindParam(':filter', $filter);
+        $result->execute();
+        $user = $result->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return null;
+    }
+
+    return $user;
+}
+
 function getAllUsers($s) {
     require(dirname(__FILE__) . "/database.php");
     $sql = "SELECT U.*, R.role 
@@ -116,6 +141,27 @@ function insertMessage($idUser, $idConv, $message){
     }
 }
 
+function insertReport ($idUser, $idReported, $page, $motif, $idTopic, $idPost) {
+    $idTopic = $idTopic == -1 ? null : $idTopic;
+    $idPost = $idPost == -1 ? null : $idPost;
+    require(dirname(__FILE__) . '/database.php');
+    $sql = "INSERT INTO `Signalement`(`idSignaleur`, `idSignalé`, `Origine`, `motif`, `idTopic`, `idPost`) 
+            VALUES (:idUser, :idReported, :origine, :motif, :idTopic, :idPost)";
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser', $idUser);
+        $cde->bindParam(':idReported', $idReported);
+        $cde->bindParam(':origine', $page);
+        $cde->bindParam(':motif', $motif);
+        $cde->bindParam(':idTopic', $idTopic);
+        $cde->bindParam(':idPost', $idPost);
+        $cde->execute();
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec d'INSERT : " . $e->getMessage() . "\n");
+        die();
+    }
+}
+
 function updateRole($idUser, $idRole){
     require(dirname(__FILE__) . '/database.php');
     $sql = "UPDATE Utilisateur SET idRole = :idRole WHERE id = :id";
@@ -131,7 +177,7 @@ function updateRole($idUser, $idRole){
 }
 
 function queryBotQuestion($id) {
-    $string = file_get_contents("http://pjs4.ulyssebouchet.fr/Model/bot/bot.json");
+    $string = file_get_contents("http://preclarity.ulyssebouchet.fr/Model/bot/bot.json");
 
     $json_a = json_decode($string, true);
 
@@ -140,4 +186,89 @@ function queryBotQuestion($id) {
             return $question;
     }
     return null;
+}
+
+
+/**
+ * Return la conversation associée à deux personnes et la crée si elle n'existe pas
+ * @param $user1
+ * @param $user2
+ * @return mixed
+ */
+function getIdConv($user1, $user2){
+    require(dirname(__FILE__) . '/./database.php');
+    if ($user1 > $user2){
+        $user1 += $user2;
+        $user2 = $user1 - $user2;
+        $user1 -= $user2;
+    }
+
+    $sql = "SELECT id FROM Conversation WHERE idUser1 = :idUser1 AND idUser2 = :idUser2";
+    $res = array();
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser1', $user1);
+        $cde->bindParam(':idUser2', $user2);
+        $cde->execute();
+        $res = $cde->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e){
+        echo utf8_encode("Echec du SELECT : " . $e->getMessage() . "\n");
+    }
+    return $res;
+}
+
+/**
+ * Crée une conversation entre deux utilisateurs
+ * @param $user1
+ * @param $user2
+ * @return mixed
+ */
+function createConv($user1, $user2){
+    require (dirname(__FILE__) . '/./database.php');
+    if ($user1 > $user2){
+        $user1 += $user2;
+        $user2 = $user1 - $user2;
+        $user1 -= $user2;
+    }
+    $sql = "INSERT INTO Conversation(idUser1, idUser2) VALUES (:idUser1, :idUser2)";
+    try {
+        $cde = $database->prepare($sql);
+        $cde->bindParam(':idUser1', $user1);
+        $cde->bindParam(':idUser2', $user2);
+        $b = $cde->execute();
+    } catch (PDOException $e){
+        echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
+    }
+    return getIdConv($user1, $user2);
+}
+
+function setAsTraite ($id, $t) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "UPDATE Signalement
+			SET traité = :t
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':t', $t);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function banUser ($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "UPDATE Utilisateur
+			SET idRole = 5
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
 }

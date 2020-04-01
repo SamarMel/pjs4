@@ -6,6 +6,9 @@ if (isset($_COOKIE['idUser'])) {
     $_SESSION['user'] = queryUser($_SESSION['idUser']);
 }
 
+if ($_SESSION['user']['role'] == "Banni")
+    header("Location: http://preclarity.ulyssebouchet.fr/banned.html");
+
 if (isset($_GET['controller']) && isset($_GET['action'])) {
 	$controller = $_GET['controller'];
 	$action = $_GET['action'];

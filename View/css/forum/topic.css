@@ -27,6 +27,7 @@ h2 {
 	position: relative;
 	border-bottom: var(--color-forum-2) solid 2px;
 	width: 100%;
+	min-height: 15vh;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -45,7 +46,7 @@ h2 {
 .user-info>img {
 	height: 5vw;
 	width: 5vw;
-	border-radius: 100px;
+	border-radius: 100000px;
 	object-fit: cover;
 }
 
@@ -64,7 +65,7 @@ h2 {
 
 .post-content>p {
 	font-size: 1.75vh;
-	max-width: 65vw;
+	max-width: 58vw;
 }
 
 .post-info {
@@ -90,13 +91,14 @@ textarea {
 	border: black solid 3px;
 	padding: 0.5%;
 	color: var(--color-forum-3);
+	font-size: 1.5vh;
 }
 
 textarea:focus {
 	border: var(--color-forum-1) solid 3px;
 }
 
-input[type="submit"] {
+input[type="submit"], button.contact-person {
 	background: black;
 	border: black solid 3px;
 	font-size: 1.5vh;
@@ -106,11 +108,23 @@ input[type="submit"] {
 	margin-top: 1vh;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, button.contact-person:hover {
 	background: var(--color-forum-1);
 	border-color: var(--color-forum-1);
 	color: #000;
 	cursor: pointer;
+}
+
+form#buttons {
+	position: absolute;
+	right: 0.5vw;
+	top: 2.5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	width: unset;
 }
 
 /* Extra-small devices (Phones) */

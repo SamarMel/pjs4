@@ -2,16 +2,16 @@
 
 function login() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
     elseif (isset($_POST['identifiant']) && isset($_POST['pwd'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
         $identifiant = $_POST['identifiant'];
         $pwd = $_POST['pwd'];
 
         if (loginDB($identifiant, $pwd))
-            header("Location: http://pjs4.ulyssebouchet.fr");
+            header("Location: http://preclarity.ulyssebouchet.fr");
         else
-            header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=login");
+            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=login");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -19,7 +19,7 @@ function login() {
 
 function register() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://pjs4.ulyssebouchet.fr");
+        header("Location: http://preclarity.ulyssebouchet.fr");
     elseif (isset($_POST['pseudo-input']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['img'])
     && !empty($_POST['pseudo-input']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
@@ -33,7 +33,7 @@ function register() {
             $_POST['pwd'] = $pwd;
             login();
         } else
-            header("Location: http://pjs4.ulyssebouchet.fr/?controller=user&action=register");
+            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=register");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -52,6 +52,42 @@ function personalSpace () {
     require(dirname(__FILE__) . "/../View/user/personal_space.php");
 }
 
+function gerer () {
+    if (!isset($_SESSION['idUser'])) {
+        login();
+        return;
+    }
+
+    require_once(dirname(__FILE__) . "/../Model/queries.php");
+    $user = $_SESSION['user'];
+    $role = $user['role'];
+
+    switch ($role):
+        case "Administrateur":
+        case "Modérateur":
+
+            $filter = "";
+            if (isset($_GET['filter']))
+                $filter = $_GET['filter'];
+
+            $reports = getReports($filter);
+
+            $p = 1;
+            if (isset($_GET['p']))
+                $p = $_GET['p'];
+
+            $reports = array_splice($reports, ($p - 1) * 10, 10);
+
+            require(dirname(__FILE__) . "/../View/user/personal_space/reports.php");
+            break;
+        case "Rédacteur":
+            break;
+        case "Étudiant":
+            header("Location: http://preclarity.ulyssebouchet.fr");
+            return;
+    endswitch;
+}
+
 function users() {
     if (!isset($_SESSION['idUser'])) {
         login();
@@ -63,7 +99,7 @@ function users() {
     $role = $user['role'];
 
     if ($role != "Administrateur") {
-        login();
+        header("Location: http://preclarity.ulyssebouchet.fr");
         return;
     }
 
@@ -83,11 +119,11 @@ function users() {
 
     $users = array_splice($users, ($p - 1) * 10, 10);
 
-    require (dirname(__FILE__) . "/../View/user/users.php");
+    require(dirname(__FILE__) . "/../View/user/personal_space/users.php");
 }
 
 function report() {
-    if (!isset($_SESSION['idUser'])){
+    if (!isset($_SESSION['idUser'])) {
         login();
         return;
     }
@@ -95,14 +131,31 @@ function report() {
     require_once(dirname(__FILE__) . "/../Model/queries.php");
     $user = $_SESSION['user'];
 
-    if (!isset($_GET['idSignale']) || !isset($_GET['page'])){
-        login();
+    if (isset($_GET['idSignale']) && isset($_GET['origine']) && isset($_GET['motif'])) {
+        $idSignaleur = $user['id'];
+        $idSignale = $_GET['idSignale'];
+        $origine = $_GET['origine'];
+        $motif = $_GET['motif'];
+        $idTopic = $_GET['idTopic'];
+        $idPost = $_GET['idPost'];
+
+        insertReport($idSignaleur, $idSignale, $origine, $motif, $idTopic, $idPost);
+
+        $reported = true;
+        require(dirname(__FILE__) . "/../View/user/personal_space/report.php");
         return;
     }
 
-    $idS = $_GET['idSignale'];
-    $userS = queryUser($idS);
-    $pageS = $_GET['page'];
+    if (!isset($_GET['idSignale']) || !isset($_GET['origine'])){
+        header("Location: http://preclarity.ulyssebouchet.fr");
+        return;
+    }
 
-    require(dirname(__FILE__) . "/../View/user/report.php");
+    $reported = false;
+
+    $idSignale = $_GET['idSignale'];
+    $userSignale = queryUser($idSignale);
+    $origine = $_GET['origine'];
+
+    require(dirname(__FILE__) . "/../View/user/personal_space/report.php");
 }

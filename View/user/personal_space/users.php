@@ -18,23 +18,23 @@
 <body>
 
 <!-- MENU -->
-<?php require_once(dirname(__FILE__) . "/../modules/menu.tpl");?>
+<?php require_once(dirname(__FILE__) . "/../../modules/menu.tpl");?>
 <style>#menu {background: var(--color-action-5);}</style>
 
 <div id="page">
     <?php
     $page_name = "UTILISATEURS";
-    require_once (dirname(__FILE__) . "/../modules/header.php");
+    require_once(dirname(__FILE__) . "/../../modules/header.php");
     ?>
 
     <div id="users-nav">
         <? if ($p > 1): ?>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>">
                 Première page
             </a>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
                 Page précédente
             </a>
         <? else: ?>
@@ -43,7 +43,7 @@
         <? endif; ?>
         <? if (count($users) == 10): ?>
             <a class="users-nav-link"
-               href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
+               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
                 Page suivante
             </a>
         <? else: ?>
@@ -67,7 +67,7 @@
             <span class="error-msg">Aucun utilisateur n'a été trouvé.</span>
             <br>
             <span class="error-msg">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users">Revenir à la liste</a>
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users">Revenir à la liste</a>
             </span>
         <? else:
             foreach ($users as $u):
@@ -105,13 +105,13 @@
 
 
 <!-- Chatbox -->
-<?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/chatbox.html"); ?>
 <!-- Footer -->
-<?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
+<?php require_once(dirname(__FILE__) . "/../../modules/footer.tpl"); ?>
 
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
 <script src="/View/js/index.js"></script>
-<script src="/View/js/users.js"></script>
+<script src="/View/js/personal_space/users.js"></script>
 </body>
 </html>

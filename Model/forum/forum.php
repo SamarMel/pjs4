@@ -7,7 +7,7 @@ function getLastTopics () {
     require(dirname(__FILE__) . '/../database.php');
     try {
         $sql =
-            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', P.datePost AS 'lastPost'
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', MAX(P.datePost) AS 'lastPost'
             FROM Topic T, Post P, Utilisateur U, Categorie C
             WHERE T.id = P.idTopic
             AND T.idAuteur = U.id
@@ -33,7 +33,7 @@ function getTopics ($name, $category) {
     require(dirname(__FILE__) . '/../database.php');
     try {
         $sql =
-            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', P.datePost AS 'lastPost'
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', MAX(P.datePost) AS 'lastPost'
             FROM Topic T, Post P, Utilisateur U, Categorie C
             WHERE T.titre LIKE :name
             AND T.idCategorie = :category
@@ -149,7 +149,7 @@ function insertTopic($sujet, $idC) {
 function postBD($post, $idTopic){
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Post (idAuteur, idTopic, content, dateMsg) VALUES (:idA, :idT, :c, now())";
+        $sql = "INSERT INTO Post (idAuteur, idTopic, content) VALUES (:idA, :idT, :c)";
         $query = $database->prepare($sql);
         $query->bindParam(':idA', $_SESSION['idUser']);
         $query->bindParam(':idT', $idTopic);

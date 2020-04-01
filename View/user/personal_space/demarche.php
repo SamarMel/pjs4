@@ -7,12 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/View/css/user/login.css">
 </head>
 <body>
-<? require(dirname(__FILE__) . "/../modules/menu.tpl") ?>
+<? require(dirname(__FILE__) . "/../../modules/menu.tpl") ?>
 <style>#menu {background: var(--color-dark);}</style>
     <div id="page">
         <?
         $page_name = "CONNEXION";
-        require(dirname(__FILE__) . "/../modules/header.php");
+        require(dirname(__FILE__) . "/../../modules/header.php");
         ?>
         <div id="forms">
             <form id="connexion" method="post" action="/?controller=user&action=login">
@@ -46,8 +46,8 @@
     </div>
 
     <?
-    require(dirname(__FILE__) . "/../modules/chatbox.html");
-    require(dirname(__FILE__) . "/../modules/footer.tpl");
+    require(dirname(__FILE__) . "/../../modules/chatbox.html");
+    require(dirname(__FILE__) . "/../../modules/footer.tpl");
     ?>
 </body>
 </html>

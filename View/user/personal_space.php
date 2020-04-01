@@ -57,7 +57,7 @@
                 </table>
             </td>
             <td id="action_2" class="action">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=events">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=events">
                     <div class="cell">
                         Évènements
                     </div>
@@ -66,7 +66,7 @@
         </tr>
         <tr>
             <td id="action_3" class="action">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=account">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=account">
                     <div class="cell">
                         Mon Compte
                     </div>
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td id="action_4" class="action">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=demarches">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=demarches">
                     <div class="cell">
                         Mes démarches
                     </div>
@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td colspan="2" id="action_5" class="action">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=gerer">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=gerer">
                     <?
                     if ($role == "Étudiant") :
                     ?>
@@ -110,7 +110,7 @@
         ?>
         <tr>
             <td colspan="2" id="action_6" class="action">
-                <a href="http://pjs4.ulyssebouchet.fr/?controller=user&action=users">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users">
                     <div class="cell">
                         Gérer les utilisateurs
                     </div>

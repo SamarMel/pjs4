@@ -2,13 +2,12 @@ $(document).ready(() => {
     $("select.role").on("input", (e) => {
         let id = e.target.parentElement.id.replace("person-", "");
         let role = e.target.value;
-        $.ajax(`http://pjs4.ulyssebouchet.fr/?controller=ajax&action=changeRole&idUser=${id}&idRole=${role}`)
+        $.ajax(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=changeRole&idUser=${id}&idRole=${role}`)
     });
 
     const input = $("input#search-user");
 
     input.on("keypress", (e) => {
-        console.log(e);
         if (e.which === 13)
             search();
     })
@@ -23,6 +22,6 @@ $(document).ready(() => {
 
     function search() {
         let s = input.val();
-        document.location = `http://pjs4.ulyssebouchet.fr/?controller=user&action=users&s=${s}`;
+        document.location = `http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=${s}`;
     }
 });

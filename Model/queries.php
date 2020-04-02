@@ -272,3 +272,108 @@ function banUser ($id) {
 		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
 	}
 }
+
+function dropDemarche ($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "DELETE FROM Demarche WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du DELETE : " . $e->getMessage() . "\n");
+	}
+}
+
+function getDemarches($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "SELECT
+			    Dem.*,
+			    IF(
+			        COUNT(Doc.id) <>(
+			        SELECT
+			            COUNT(*)
+			        FROM
+			            Document D
+			    ),
+			    COUNT(Doc.id),
+			    0
+			    ) AS 'manquants'
+			FROM
+			    Demarche Dem,
+			    Document Doc
+			WHERE
+			    (
+			        Dem.idUser = 1 AND Doc.idDem = Dem.id AND Doc.isRendu = 0
+			    ) OR NOT EXISTS(
+			    SELECT
+			        D.*
+			    FROM
+			        Document D
+			    WHERE
+			        D.idDem = Dem.id
+			)
+			GROUP BY
+			    Dem.id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute();
+		return $req->fetchAll(PDO::FETCH_ASSOC);
+	} catch (PDOException $e) {
+		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+	}
+	return array();
+}
+
+function getDemarche ($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "SELECT *
+			FROM Demarche
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute();
+		return $req->fetch(PDO::FETCH_ASSOC);
+	} catch (PDOException $e) {
+		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+	}
+	return array();
+}
+
+function getDocuments ($id) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "SELECT *
+			FROM Document
+			WHERE idDem = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute();
+		return $req->fetchAll(PDO::FETCH_ASSOC);
+	} catch (PDOException $e) {
+		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+	}
+	return array();
+}
+
+function updateRmq ($id, $rmq) {
+	require (dirname(__FILE__) . '/./database.php');
+	$sql = "UPDATE Demarche
+			SET rmq = :rmq
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':rmq', $rmq);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+	}
+}

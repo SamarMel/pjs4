@@ -1,9 +1,6 @@
 #ajouter-demande {
     width: 100%;
-    margin-top: 7.5vh;
-}
-
-#ajouter-demande {
+    margin-top: 5vh;
     background: var(--color-action-4);
 }
 
@@ -15,6 +12,8 @@ h2 {
     font-size: 3vh;
     letter-spacing: 2px;
     font-family: "League Gothic", "OpenSans", sans-serif;
+
+    text-transform: uppercase;
 }
 
 #ajouter-demande>h2 {
@@ -57,6 +56,7 @@ h2 {
 
 .demarch-form>input[type="submit"]:hover {
     background: var(--color-action-4);
+    box-shadow: var(--color-light) 0 0 5px;
     cursor: pointer;
 }
 
@@ -66,6 +66,10 @@ h2 {
     cursor: pointer;
 }
 
+select#input-select option {
+    font-size: 1.75vh;
+}
+
 .horizontal-scroll-wrapper {
     width: 80vw;
     overflow-x: scroll;
@@ -73,11 +77,75 @@ h2 {
     white-space: nowrap;
 }
 
-.horizontal-scroll-wrapper div {
-    background: var(--color-action-4);
-    filter: brightness(125%);
+div.demarche {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 
-    display: inline-block;
+    padding: 1%;
+}
+
+div.uncomplete {
+    background: var(--color-action-4);
+    filter: brightness(100%);
+
     width: 35vw;
-    height: 20vh;
+    height: 15vh;
+}
+
+div.complete {
+    background: #ccc;
+    filter: brightness(100%);
+
+    width: 20vw;
+    height: 18vh;
+}
+
+div.demarche h3 {
+    margin: 1vh 0;
+    font-size: 2vh;
+}
+
+div.demarche span, a {
+    font-size: 1.5vh;
+}
+
+div.demarche a {
+    position: absolute;
+    bottom: 1vh;
+
+    padding: 1%;
+
+    text-decoration: none;
+}
+
+div.uncomplete a {
+    align-self: flex-end;
+    background: var(--color-light);
+    color: var(--color-dark);
+    border: var(--color-light) solid 0.2vh;
+}
+
+div.uncomplete a:hover {
+    background: transparent;
+    box-shadow: var(--color-light) 0 0 5px;
+}
+
+div.complete a {
+    align-self: center;
+    background: var(--color-chatbox-1);
+    color: var(--color-light);
+    border: var(--color-chatbox-1) solid 0.2vh;
+}
+
+div.complete a:hover {
+    background: var(--color-light);
+    color: var(--color-chatbox-1);
+    box-shadow: var(--color-chatbox-1) 0 0 5px;
+}
+
+div.demarche span.status {
+    font-weight: bold;
+    font-style: italic;
 }

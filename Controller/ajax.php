@@ -123,6 +123,27 @@ function ban () {
 	}
 }
 
+function deleteDemarche () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		dropDemarche ($id);
+	}
+}
+
+function updateRemarque () {
+	if (isset ($_GET ['id']) && isset ($_GET['rmq'])) {
+		$id = $_GET ['id'];
+		$rmq = $_GET ['rmq'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateRmq ($id, $rmq);
+	}
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

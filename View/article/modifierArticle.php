@@ -18,7 +18,7 @@
             document.getElementById("newAccroche").style.display = "none";
         }
         function modifierImage(){
-           if(document.getElementById("article-illus").style.display == "none"){
+           if(document.getElementById("article-illus").style.display === "none"){
                 document.getElementById("article-illus").style.display = "block";
                 document.getElementById("article-illus").src = document.getElementById("newImage").value;
                 document.getElementById("newImage").style.display = "none";
@@ -32,7 +32,7 @@
         }
 
         function modifierTitre(){
-            if(document.getElementById("article-titre").style.display == "none"){
+            if(document.getElementById("article-titre").style.display === "none"){
                 document.getElementById("article-titre").style.display = "block";
                 document.getElementById("article-titre").innerHTML = document.getElementById("newTitre").value;
                 document.getElementById("newTitre").style.display = "none";
@@ -47,7 +47,7 @@
         }
 
         function modifierTexte(){
-            if(document.getElementById("article-texte").style.display == "none"){
+            if(document.getElementById("article-texte").style.display === "none"){
                 document.getElementById("article-texte").style.display = "block";
                 document.getElementById("article-texte").innerHTML = document.getElementById("newTexte").value;
                 document.getElementById("newTexte").style.display = "none";

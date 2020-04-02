@@ -170,5 +170,23 @@ function demarches () {
 	require_once(dirname(__FILE__) . "/../Model/queries.php");
 	$user = $_SESSION['user'];
 	
+	$demarches = getDemarches($user['id']);
+	
 	require (dirname(__FILE__) . "/../View/user/personal_space/demarches.php");
+}
+
+function seeDemarche () {
+	if (!isset($_SESSION['idUser']) || !isset ($_GET['id'])) {
+		login();
+		return;
+	}
+	
+	require_once (dirname(__FILE__) . "/../Model/queries.php");
+	$user = $_SESSION['user'];
+	$id = $_GET['id'];
+	
+	$demarche = getDemarche ($id);
+	$documents = getDocuments ($id);
+	
+	require (dirname(__FILE__) . "/../View/user/personal_space/demarche.php");
 }

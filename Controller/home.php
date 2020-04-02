@@ -16,3 +16,7 @@ function seeArticle() {
     } else
         header('Location: /');
 }
+
+function who () {
+	require_once (dirname(__FILE__) . "/../View/home/qui_sommes_nous.php");
+}

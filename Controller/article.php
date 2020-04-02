@@ -25,7 +25,7 @@
             $id = $_GET['id'];
 
             require_once(dirname(__FILE__) . "/../Model/article/article.php");
-            supprimerArticle($id);
+	        deleteArticle($id);
             require_once(dirname(__FILE__) . "/../View/article/gererArticles.php");
         } else
             header('Location: /');
@@ -40,7 +40,7 @@
             $texte = $_POST['texet'];
             $image = $_POST['image'];
             require_once(dirname(__FILE__) . "/../Model/article/article.php");
-            creerArticle($id, $idAuteur, $titre, $accroche, $texte, $image);
+	        createArticle($id, $idAuteur, $titre, $accroche, $texte, $image);
             require_once(dirname(__FILE__) . "/../View/article/gererArticles.php");
         } else
             header('Location: /');
@@ -54,7 +54,7 @@
             $texte = $_POST['texte'];
             $image = $_POST['image'];
             require_once(dirname(__FILE__) . "/../Model/article/article.php");
-            modifierArticle($id, $titre, $accroche, $texte, $image);
+	        updateArticle($id, $titre, $accroche, $texte, $image);
             require_once(dirname(__FILE__) . "/../View/article/gererArticles.php");
         } else
             header('Location: /');

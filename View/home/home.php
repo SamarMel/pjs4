@@ -32,8 +32,8 @@
                 <div>
                     <img class="carousel-img" src="<? echo $article['imageIllustration'] ?>" alt="home">
                     <a href="/?controller=home&action=seeArticle&id=<? echo $article['id'] ?>">
-                        <? echo (strlen($article['titre']) > 32)
-                            ? substr($article['titre'], 0, 32) . "..."
+                        <? echo (strlen($article['titre']) > 42)
+                            ? substr($article['titre'], 0, 42) . "..."
                             : $article['titre']
                         ?>
                     </a>

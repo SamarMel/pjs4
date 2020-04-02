@@ -1,7 +1,7 @@
 <?php
 
 function loginDB($identifiant, $pwd) {
-    require (dirname(__FILE__) .  '/../database.php');
+	require (dirname(__FILE__) .  '/../database.php');
 
     $sql =
         "SELECT * 
@@ -34,7 +34,7 @@ function loginDB($identifiant, $pwd) {
 }
 
 function registerDB($pseudo, $mail, $pwd, $img) {
-    require (dirname(__FILE__) .  '/../database.php');
+	require (dirname(__FILE__) .  '/../database.php');
     if (isTaken($pseudo) && isTaken($mail))
         return false;
     else {
@@ -47,8 +47,12 @@ function registerDB($pseudo, $mail, $pwd, $img) {
             $req->bindParam(':mail', $mail);
             $req->bindParam(':img', $img);
             $res = $req->execute();
-            if ($res)
-                return true;
+            if ($res) {
+	            require_once (dirname(__FILE__) .  '/../queries.php');
+				$id = getId ($pseudo, $mail);
+				createDefaultConvs($id);
+	            return true;
+            }
             return false;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -57,8 +61,17 @@ function registerDB($pseudo, $mail, $pwd, $img) {
     }
 }
 
+function createDefaultConvs ($id) {
+	require (dirname(__FILE__) .  '/../database.php');
+	require_once (dirname(__FILE__) .  '/../queries.php');
+	
+	$experts = getExperts ();
+	foreach ($experts as $expert)
+		createConv ($expert['id'], $id);
+}
+
 function isTaken($ident) {
-    require (dirname(__FILE__) .  '/../database.php');
+	require (dirname(__FILE__) .  '/../database.php');
     $sql = "SELECT * FROM Utilisateur WHERE UPPER(pseudo) = UPPER(:pseudo) OR UPPER(mail) = UPPER(:mail)";
 
     try {

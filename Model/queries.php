@@ -196,7 +196,7 @@ function queryBotQuestion($id) {
  * @return mixed
  */
 function getIdConv($user1, $user2){
-    require(dirname(__FILE__) . '/./database.php');
+    require(dirname(__FILE__) . '/database.php');
     if ($user1 > $user2){
         $user1 += $user2;
         $user2 = $user1 - $user2;
@@ -224,7 +224,7 @@ function getIdConv($user1, $user2){
  * @return mixed
  */
 function createConv($user1, $user2){
-    require (dirname(__FILE__) . '/./database.php');
+    require (dirname(__FILE__) . '/database.php');
     if ($user1 > $user2){
         $user1 += $user2;
         $user2 = $user1 - $user2;
@@ -243,7 +243,7 @@ function createConv($user1, $user2){
 }
 
 function setAsTraite ($id, $t) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "UPDATE Signalement
 			SET traité = :t
 			WHERE id = :id";
@@ -259,7 +259,7 @@ function setAsTraite ($id, $t) {
 }
 
 function banUser ($id) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "UPDATE Utilisateur
 			SET idRole = 5
 			WHERE id = :id";
@@ -274,7 +274,7 @@ function banUser ($id) {
 }
 
 function dropDemarche ($id) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "DELETE FROM Demarche WHERE id = :id";
 	
 	try {
@@ -287,7 +287,7 @@ function dropDemarche ($id) {
 }
 
 function getDemarches($id) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "SELECT
 			    Dem.*,
 			    IF(
@@ -329,7 +329,7 @@ function getDemarches($id) {
 }
 
 function getDemarche ($id) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "SELECT *
 			FROM Demarche
 			WHERE id = :id";
@@ -346,7 +346,7 @@ function getDemarche ($id) {
 }
 
 function getDocuments ($id) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "SELECT *
 			FROM Document
 			WHERE idDem = :id";
@@ -363,7 +363,7 @@ function getDocuments ($id) {
 }
 
 function updateRmq ($id, $rmq) {
-	require (dirname(__FILE__) . '/./database.php');
+	require (dirname(__FILE__) . '/database.php');
 	$sql = "UPDATE Demarche
 			SET rmq = :rmq
 			WHERE id = :id";
@@ -375,5 +375,40 @@ function updateRmq ($id, $rmq) {
 		$req->execute();
 	} catch (PDOException $e) {
 		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+	}
+}
+
+function getExperts () {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "SELECT id
+			FROM Utilisateur
+			WHERE idRole = 6";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->execute();
+		return $req->fetchAll(PDO::FETCH_ASSOC);
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+		return array();
+	}
+}
+
+function getId($pseudo, $mail) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "SELECT id
+			FROM Utilisateur
+			WHERE UPPER(pseudo) = UPPER(:pseudo)
+			AND UPPER(mail) = UPPER(:mail)";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':pseudo', $pseudo);
+		$req->bindParam(':mail', $mail);
+		$req->execute();
+		return $req->fetch(PDO::FETCH_ASSOC)['id'];
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+		return false;
 	}
 }

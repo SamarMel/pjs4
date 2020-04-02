@@ -68,6 +68,7 @@ body {
 	font-size: 13vh;
 	letter-spacing: 3px;
 	font-family: "League Gothic", "OpenSans", sans-serif;
+	text-transform: uppercase;
 	margin: 0;
 	color: gray;
 }

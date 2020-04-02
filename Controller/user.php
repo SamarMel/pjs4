@@ -81,6 +81,7 @@ function gerer () {
             require(dirname(__FILE__) . "/../View/user/personal_space/reports.php");
             break;
         case "Rédacteur":
+            header("Location: /?controller=article&action=gererArticles");
             break;
         case "Étudiant":
             header("Location: http://preclarity.ulyssebouchet.fr");

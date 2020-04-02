@@ -57,9 +57,9 @@
                 </table>
             </td>
             <td id="action_2" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=events">
+                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=logout">
                     <div class="cell">
-                        Évènements
+                        Se Déconnecter
                     </div>
                 </a>
             </td>

@@ -7,8 +7,8 @@ $(document).ready(() => {
 	});
 	
 	$("#filter-div").change((event) => {
-		let filter = event.target.checked ? "&filter=0" : "";
-		document.location = `/?controller=user&action=gerer${filter}`;
+		let filter = event.target.checked ? "0" : "";
+		document.location = `/?controller=user&action=gerer&filter=${filter}`;
 	});
 	
 	$(".ban").click ((event) => {

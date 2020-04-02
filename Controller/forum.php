@@ -30,19 +30,24 @@ function searchTopic() {
         $categories = getCategories();
 
         require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
-
     }
 }
 
 function createTopic(){
-    if(isset($_GET['topicName']) && isset($_GET['topicCategory'])){
-
-        require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
-        $sujet = $_GET['topicName'];
-        $categorie = $_GET['topicCategory'];
-        insertTopic($sujet, $categorie);
-
-        require_once (dirname(__FILE__) . "/../View/forum/search_topic.php");
+    if(isset ($_GET['sujet']) && isset ($_GET['idCategorie'])){
+	    $sujet = $_GET['sujet'];
+	    $idCategorie = $_GET['idCategorie'];
+	    
+    	if (isset($_GET['description'])) {
+		    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+			$description = $_GET['description'];
+		    insertTopic($sujet, $idCategorie);
+		    $id = getTopicID ($sujet);
+		    postBD ($description, $id);
+		    
+		    seeTopic2 ($id);
+	    } else
+            require_once (dirname(__FILE__) . "/../View/forum/createTopic.php");
     }
 }
 

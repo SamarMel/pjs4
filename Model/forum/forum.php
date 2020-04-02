@@ -121,17 +121,18 @@ function getPosts($id) {
 }
 
 /**
- *  Créer un topic
+ *  Crée un topic
  * @param $sujet
+ * @param $idC
  * @return bool
  */
 function insertTopic($sujet, $idC) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur, :idC)";
+        $sql = "INSERT INTO Topic (titre, idAuteur, idCategorie) VALUES (:titre, :idAuteur, :idC)";
         $query = $database->prepare($sql);
         $query->bindParam(':titre', $sujet);
-        $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
+        $query->bindParam(':idAuteur', $_SESSION['idUser']);
         $query->bindParam(':idC', $idC);
         $query->execute();
     }
@@ -161,6 +162,19 @@ function postBD($post, $idTopic){
         return false;
     }
     return true;
+}
+
+function getTopicID($sujet) {
+	require(dirname(__FILE__) . '/../database.php');
+	try {
+		$sql = "SELECT * FROM Topic WHERE titre = :sujet";
+		$query = $database->prepare($sql);
+		$query->bindParam(':sujet', $sujet);
+		$query->execute();
+		return $query->fetch(PDO::FETCH_ASSOC)['id'];
+	} catch(PDOException $e) {
+		return null;
+	}
 }
 
 

@@ -71,9 +71,11 @@
 
             <div id="creer-topic">
                 <h2>Créer un topic</h2>
-                <form class="forum-form" action="/?controller=forum&action=createTopic" method="get">
-                    <input type="text" placeholder="Nom du topic" id="creerTopicName" name="topicName">
-                    <select name="topicCategory" id="creerTopicCategorie">
+                <form class="forum-form" action="/" method="get">
+                    <input type="hidden" name="controller" value="forum">
+                    <input type="hidden" name="action" value="createTopic">
+                    <input type="text" placeholder="Nom du topic" id="creerTopicName" name="sujet">
+                    <select name="idCategorie" id="creerTopicCategorie">
                         <?php
                         foreach ($categories as $category):
                         ?>

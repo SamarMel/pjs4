@@ -10,32 +10,23 @@
             <script src="https://smtpjs.com/v3/smtp.js">
             </script>
         <script type="text/javascript">
-        
-     
-         function sendMail() {
-                
-       var subject =  document.getElementById('subject').value;
-       var body =  document.getElementById('message').value;
-       var Pseudo =  document.getElementById('pseudo').value;
-       var mail =  document.getElementById('email').value;
-    Email.send({
-     
-       
-    Host : "smtp.gmail.com",
-    Username : "plecaritypjs4@gmail.com",
-    Password : "descartesDUT2A",
-    To : "plecaritypjs4@gmail.com",
-    From : "plecaritypjs4@gmail.com",
-    Subject : subject,
-    Body :"Pseudo :"+"  "+ Pseudo+"  "+"Mail"+"  "+ mail+ "  " + body
-  
-    
-   
-}).then(
-  message => alert(message)
-);
-}
-    
+            function sendMail() {
+                var subject =  document.getElementById('subject').value;
+                var body =  document.getElementById('message').value;
+                var Pseudo =  document.getElementById('pseudo').value;
+                var mail =  document.getElementById('email').value;
+                Email.send({
+                Host : "smtp.gmail.com",
+                Username : "plecaritypjs4@gmail.com",
+                Password : "descartesDUT2A",
+                To : "plecaritypjs4@gmail.com",
+                From : "plecaritypjs4@gmail.com",
+                Subject : subject,
+                Body :"Pseudo :"+"  "+ Pseudo+"  "+"Mail"+"  "+ mail+ "  " + body
+                }).then(
+                message => alert(message)
+                );
+            }
         </script>
     </head>
 

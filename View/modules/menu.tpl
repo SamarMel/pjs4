@@ -34,9 +34,9 @@
         </li>
     </ul>
     <ul id="infos">
-        <li><a href = "">Nous contacter</a></li>
-        <li><a href = "">Mentions légales</a></li>
-        <li><a href = "">Qui sommes-nous ?</a></li>
-        <li><a href = "">Partenaires</a></li>
+        <li><a href = "/?controller=home&action=contact">Nous contacter</a></li>
+        <li><a href = "/?controller=home&action=legal">Mentions légales</a></li>
+        <li><a href = "/?controller=home&action=who">Qui sommes-nous ?</a></li>
+        <li><a href = "/?controller=home&action=partenaires">Partenaires</a></li>
     </ul>
 </div>

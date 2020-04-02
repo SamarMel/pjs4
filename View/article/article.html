@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 	<head>
 		<title>Création d'un article</title>
 		<meta charset="utf-8">

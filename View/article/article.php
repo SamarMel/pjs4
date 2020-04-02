@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 	<head>
 		<title>Création d'un article</title>
 		<meta charset="utf-8">
@@ -12,7 +12,7 @@
 		<style>#menu {background: var(--color-forum-2);}</style>
 		<div id="formulaire">
 			<h1> NOUVEL ARTICLE</h1>
-			<form id="formArticle" method="post" action="/?controller=creerArticle&action=nouvelArticle">
+			<form id="formArticle" method="post" action="/?Controller=article&action=nouvelArticle">
 				
 				<div id="choixCat">
 					<label for="idCategorie">Catégorie</label>

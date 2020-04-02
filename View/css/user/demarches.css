@@ -1,0 +1,83 @@
+#ajouter-demande {
+    width: 100%;
+    margin-top: 7.5vh;
+}
+
+#ajouter-demande {
+    background: var(--color-action-4);
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 1vh;
+    margin-bottom: 0;
+    margin-top: 1vh;
+    font-size: 3vh;
+    letter-spacing: 2px;
+    font-family: "League Gothic", "OpenSans", sans-serif;
+}
+
+#ajouter-demande>h2 {
+    border-bottom: var(--color-light) solid 3px;
+    color: var(--color-light);
+}
+
+.demarch-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.demarch-form>input, .demarch-form>select {
+    background: var(--color-light);
+    font-size: 1.75vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 4vh;
+    width: 15vw;
+    border: var(--color-light) solid 2px;
+}
+
+.demarch-form>input:not([type="submit"]) {
+    width: 20vw;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.demarch-form>input:hover {
+    background: #e0e0e0;
+}
+
+.demarch-form>input:focus {
+    background: #d0d0d0;
+    border: black solid 2px;
+}
+
+.demarch-form>input[type="submit"]:hover {
+    background: var(--color-action-4);
+    cursor: pointer;
+}
+
+.demarch-form>input[type="submit"]:focus {
+    background: black;
+    color: var(--color-light);
+    cursor: pointer;
+}
+
+.horizontal-scroll-wrapper {
+    width: 80vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.horizontal-scroll-wrapper div {
+    background: var(--color-action-4);
+    filter: brightness(125%);
+
+    display: inline-block;
+    width: 35vw;
+    height: 20vh;
+}

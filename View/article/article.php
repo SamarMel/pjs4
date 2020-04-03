@@ -3,7 +3,7 @@
 	<head>
 		<title>Création d'un article</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="./article.css">
+		<link rel="stylesheet" href="/../css/article.css">
 	</head>
 
 	<body>
@@ -21,7 +21,6 @@
 						<option value="2">Aides</option>
 						<option value="3">Logement</option>
 						<option value="4">Études</option>
-						<option value="5">Divers</option>
 					</SELECT>
 				</div>
 				<div id="titreArticle">

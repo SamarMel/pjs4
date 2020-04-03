@@ -13,9 +13,17 @@
     <script type="text/javascript">
         window.onload = function(){
             document.getElementById("newImage").style.display = "none";
+        document.getElementById("newImage").value = document.getElementById("article-illus").src;
+
             document.getElementById("newTitre").style.display = "none";
+        document.getElementById("newTitre").value = document.getElementById("article-titre").innerHTML;
+
             document.getElementById("newTexte").style.display = "none";
+        document.getElementById("newTexte").value = document.getElementById("article-texte").innerHTML;
+
             document.getElementById("newAccroche").style.display = "none";
+        document.getElementById("newAccroche").value = document.getElementById("article-accroche").innerHTML;
+
         }
         function modifierImage(){
            if(document.getElementById("article-illus").style.display === "none"){
@@ -92,7 +100,7 @@
          <form id="modificationArticle" method="post" action="/?controller=article&action=modifierArticle&id=<? echo $article["id"]?>">
         </form>
             <span id="article-titre"><? echo $article['titre'] ?></span>
-            <textarea form="modificationArticle"  id="newTitre"></textarea>
+            <textarea form="modificationArticle" name="newTitre" id="newTitre"></textarea>
             <button id="modifierTitre" onClick="modifierTitre()">Modifier</button>
 
             <span id="article-infos">
@@ -100,19 +108,19 @@
                 (dernière modification le <? echo $article['dateMaj']?>)
             </span>
             <span id="article-accroche"><? echo $article['accroche'] ?></span>
-             <textarea form="modificationArticle"  id="newAccroche"></textarea>
+             <textarea form="modificationArticle" name="newAccroche" id="newAccroche"></textarea>
             <button id="modifierAccroche" onClick="modifierAccroche()">Modifier</button>
 
             <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
-            <textarea form="modificationArticle"  id="newImage"></textarea>
+            <textarea form="modificationArticle" name="newImage" id="newImage"></textarea>
             <button id="modifierImage" onClick="modifierImage()">Modifier</button>
             
             <span id="article-texte"><? echo $article['texte'] ?></span>
-             <textarea form="modificationArticle" id="newTexte"></textarea>
+             <textarea form="modificationArticle" name="newTexte" id="newTexte"></textarea>
             <button id="modifierTexte" onClick="modifierTexte()">Modifier</button>
        
             <button type="submit" form="modificationArticle">Modifier l'article</button>
-        <form method="get" action="/?controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">
+        <form method="post" action="/?controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">
             <input type="submit" id="supprimerArticle" value="Supprimer Article">
         </form>
     </div>

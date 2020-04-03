@@ -27,11 +27,15 @@ h2 {
 	position: relative;
 	border-bottom: var(--color-forum-2) solid 2px;
 	width: 100%;
-	min-height: 15vh;
+	height: 15vh;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-direction: row;
+}
+
+.post-content {
+	height: 100%;
 }
 
 .user-info {
@@ -63,9 +67,16 @@ h2 {
 	font-size: 1.3vh;
 }
 
-.post-content>p {
+.post-content>textarea[disabled] {
+	background: transparent;
+	border: none;
+}
+
+.post-content>textarea {
+	resize: none;
 	font-size: 1.75vh;
-	max-width: 58vw;
+	width: 58vw;
+	height: 100%;
 }
 
 .post-info {
@@ -75,15 +86,18 @@ h2 {
 	font-size: 1.5vh;
 }
 
-form {
+form#send-response {
 	width: 100%;
+}
+
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 }
 
-textarea {
+textarea[name="post"] {
 	margin-top: 5vh;
 	resize: none;
 	width: 100%;
@@ -94,11 +108,11 @@ textarea {
 	font-size: 1.5vh;
 }
 
-textarea:focus {
+textarea[name="post"]:focus {
 	border: var(--color-forum-1) solid 3px;
 }
 
-input[type="submit"], button.contact-person {
+input[type="submit"], button.edit, button.contact-person {
 	background: black;
 	border: black solid 3px;
 	font-size: 1.5vh;
@@ -108,14 +122,14 @@ input[type="submit"], button.contact-person {
 	margin-top: 1vh;
 }
 
-input[type="submit"]:hover, button.contact-person:hover {
+input[type="submit"]:hover, button.edit:hover, button.contact-person:hover {
 	background: var(--color-forum-1);
 	border-color: var(--color-forum-1);
 	color: #000;
 	cursor: pointer;
 }
 
-form#buttons {
+form.buttons {
 	position: absolute;
 	right: 0.5vw;
 	top: 2.5vh;
@@ -142,7 +156,7 @@ form#buttons {
 		height: 12.5vw;
 	}
 
-	.post-content>p {
+	.post-content>textarea {
 		max-width: 60vw;
 	}
 }
@@ -162,7 +176,7 @@ form#buttons {
 		height: 12.5vw;
 	}
 
-	.post-content>p {
+	.post-content>textarea {
 		max-width: 60vw;
 	}
 }
@@ -170,44 +184,3 @@ form#buttons {
 /* Medium devices (Laptops) */
 @media (min-width: 992px) and (max-width: 1199px) {
 }
-
-/* OLD */
-/*
-h1 {
-	font-size: 3em;
-	text-align : left;
-	margin-top:5%;
-}
-
-.sujet{
-	font-size: 1.5em;
-	text-align : center;
-	margin-top:5%;
-}
-
-.post {
-	border-bottom:3px solid grey;
-	padding:1%;
-}
-
-.btnDark{
-	background-color:black;
-	color:white;
-	padding:3px;
-	margin-top:1%;
-	margin-bottom:5%;
-	border-radius:5px;
-}
-
-a{
-	margin-top:5%;
-	margin-bottom:5%;
-	text-decoration:none;
-}
-
-input{
-	background-color:lightgrey;
-	border:1px solid black;
-	height:10%;
-}
-*/

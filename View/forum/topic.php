@@ -28,7 +28,7 @@
             <h5><? echo $author['role'] ?></h5>
         </div>
         <div class="post-content">
-            <p><? echo $posts[0]['content'] ?></p>
+            <textarea id="modify-<? echo $posts[0]['id'] ?>" disabled><? echo $posts[0]['content'] ?></textarea>
             <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
         </div>
 
@@ -38,7 +38,7 @@
             <input type="hidden" name="idPost" value="<?php echo $posts[0]['id'] ?>">
 
             <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
-                <input type='submit' name='modif' value='Modifier'>
+                <button class="edit" id="<? echo $posts[0]['id'] ?>" type="button" name='modif'>Modifier</button>
                 <input type='submit' name='supp' value='Supprimer'>
             <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
                 <input type='submit' name='signal' value='Signaler'>
@@ -65,17 +65,17 @@
                     <h5><? echo $author['role'] ?></h5>
                 </div>
                 <div class="post-content">
-                    <p><? echo $post['content'] ?></p>
+                    <textarea id="modify-<? echo $post['id'] ?>" disabled><? echo $post['content'] ?></textarea>
                     <span class="post-info"><? echo ($post['modifie'] == 1 ? "Modifié | " : "") . $post['datePost']?></span>
                 </div>
 
-                <form id="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
+                <form class="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
                     <input type="hidden" name="idSignale" value="<?php echo $post['idAuteur'] ?>">
                     <input type='hidden' name='idTopic' value="<?php echo $id ?>">
                     <input type="hidden" name="idPost" value="<?php echo $post['id'] ?>">
 
                     <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
-                        <input type='submit' name='modif' value='Modifier'>
+                        <button class="edit" id="<? echo $post['id'] ?>" type="button" name='modif'>Modifier</button>
                         <input type='submit' name='supp' value='Supprimer'>
                     <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
                         <input type='submit' name='signal' value='Signaler'>
@@ -110,35 +110,3 @@
 </body>
 <script src="/View/js/topic.js"></script>
 </html>
-
-<!-- OLD -->
-
-<!--
-<html lang="fr">
-    <head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/topic.css" media="screen" type="text/css" />
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<title><? //echo $sujet ?></title>
-	</head>
-
-	<body class="col-md-9 offset-md-2">
-		<?php  //require (dirname(__FILE__) . "/menu.tpl"); ?>
-		<h1>FORUM</h1>
-		<h2 class="sujet">SUJET : <?php //echo($sujet);?></h2>
-
-		<div class="posts">
-			<?php //echo afficherPosts($idTopic);?>
-			<input type="text" class="col-md-12">
-			<button class="btnDark offset-11 col-md-1">Envoyer</button>
-		</div>
-
-
-		<?php //require (dirname(__FILE__) . "/chatbox.html"); ?>
-		<?php //require (dirname(__FILE__) . "/footer.tpl"); ?>
-	</body>
-
-</html>-->

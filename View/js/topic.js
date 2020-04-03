@@ -1,4 +1,32 @@
 $(document).ready(() => {
+    let editing = [];
+    $(".edit").click((event) => {
+        let id = event.target.id;
+        let modify = $(`#modify-${id}`);
+        if (editing[id] === undefined)
+            editing[id] = false;
+        
+        if (editing[id]) {
+            modify.attr (
+              {
+                  "disabled" : true
+              }
+            );
+            let txt = modify.val();
+            $.ajax(`/?controller=ajax&action=updatePost&id=${id}&txt=${txt}`);
+            $(`#${id}`).html("Modifier");
+        } else {
+            modify.attr (
+              {
+                  "disabled" : false
+              }
+            );
+            $(`#${id}`).html("Sauvegarder");
+            modify.focus();
+        }
+        editing[id] = !editing[id];
+    });
+    
     $("#send-response").submit((event) => {
         if (!validation()) {
             event.preventDefault();

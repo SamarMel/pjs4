@@ -144,6 +144,17 @@ function updateRemarque () {
 	}
 }
 
+function updatePost () {
+	if (isset ($_GET ['id']) && isset ($_GET['txt'])) {
+		$id = $_GET ['id'];
+		$txt = $_GET ['txt'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateTxt ($id, $txt);
+	}
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

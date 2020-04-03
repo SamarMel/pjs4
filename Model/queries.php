@@ -374,7 +374,24 @@ function updateRmq ($id, $rmq) {
 		$req->bindParam (':rmq', $rmq);
 		$req->execute();
 	} catch (PDOException $e) {
-		echo utf8_encode ("Echec du SELECT" . $e->getMessage());
+		echo utf8_encode ("Echec du UPDATE" . $e->getMessage());
+	}
+}
+
+function updateTxt ($id, $txt) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Post
+			SET content = :txt,
+			    modifie = 1
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':txt', $txt);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo utf8_encode ("Echec du UPDATE" . $e->getMessage());
 	}
 }
 

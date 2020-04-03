@@ -37,7 +37,7 @@
                     ?>
                         <tr class="row topic">
                             <td class="sujet">
-                                <a href="/?Controller=article&action=seeArticle&id=<? echo $article['id']?>">
+                                <a href="/?controller=article&action=seeArticle&id=<? echo $article['id']?>">
                                     <? echo (strlen($article['titre']) > 64)
                                         ? substr($article['titre'], 0, 64) . "..."
                                         : $article['titre']
@@ -53,7 +53,7 @@
                     ?>
                 </table>
     </div>
-    <form method="post" action="/?Controller=article&action=nouvelArticle">
+    <form method="post" action="/?controller=article&action=nouvelArticle">
         <input type="submit" value="Créer un nouvel Article">
     </form>
 </div>

@@ -21,6 +21,10 @@ function who () {
 	require_once (dirname(__FILE__) . "/../View/home/qui_sommes_nous.php");
 }
 
+function faq () {
+	require_once (dirname(__FILE__) . "/../View/home/faq.php");
+}
+
 function articles () {
 	if (isset($_GET['idCate'])) {
 		$idCate = $_GET['idCate'];

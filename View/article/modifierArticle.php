@@ -89,9 +89,8 @@
     require_once(dirname(__FILE__) . "/../modules/header.php");
     ?>
     <div id="article">
-        <form id="modificationArticle" method="post" action="/?controller=article&action=modifierArticle&id=<? echo $article["id"]?>">
             <span id="article-titre"><? echo $article['titre'] ?></span>
-            <textarea id="newTitre"></textarea>
+            <textarea form="modificationArticle"  id="newTitre"></textarea>
             <button id="modifierTitre" onClick="modifierTitre()">Modifier</button>
 
             <span id="article-infos">
@@ -99,17 +98,17 @@
                 (dernière modification le <? echo $article['dateMaj']?>)
             </span>
             <span id="article-accroche"><? echo $article['accroche'] ?></span>
-             <textarea id="newAccroche"></textarea>
+             <textarea form="modificationArticle"  id="newAccroche"></textarea>
             <button id="modifierAccroche" onClick="modifierAccroche()">Modifier</button>
 
             <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
-            <textarea id="newImage"></textarea>
+            <textarea form="modificationArticle"  id="newImage"></textarea>
             <button id="modifierImage" onClick="modifierImage()">Modifier</button>
             
             <span id="article-texte"><? echo $article['texte'] ?></span>
-             <textarea id="newTexte"></textarea>
+             <textarea form="modificationArticle" id="newTexte"></textarea>
             <button id="modifierTexte" onClick="modifierTexte()">Modifier</button>
-
+        <form id="modificationArticle" method="post" action="/?controller=article&action=modifierArticle&id=<? echo $article["id"]?>">
             <button type="submit" form="modificationArticle">Modifier l'article</button>
         </form>
         <form method="post" action="/?controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">

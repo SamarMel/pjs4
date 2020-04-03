@@ -43,7 +43,7 @@
             <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
                 <input type='submit' name='signal' value='Signaler'>
             <? endif; ?>
-            <? if ($_SESSION["idUser"] != $posts[0]['idAuteur']): ?>
+            <? if ($_SESSION["idUser"] != $posts[0]['idAuteur'] && isset($_SESSION['idUser'])): ?>
                 <button type="button" class='contact-person' id="b<? echo $topic['idAuteur'] ?>">Contacter</button>
             <? endif; ?>
         </form>
@@ -80,7 +80,7 @@
                     <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
                         <input type='submit' name='signal' value='Signaler'>
                     <? endif; ?>
-                    <? if ($_SESSION["idUser"] != $post['idAuteur']): ?>
+                    <? if ($_SESSION["idUser"] != $post['idAuteur'] && isset($_SESSION['idUser'])): ?>
                         <button type="button" class='contact-person' id="b<? echo $post['idAuteur'] ?>">Contacter</button>
                     <? endif; ?>
                 </form>

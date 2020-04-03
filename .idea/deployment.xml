@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="ulyssebouchet.fr" showDialogOnRemoteDnD="false">
+  <component name="PublishConfigData" serverName="ulyssebouchet.fr (project level)" showDialogOnRemoteDnD="false">
     <serverData>
-      <paths name="ulyssebouchet.fr">
+      <paths name="ulyssebouchet.fr (project level)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

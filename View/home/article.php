@@ -29,8 +29,10 @@
             (dernière modification le <? echo $article['dateMaj']?>)
         </span>
         <span id="article-accroche"><? echo $article['accroche'] ?></span>
-        <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
-        <span id="article-texte"><? echo $article['texte'] ?></span>
+        <span id="article-texte">
+            <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
+            <? echo $article['texte'] ?>
+        </span>
     </div>
 </div>
 

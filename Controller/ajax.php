@@ -155,6 +155,19 @@ function updatePost () {
 	}
 }
 
+function sendMail () {
+	$name = $_POST['form_name'];
+	$email = $_POST['form_email'];
+	$message = $_POST['form_msg'];
+	
+	$to = "plecaritypjs4@gmail.com";
+	$subject = $_POST['form_subject'];
+	$body = "Pseudo: " . $name . "\nMessage: " . $message;
+	$headers = "From: " . $email;
+	//send email
+	mail ($to, $subject, $body, $headers);
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

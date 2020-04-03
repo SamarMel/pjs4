@@ -138,5 +138,5 @@
 <!-- Footer -->
 <?php require_once(dirname(__FILE__) . "/../modules/footer.tpl"); ?>
 </body>
-<script src="/View/js/faq.js"></script>
+<script src="/View/js/home/faq.js"></script>
 </html>

@@ -289,33 +289,35 @@ function dropDemarche ($id) {
 function getDemarches($id) {
 	require (dirname(__FILE__) . '/database.php');
 	$sql = "SELECT
-			    Dem.*,
-			    IF(
-			        COUNT(Doc.id) <>(
-			        SELECT
-			            COUNT(*)
-			        FROM
-			            Document D
-			    ),
-			    COUNT(Doc.id),
-			    0
-			    ) AS 'manquants'
-			FROM
-			    Demarche Dem,
-			    Document Doc
-			WHERE
-			    (
-			        Dem.idUser = 1 AND Doc.idDem = Dem.id AND Doc.isRendu = 0
-			    ) OR NOT EXISTS(
-			    SELECT
-			        D.*
-			    FROM
-			        Document D
-			    WHERE
-			        D.idDem = Dem.id
-			)
-			GROUP BY
-			    Dem.id";
+                Dem.*,
+                IF(
+                    COUNT(Doc.id) <>(
+                    SELECT
+                        COUNT(*)
+                    FROM
+                        Document D
+                ),
+                COUNT(Doc.id),
+                0
+                ) AS 'manquants'
+            FROM
+                Demarche Dem,
+                Document Doc
+            WHERE
+                Dem.iduser = :id AND(
+                    (
+                        Doc.iddem = Dem.id AND Doc.isrendu = 0
+                    ) OR NOT EXISTS(
+                    SELECT
+                        D.*
+                    FROM
+                        Document D
+                    WHERE
+                        D.iddem = Dem.id
+                )
+                )
+            GROUP BY
+                Dem.id";
 	
 	try {
 		$req = $database->prepare ($sql);

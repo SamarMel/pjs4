@@ -37,6 +37,6 @@
         <li><a href = "/?controller=home&action=contact">Nous contacter</a></li>
         <li><a href = "/?controller=home&action=legal">Mentions légales</a></li>
         <li><a href = "/?controller=home&action=who">Qui sommes-nous ?</a></li>
-        <li><a href = "/?controller=home&action=partenaires">Partenaires</a></li>
+        <li><a href = "/?controller=home&action=faq">FAQ</a></li>
     </ul>
 </div>

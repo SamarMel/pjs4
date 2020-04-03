@@ -66,7 +66,9 @@
                 <?php
                 foreach ($categories as $category):
                     ?>
-                    <option value="<? echo $category['id'] ?>"><? echo $category['intitulé']?></option>
+                    <option value="<? echo $category['id'] ?>" <? echo $category['id'] == $topics[0]['idCategorie'] ? "selected" : ""?>>
+                        <? echo $category['intitulé']?>
+                    </option>
                 <?
                 endforeach;
                 ?>

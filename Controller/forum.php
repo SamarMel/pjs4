@@ -8,15 +8,23 @@ function home() {
 }
 
 function seeTopic() {
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-
-        require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
-        $topic = getTopic($id);
-        $posts = getPosts($id);
-        require_once(dirname(__FILE__) . "/../View/forum/topic.php");
-    } else
-        header('Location: /?controller=forum&action=home');
+	if (isset($_GET['id'])) {
+		$id = $_GET['id'];
+	
+		require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
+		$topic = getTopic($id);
+		$posts = getPosts($id);
+		
+		$p = 1;
+		if (isset($_GET['p']))
+			$p = $_GET['p'];
+		
+		$first_post = $posts[0];
+		$posts = array_splice ($posts, ($p - 1) * 9 + 1, 9);
+		var_dump($all_posts);
+		require_once(dirname(__FILE__) . "/../View/forum/topic.php");
+	} else
+		header('Location: /?controller=forum&action=home');
 }
 
 function searchTopic() {
@@ -45,7 +53,8 @@ function createTopic(){
 		    $id = getTopicID ($sujet);
 		    postBD ($description, $id);
 		    
-		    seeTopic2 ($id);
+		    $_GET['id'] = $id;
+		    seeTopic ();
 	    } else
             require_once (dirname(__FILE__) . "/../View/forum/createTopic.php");
     }
@@ -58,7 +67,7 @@ function post(){
         require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
         postBD($_GET['post'], $_GET['id']);
     }
-    seeTopic2($_GET['id']);
+    seeTopic();
 }
 
 function moderation(){
@@ -82,7 +91,8 @@ function modifierPost($idSignale, $idMsg){
 function supprimerPost($idSignale, $idMsg){
     require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
     supprimerPostBD($idMsg);
-    seeTopic2($_POST['id']);
+    $_GET['id'] = $_POST['id'];
+    seeTopic();
 }
 
 //ADAPTER LES NOMS -> Voir avec Ulysse
@@ -94,11 +104,4 @@ function signalerPost($idSignale, $idPost, $idTopic){
     $topic = getTopic($idTopic);
 
     require_once(dirname(__FILE__) . "/../View/user/personal_space/report.php");
-}
-
-function seeTopic2($id) {
-    require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
-    $topic = getTopic($id);
-    $posts = getPosts($id);
-    require_once(dirname(__FILE__) . "/../View/forum/topic.php");
 }

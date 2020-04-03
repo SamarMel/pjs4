@@ -141,6 +141,30 @@ form.buttons {
 	width: unset;
 }
 
+div#topic-nav {
+	margin-top: 2.5vh;
+	width: 30vw;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a.topic-nav-link {
+	font-size: 1.75vh;
+	cursor: not-allowed;
+}
+
+a.topic-nav-link[href] {
+	cursor: pointer;
+	color: var(--color-home-1);
+}
+
+a.topic-nav-link[href]:hover {
+	filter: brightness(90%);
+}
+
 /* Extra-small devices (Phones) */
 @media (max-width: 767px) {
 	input[type="submit"] {

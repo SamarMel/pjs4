@@ -45,7 +45,7 @@
     </div>
 
     <div id="body">
-        <video width="600" height="300" controls>
+        <video width="600" height="300" controls poster="/Resources/images/preclarity.png">
             <source src="/Resources/images/kx3ib-s5to6.webm" type="video/mp4">
         </video>
         <div id="vid-invite">

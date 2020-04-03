@@ -13,7 +13,7 @@ function getLastTopics () {
             AND T.idAuteur = U.id
             AND T.idCategorie = C.id
             GROUP BY T.id
-            ORDER BY P.datePost DESC";
+				ORDER BY `lastPost` DESC";
         $query = $database->prepare($sql);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -93,7 +93,7 @@ function getAuthor($idAuteur) {
 function getTopic($id) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT T.*, C.intitulé AS 'categorie' FROM Topic T, Categorie C WHERE T.id = :id";
+        $sql = "SELECT T.*, C.intitulé AS 'categorie' FROM Topic T, Categorie C WHERE T.id = :id AND C.id = T.idCategorie";
         $query = $database->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();

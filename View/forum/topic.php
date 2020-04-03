@@ -28,34 +28,32 @@
             <h5><? echo $author['role'] ?></h5>
         </div>
         <div class="post-content">
-            <textarea id="modify-<? echo $posts[0]['id'] ?>" disabled><? echo $posts[0]['content'] ?></textarea>
+            <textarea id="modify-<? echo $first_post['id'] ?>" disabled><? echo $first_post['content'] ?></textarea>
             <span class="post-info"><? echo $topic['categorie'] . " | " . $topic['dateTopic']?></span>
         </div>
 
         <form id="buttons" action="/?controller=forum&action=moderation" method="POST" name="moderation">
             <input type="hidden" name="idSignale" value="<?php echo $topic['idAuteur'] ?>">
             <input type='hidden' name='idTopic' value="<?php echo $id ?>">
-            <input type="hidden" name="idPost" value="<?php echo $posts[0]['id'] ?>">
+            <input type="hidden" name="idPost" value="<?php echo $first_post['id'] ?>">
 
             <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
-                <button class="edit" id="<? echo $posts[0]['id'] ?>" type="button" name='modif'>Modifier</button>
+                <button class="edit" id="<? echo $first_post['id'] ?>" type="button" name='modif'>Modifier</button>
                 <input type='submit' name='supp' value='Supprimer'>
-            <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
+            <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2|| $_SESSION["user"]["idRole"] == 6): ?>
                 <input type='submit' name='signal' value='Signaler'>
             <? endif; ?>
-            <? if ($_SESSION["idUser"] != $posts[0]['idAuteur'] && isset($_SESSION['idUser'])): ?>
+            <? if ($_SESSION["idUser"] != $first_post['idAuteur'] && isset($_SESSION['idUser'])): ?>
                 <button type="button" class='contact-person' id="b<? echo $topic['idAuteur'] ?>">Contacter</button>
             <? endif; ?>
         </form>
     </div>
+	<? if (count($posts) == 0): ?>
+    <p>Aucun post trouvé.</p>
+    <? endif; ?>
     <div id="posts">
         <?php
-        $passed = false;
         foreach ($posts as $post):
-            if(!$passed) {
-                $passed = true;
-                continue;
-            }
             $author = getAuthor($post['idAuteur']);
             ?>
             <div id="post-<? echo $post['id'] ?>" class="post">
@@ -77,7 +75,7 @@
                     <? if($_SESSION["user"]["idRole"] == 3 || $_SESSION["user"]["idRole"] == 4): ?>
                         <button class="edit" id="<? echo $post['id'] ?>" type="button" name='modif'>Modifier</button>
                         <input type='submit' name='supp' value='Supprimer'>
-                    <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2): ?>
+                    <? elseif ($_SESSION["user"]["idRole"] == 1 || $_SESSION["user"]["idRole"] == 2|| $_SESSION["user"]["idRole"] == 6): ?>
                         <input type='submit' name='signal' value='Signaler'>
                     <? endif; ?>
                     <? if ($_SESSION["idUser"] != $post['idAuteur'] && isset($_SESSION['idUser'])): ?>
@@ -89,6 +87,30 @@
         endforeach;
         ?>
     </div>
+
+    <div id="topic-nav">
+		 <? if ($p > 1): ?>
+           <a class="topic-nav-link"
+              href="/?controller=forum&action=seeTopic&id=<? echo $topic['id'] ?>">
+               Première page
+           </a>
+           <a class="topic-nav-link"
+              href="?controller=forum&action=seeTopic&id=<? echo $topic['id'] ?>&p=<? echo ($p - 1) ?>">
+               Page précédente
+           </a>
+		 <? else: ?>
+           <a class="topic-nav-link">Première page</a>
+           <a class="topic-nav-link">Page précédente</a>
+		 <? endif; ?>
+		 <? if (count($posts) == 9): ?>
+           <a class="topic-nav-link"
+              href="?controller=forum&action=seeTopic&id=<? echo $topic['id'] ?>&p=<? echo ($p + 1) ?>">
+               Page suivante
+           </a>
+		 <? else: ?>
+           <a class="topic-nav-link">Page suivante</a>
+		 <? endif; ?>
+    </div>
     <?php if ($_SESSION['idUser'] == null): ?>
         <p>Vous devez être connecté pour pouvoir participer à la conversation.</p>
     <? else: ?>
@@ -97,6 +119,7 @@
             <input type='hidden' name='action' value="post">
 
             <input type='hidden' name='id' value="<? echo $id ?>">
+            <input type='hidden' name='p' value="<? echo $p ?>">
             <textarea name='post' placeholder='Entrez ici votre message...'></textarea>
             <input type='submit' value='Répondre'>
         </form>

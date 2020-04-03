@@ -89,7 +89,7 @@
     require_once(dirname(__FILE__) . "/../modules/header.php");
     ?>
     <div id="article">
-        <form id="modificationArticle" method="post" action="/?Controller=article&action=modifierArticle&id=<? echo $article["id"]?>">
+        <form id="modificationArticle" method="post" action="/?controller=article&action=modifierArticle&id=<? echo $article["id"]?>">
             <span id="article-titre"><? echo $article['titre'] ?></span>
             <textarea id="newTitre"></textarea>
             <button id="modifierTitre" onClick="modifierTitre()">Modifier</button>
@@ -112,7 +112,7 @@
 
             <button type="submit" form="modificationArticle">Modifier l'article</button>
         </form>
-        <form method="post" action="/?Controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">
+        <form method="post" action="/?controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">
             <input type="submit" id="supprimerArticle" value="Supprimer Article">
         </form>
     </div>

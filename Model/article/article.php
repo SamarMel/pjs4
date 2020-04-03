@@ -39,7 +39,7 @@ function getArticle($id) {
 }
 
 /**
- * @param $id , $titre, $accroche, $texte, $image
+ * @param $id
  * @param $titre
  * @param $accroche
  * @param $texte
@@ -75,20 +75,21 @@ function deleteArticle($id) {
 }
 
 /**
- * @param $idAuteur , $id, $titre, $accroche, $texte, $image
+ * @param $idAuteur
+ * @param $idCat
  * @param $id
  * @param $titre
  * @param $accroche
  * @param $texte
  * @param $image
  */
-function createArticle($idAuteur, $id, $titre, $accroche, $texte, $image){
+function createArticle($idAuteur,$idCat, $titre, $accroche, $texte, $image){
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO ARTICLE VALUES (:id, :idAuteur, :titre, :accroche, :texte, :image)";
+        $sql = "INSERT INTO ARTICLE(idAuteur,idCategorie, titre, accroche, texte, imageIllustration) VALUES (:idAuteur,:idCat, :titre, :accroche, :texte, :image)";
         $query = $database->prepare($sql);
-        $query->bindParam(':id', $id);
         $query->bindParam(':idAuteur', $idAuteur);
+        $query->bindParam(':idCat', $idCat);
         $query->bindParam(':titre', $titre);
         $query->bindParam(':accroche', $accroche);
         $query->bindParam(':texte', $texte);

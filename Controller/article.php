@@ -25,30 +25,27 @@
             $id = $_GET['id'];
 
             require_once(dirname(__FILE__) . "/../Model/article/article.php");
-	        deleteArticle($id);
+	       deleteArticle($id);
            gererArticles();
         } else
             header('Location: /');
     }
     //Pour insert le nouvel article dans la base
     function creerArticle(){
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-            $idAuteur = $_SESSION['idUser'];
-            $titre = $_POST['titre'];
-            $accroche = $_POST['accroche'];
-            $texte = $_POST['texet'];
-            $image = $_POST['image'];
-            require_once(dirname(__FILE__) . "/../Model/article/article.php");
-	        createArticle($id, $idAuteur, $titre, $accroche, $texte, $image);
-            gererArticles();
-        } else
-            header('Location: /');
+        $idAuteur = $_SESSION['idUser'];
+        $idCat = $_POST['idCategorie'];
+        $titre = $_POST['titre'];
+        $accroche = $_POST['accroche'];
+        $texte = $_POST['texte'];
+        $image = $_POST['image'];
+        require_once(dirname(__FILE__) . "/../Model/article/article.php");
+	    createArticle($idAuteur,$idCat, $titre, $accroche, $texte, $image);
+        gererArticles();
     }
     //Pour changer l'article dans la base
     function modifierArticle(){
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
             $titre = $_POST['titre'];
             $accroche = $_POST['accroche'];
             $texte = $_POST['texte'];

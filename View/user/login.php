@@ -19,7 +19,7 @@
                 <h1>Connexion</h1>
                 <label for="identifiant">Identifiant</label>
                 <input name="identifiant" type="text" id="identifiant" placeholder="pseudo / email">
-
+                
                 <label for="pwd">Mot de passe</label>
                 <input name="pwd" type="password" id="pwd" placeholder="●●●●●●●●">
 
@@ -70,4 +70,5 @@
     require(dirname(__FILE__) . "/../modules/footer.tpl");
     ?>
 </body>
+<script src="/View/js/login.js"></script>
 </html>

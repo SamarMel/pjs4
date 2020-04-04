@@ -38,7 +38,7 @@ $(document).ready(() => {
         event.preventDefault();
         let callerId = event.target.id.substring(1);
         if (confirm("Voulez-vous contacter cet utilisateur ?")) {
-            $.getJSON(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=newConv&idPerson=${callerId}`,
+            $.getJSON(`/?controller=ajax&action=newConv&idPerson=${callerId}`,
                 (response) => {
                     openChat();
                     setTimeout(() => {

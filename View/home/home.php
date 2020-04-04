@@ -45,8 +45,8 @@
     </div>
 
     <div id="body">
-        <video width="600" height="300" controls poster="/Resources/images/preclarity.png">
-            <source src="/Resources/images/kx3ib-s5to6.webm" type="video/mp4">
+        <video width="600" height="300" controls poster="/Resources/images/preclarity.png" autoplay muted>
+            <source src="/Resources/videos/preclarity.mp4" type="video/mp4">
         </video>
         <div id="vid-invite">
             <span>Voulez-vous être accompagné vous aussi ?</span>

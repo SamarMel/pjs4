@@ -57,7 +57,7 @@
                 </table>
             </td>
             <td id="action_2" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=logout">
+                <a href="/?controller=user&action=logout">
                     <div class="cell">
                         Se Déconnecter
                     </div>
@@ -66,7 +66,7 @@
         </tr>
         <tr>
             <td id="action_3" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=account">
+                <a href="/?controller=user&action=account">
                     <div class="cell">
                         Mon Compte
                     </div>
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td id="action_4" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=demarches">
+                <a href="/?controller=user&action=demarches">
                     <div class="cell">
                         Mes démarches
                     </div>
@@ -84,12 +84,12 @@
         </tr>
         <tr>
             <td colspan="2" id="action_5" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=gerer">
+                <a href="/?controller=user&action=gerer">
                     <?
                     if ($role == "Étudiant") :
                     ?>
-                    <div id="map">
-                        Azy Samar tu gèreras ça
+                    <div class="cell">
+                        Trouver des endroits pour manger ou pour dormir
                     </div>
                     <? else: ?>
                     <div class="cell">
@@ -110,7 +110,7 @@
         ?>
         <tr>
             <td colspan="2" id="action_6" class="action">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users">
+                <a href="/?controller=user&action=users">
                     <div class="cell">
                         Gérer les utilisateurs
                     </div>

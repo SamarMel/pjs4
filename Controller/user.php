@@ -2,16 +2,16 @@
 
 function login() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://preclarity.ulyssebouchet.fr");
+        header("Location: /");
     elseif (isset($_POST['identifiant']) && isset($_POST['pwd'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
         $identifiant = $_POST['identifiant'];
         $pwd = $_POST['pwd'];
 
         if (loginDB($identifiant, $pwd))
-            header("Location: http://preclarity.ulyssebouchet.fr");
+            header("Location: /");
         else
-            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=login");
+            header("Location: /?controller=user&action=login");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -29,12 +29,12 @@ function logout() {
 		}
 	}
 	session_destroy ();
-	header ("Location: http://preclarity.ulyssebouchet.fr");
+	header ("Location: /");
 }
 
 function register() {
     if (isset($_SESSION['idUser']))
-        header("Location: http://preclarity.ulyssebouchet.fr");
+        header("Location: /");
     elseif (isset($_POST['pseudo-input']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['img'])
     && !empty($_POST['pseudo-input']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
         require_once (dirname(__FILE__) . "/../Model/user/user.php");
@@ -48,7 +48,7 @@ function register() {
             $_POST['pwd'] = $pwd;
             login();
         } else
-            header("Location: http://preclarity.ulyssebouchet.fr/?controller=user&action=register");
+            header("Location: /?controller=user&action=register");
     } else {
         require(dirname(__FILE__) . "/../View/user/login.php");
     }
@@ -80,7 +80,6 @@ function gerer () {
     switch ($role):
         case "Administrateur":
         case "Modérateur":
-
             if (isset($_GET['filter']))
                 $filter = $_GET['filter'];
             else
@@ -100,7 +99,7 @@ function gerer () {
             header("Location: /?controller=article&action=gererArticles");
             break;
         case "Étudiant":
-            header("Location: http://preclarity.ulyssebouchet.fr");
+	        require(dirname(__FILE__) . "/../View/user/personal_space/map.php");
             return;
     endswitch;
 }
@@ -116,7 +115,7 @@ function users() {
     $role = $user['role'];
 
     if ($role != "Administrateur") {
-        header("Location: http://preclarity.ulyssebouchet.fr");
+        header("Location: /");
         return;
     }
 
@@ -164,7 +163,7 @@ function report() {
     }
 
     if (!isset($_GET['idSignale']) || !isset($_GET['origine'])) {
-        header("Location: http://preclarity.ulyssebouchet.fr");
+        header("Location: /");
         return;
     }
 

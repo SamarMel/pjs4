@@ -166,7 +166,7 @@ function sendMail () {
 	$email = $_POST['form_email'];
 	$message = $_POST['form_msg'];
 	
-	$to = "plecaritypjs4@gmail.com";
+	$to = " preclaritydescartes@gmail.com";
 	$subject = $_POST['form_subject'];
 	$body = "Pseudo: " . $name . "\nMessage: " . $message;
 	$headers = "From: " . $email;

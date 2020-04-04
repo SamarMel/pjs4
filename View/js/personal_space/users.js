@@ -2,7 +2,7 @@ $(document).ready(() => {
     $("select.role").on("input", (e) => {
         let id = e.target.parentElement.id.replace("person-", "");
         let role = e.target.value;
-        $.ajax(`http://preclarity.ulyssebouchet.fr/?controller=ajax&action=changeRole&idUser=${id}&idRole=${role}`)
+        $.ajax(`/?controller=ajax&action=changeRole&idUser=${id}&idRole=${role}`)
     });
 
     const input = $("input#search-user");
@@ -22,6 +22,6 @@ $(document).ready(() => {
 
     function search() {
         let s = input.val();
-        document.location = `http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=${s}`;
+        document.location = `/?controller=user&action=users&s=${s}`;
     }
 });

@@ -11,14 +11,18 @@ form{
 }
 
 #btnCreation{
-	font-size: 2vh;
+	font-size: 3vh;
+	padding: 5px 20px 5px 20px;
 	font-family: "League Gothic", "OpenSans", sans-serif;
+	background-color: white;
+	color: #83c4a3;
+	border: #83c4a3 2px solid;
 }
 
 #btnCreation:hover{
 	background-color: #83c4a3;
-	outline-color: white;
 	color: white;
+	border: white 2px solid;
 }
 
 div{
@@ -37,7 +41,7 @@ option{
 
 label{
 	display: table-cell;
-	font-size: 20px;
+	font-size: 3vh;
 	font-family: "League Gothic", "OpenSans", sans-serif;
 }
 

@@ -119,7 +119,7 @@
              <textarea form="modificationArticle" name="newTexte" id="newTexte"></textarea>
             <button id="modifierTexte" onClick="modifierTexte()">Modifier</button>
        
-            <button type="submit" form="modificationArticle">Modifier l'article</button>
+            <button type="submit" id="modifierArticle" form="modificationArticle">Modifier l'article</button>
         <form method="post" action="/?controller=article&action=supprimerArticle&id=<? echo $article["id"]?>">
             <input type="submit" id="supprimerArticle" value="Supprimer Article">
         </form>

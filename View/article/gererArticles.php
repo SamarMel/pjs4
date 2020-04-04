@@ -6,6 +6,7 @@
     <title>Article</title>
     <link rel="stylesheet" href="/View/css/style.css">
     <link rel="stylesheet" href="/View/css/home/article.css">
+    <link rel="stylesheet" href="/View/css/article/gererArticle.css">
 
     <!-- SLICK Carousel -->
     <link rel="stylesheet" type="text/css" href="/Resources/lib/slick/slick.css"/>
@@ -22,8 +23,10 @@
     $page_name = "GESTION ARTICLES";
     require_once(dirname(__FILE__) . "/../modules/header.php");
     ?>
+     <form id="formCreationArticle" method="post" action="/?controller=article&action=nouvelArticle">
+        <input id="btnCreationArticle" type="submit" value="Créer un nouvel Article">
+    </form>
     <div id="derniers-topics">
-                <h2>Derniers Topics</h2>
                 <table id="topics">
                     <tr class="row">
                         <th class="titre">Titre</th>
@@ -53,9 +56,7 @@
                     ?>
                 </table>
     </div>
-    <form method="post" action="/?controller=article&action=nouvelArticle">
-        <input type="submit" value="Créer un nouvel Article">
-    </form>
+   
 </div>
 
 

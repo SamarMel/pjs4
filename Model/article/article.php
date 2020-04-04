@@ -14,12 +14,12 @@ function getArticlesByAuthor($id) {
 
     try {
 
-        $sql = "SELECT A.*, U.pseudo AS 'auteur', C.intitulÃ© AS 'categorie'
+        $sql = "SELECT A.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie'
                 FROM Article A, Utilisateur U, Categorie C
                 WHERE A.idAuteur = :idAuteur
                 AND U.id = A.idAuteur
                 AND C.id = A.idCategorie
-                ORDER BY datePubli DESC";
+                ORDER BY dateMaj DESC";
 
         $query = $database->prepare($sql);
 
@@ -54,7 +54,7 @@ function getArticle($id) {
 
     try {
 
-        $sql = "SELECT A.*, U.pseudo AS 'auteur', C.intitulÃ© AS 'categorie'
+        $sql = "SELECT A.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie'
 
                 FROM Article A, Utilisateur U, Categorie C
 

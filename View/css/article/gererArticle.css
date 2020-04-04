@@ -1,0 +1,29 @@
+th ,td{
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+#derniers-topics{
+	padding-top: 30px;
+}
+
+a{
+	text-decoration: none;
+	color: #0582a4;
+	font-weight: 700;
+}
+
+a:hover{
+	color: red;
+}
+
+#btnCreationArticle{
+	background-color: #7ed957;
+	border: none;
+	font-size: 3vh;
+	padding: 10px;
+}
+
+#btnCreationArticle:hover{
+	color: white;
+}

@@ -16,7 +16,7 @@ form{
 }
 
 #btnCreation:hover{
-	background-color: #00c4cc;
+	background-color: #83c4a3;
 	outline-color: white;
 	color: white;
 }
@@ -28,7 +28,6 @@ div{
 h1{
 	font-size: 5vh;
 	color: gray;
-	letter-spacing: -5px;
 	font-family: "League Gothic", "OpenSans", sans-serif;
 }
 

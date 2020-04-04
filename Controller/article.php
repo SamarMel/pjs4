@@ -2,15 +2,14 @@
 
 
 
-    //Aller sur la page de prÃ©sentation de tous les articles d'un auteur
+    //Aller sur la page de présentation de tous les articles d'un auteur
 
     function gererArticles() {
 
     require_once(dirname(__FILE__) . "/../Model/article/article.php");
 
     $articles = getArticlesByAuthor($_SESSION["idUser"]);
-    var_dump($articles);
-    //require_once(dirname(__FILE__) . "/../View/article/gererArticles.php");
+    require_once(dirname(__FILE__) . "/../View/article/gererArticles.php");
 
     }
 
@@ -110,7 +109,7 @@
 
     }
 
-    //Pour aller sur la page de crÃ©ation d'un nouvel article
+    //Pour aller sur la page de création d'un nouvel article
 
     function nouvelArticle(){
 

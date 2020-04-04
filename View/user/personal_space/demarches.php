@@ -20,15 +20,14 @@
             <form class="demarch-form" action="/" method="get">
                 <input type="hidden" name="controller" value="user">
                 <input type="hidden" name="action" value="createDemande">
-                
-                <input type="text" id="input-text" name="input-text" placeholder="Nom de la demande">
-                <select name="input-select" id="input-select">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                    <option>Option 4</option>
-                    <option>Option 5</option>
+
+                <select name="name" id="input-select">
+                    <option value="Demande de logement">Demande de logement</option>
+                    <option value="Passe Navigo">Passe Navigo</option>
+                    <option value="APL">APL</option>
+                    <option value="DSE">DSE</option>
                 </select>
+                <input type="text" id="input-text" name="rmq" placeholder="Remarque">
                 <input type="submit" value="Ajouter">
             </form>
         </div>

@@ -511,3 +511,39 @@ function getId($pseudo, $mail) {
 		return false;
 	}
 }
+
+function createDemarche ($id, $name, $rmq) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "INSERT INTO Demarche(libelle, idUser, rmq) VALUES (:name, :id, :rmq)";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':name', $name);
+		$req->bindParam (':rmq', $rmq);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
+	}
+}
+
+function getDemarcheId($id, $name, $rmq) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "SELECT id
+			FROM Demarche
+			WHERE idUser = :id
+			AND libelle = :name
+			AND rmq = :rmq";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':name', $name);
+		$req->bindParam(':rmq', $rmq);
+		$req->execute();
+		return $req->fetch(PDO::FETCH_ASSOC)['id'];
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+		return false;
+	}
+}

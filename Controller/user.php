@@ -191,6 +191,30 @@ function demarches () {
 	require (dirname(__FILE__) . "/../View/user/personal_space/demarches.php");
 }
 
+function createDemande () {
+	if (!isset($_SESSION['idUser'])) {
+		login();
+		return;
+	}
+	
+	require_once(dirname(__FILE__) . "/../Model/queries.php");
+	$user = $_SESSION['user'];
+	
+	if (isset($_GET['name']) && isset($_GET['rmq'])) {
+		$id = $user['id'];
+		$name = $_GET['name'];
+		$rmq = $_GET['rmq'];
+		
+		createDemarche($id, $name, $rmq);
+		
+		$_GET['id'] = getDemarcheId($id, $name, $rmq);
+		
+		seeDemarche();
+		return;
+	}
+	demarches();
+}
+
 function seeDemarche () {
 	if (!isset($_SESSION['idUser']) || !isset ($_GET['id'])) {
 		login();

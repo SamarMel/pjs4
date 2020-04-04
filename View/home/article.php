@@ -21,21 +21,18 @@
     <?php
     $page_name = "ARTICLE";
     require_once(dirname(__FILE__) . "/../modules/header.php");
-
-    require_once(dirname(__FILE__) . "/../../Model/queries/names.php");
-    $categorie = getCategorieName($article['idCategorie']);
-    $auteur = getUserName($article['idAuteur']);
-
     ?>
     <div id="article">
         <span id="article-titre"><? echo $article['titre'] ?></span>
         <span id="article-infos">
-            [<? echo $categorie ?>] Par <? echo $auteur ?>, le <? echo $article['datePubli'] ?>
+            [<? echo $article['categorie'] ?>] Par <? echo $article['auteur'] ?>, le <? echo $article['datePubli'] ?>
             (dernière modification le <? echo $article['dateMaj']?>)
         </span>
         <span id="article-accroche"><? echo $article['accroche'] ?></span>
-        <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
-        <span id="article-texte"><? echo $article['texte'] ?></span>
+        <span id="article-texte">
+            <img id="article-illus" src="<? echo $article['imageIllustration'] ?>" alt="image d'illustration">
+            <? echo $article['texte'] ?>
+        </span>
     </div>
 </div>
 
@@ -47,7 +44,7 @@
 
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
-<script src="/View/js/index.js">
+<script src="/View/js/home/index.js">
 </script>
 </body>
 </html>

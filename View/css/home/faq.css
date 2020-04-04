@@ -1,0 +1,33 @@
+.section {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: 2vh;
+}
+
+div.section h2 {
+    font-size: 5vh;
+    font-family: "League Gothic", "Open Sans", sans-serif;
+    letter-spacing: 0.01vw;
+}
+
+div.rep {
+    display: none;
+    margin-left: 3.5vw;
+}
+
+input {
+    margin-right: 1vw;
+}
+
+input[type="radio"] {
+    width: 2vh;
+    height: 2vh;
+}
+
+select, option {
+    font-size: 2vh;
+}

@@ -32,8 +32,8 @@
                 <div>
                     <img class="carousel-img" src="<? echo $article['imageIllustration'] ?>" alt="home">
                     <a href="/?controller=home&action=seeArticle&id=<? echo $article['id'] ?>">
-                        <? echo (strlen($article['titre']) > 32)
-                            ? substr($article['titre'], 0, 32) . "..."
+                        <? echo (strlen($article['titre']) > 42)
+                            ? substr($article['titre'], 0, 42) . "..."
                             : $article['titre']
                         ?>
                     </a>
@@ -45,7 +45,7 @@
     </div>
 
     <div id="body">
-        <video width="600" height="300" controls>
+        <video width="600" height="300" controls poster="/Resources/images/preclarity.png">
             <source src="/Resources/images/kx3ib-s5to6.webm" type="video/mp4">
         </video>
         <div id="vid-invite">
@@ -68,6 +68,6 @@
 
 <!-- SLICK Carousel -->
 <script type="text/javascript" src="/Resources/lib/slick/slick.min.js"></script>
-<script src="/View/js/index.js"></script>
+<script src="/View/js/home/index.js"></script>
 </body>
 </html>

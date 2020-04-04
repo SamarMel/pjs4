@@ -1,0 +1,106 @@
+ul#users-list {
+    width: 70vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    list-style: none;
+}
+
+ul span {
+    font-family: inherit;
+}
+
+span.error-msg {
+    font-size: 1.75vh;
+}
+
+span.error-msg a {
+    color: var(--color-action-5);
+}
+
+li#list-header {
+    background: var(--color-action-5);
+    border: var(--color-action-5) solid 5px;
+    color: var(--color-light);
+    font-weight: bold;
+    font-family: "League Gothic", "Open Sans", sans-serif;
+    letter-spacing: 1px;
+    font-size: 2.5vh;
+}
+
+li.user-list {
+    width: 70vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    padding: 1%;
+    border-bottom: var(--color-action-5) solid 2px;
+
+    font-size: 1.75vh;
+}
+
+li.user-list>* {
+    width: 17.5vw;
+}
+
+span.pseudo {
+    font-weight: bold;
+}
+
+select.role, select.role option {
+    font-size: 1.75vh;
+}
+
+div#users-nav {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a.users-nav-link {
+    cursor: not-allowed;
+    color: var(--color-action-5-dark);
+    font-size: 1.5vh;
+}
+
+a.users-nav-link[href] {
+    cursor: pointer;
+    color: var(--color-action-5);
+}
+
+a.users-nav-link[href]:hover {
+    filter: brightness(80%);
+}
+
+input#search-user {
+    height: 2vh;
+    width: 10vw;
+    font-size: 1.5vh;
+}
+
+button#search-user-btn {
+    height: 3vh;
+    width: 7.5vw;
+    font-size: 2vh;
+    background: var(--color-action-5);
+    border: var(--color-action-5) solid 2px;
+    font-family: "League Gothic", "Open Sans", sans-serif;
+    letter-spacing: 1px;
+    color: var(--color-light);
+    cursor: pointer;
+}
+
+button#search-user-btn:hover {
+    background: var(--color-light);
+    color: var(--color-dark);
+}

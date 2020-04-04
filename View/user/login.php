@@ -31,10 +31,12 @@
             <form method="post" action="/?controller=user&action=register">
                 <h1>Inscription</h1>
                 <label for="pseudo-input">Pseudo</label>
-                <input name="pseudo-input" type="text" id="pseudo-input" placeholder="Toto">
+                <input name="pseudo-input" type="text" id="pseudo-input" placeholder="Prénom" 
+                required pattern= "^[A-Za-z '-]+$"  maxlength="20">
 
                 <label for="mail">Mail</label>
-                <input name="mail" type="text" id="mail" placeholder="exemple@gmail.com">
+                <input name="mail" type="text" id="mail" placeholder="exemple@gmail.com"
+                required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$">
 
                 <label for="password">Mot de passe</label>
                 <input name="password" type="password" id="password" placeholder="●●●●●●●●">

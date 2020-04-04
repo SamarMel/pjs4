@@ -1,0 +1,151 @@
+#ajouter-demande {
+    width: 100%;
+    margin-top: 5vh;
+    background: var(--color-action-4);
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 1vh;
+    margin-bottom: 0;
+    margin-top: 1vh;
+    font-size: 3vh;
+    letter-spacing: 2px;
+    font-family: "League Gothic", "OpenSans", sans-serif;
+
+    text-transform: uppercase;
+}
+
+#ajouter-demande>h2 {
+    border-bottom: var(--color-light) solid 3px;
+    color: var(--color-light);
+}
+
+.demarch-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.demarch-form>input, .demarch-form>select {
+    background: var(--color-light);
+    font-size: 1.75vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 4vh;
+    width: 15vw;
+    border: var(--color-light) solid 2px;
+}
+
+.demarch-form>input:not([type="submit"]) {
+    width: 20vw;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.demarch-form>input:hover {
+    background: #e0e0e0;
+}
+
+.demarch-form>input:focus {
+    background: #d0d0d0;
+    border: black solid 2px;
+}
+
+.demarch-form>input[type="submit"]:hover {
+    background: var(--color-action-4);
+    box-shadow: var(--color-light) 0 0 5px;
+    cursor: pointer;
+}
+
+.demarch-form>input[type="submit"]:focus {
+    background: black;
+    color: var(--color-light);
+    cursor: pointer;
+}
+
+select#input-select option {
+    font-size: 1.75vh;
+}
+
+.horizontal-scroll-wrapper {
+    width: 80vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+div.demarche {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 1%;
+}
+
+div.uncomplete {
+    background: var(--color-action-4);
+    filter: brightness(100%);
+
+    width: 35vw;
+    height: 15vh;
+}
+
+div.complete {
+    background: #ccc;
+    filter: brightness(100%);
+
+    width: 20vw;
+    height: 18vh;
+}
+
+div.demarche h3 {
+    margin: 1vh 0;
+    font-size: 2vh;
+}
+
+div.demarche span, a {
+    font-size: 1.5vh;
+}
+
+div.demarche a {
+    position: absolute;
+    bottom: 1vh;
+
+    padding: 1%;
+
+    text-decoration: none;
+}
+
+div.uncomplete a {
+    align-self: flex-end;
+    background: var(--color-light);
+    color: var(--color-dark);
+    border: var(--color-light) solid 0.2vh;
+}
+
+div.uncomplete a:hover {
+    background: transparent;
+    box-shadow: var(--color-light) 0 0 5px;
+}
+
+div.complete a {
+    align-self: center;
+    background: var(--color-chatbox-1);
+    color: var(--color-light);
+    border: var(--color-chatbox-1) solid 0.2vh;
+}
+
+div.complete a:hover {
+    background: var(--color-light);
+    color: var(--color-chatbox-1);
+    box-shadow: var(--color-chatbox-1) 0 0 5px;
+}
+
+div.demarche span.status {
+    font-weight: bold;
+    font-style: italic;
+}

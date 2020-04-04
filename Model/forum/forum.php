@@ -7,11 +7,13 @@ function getLastTopics () {
     require(dirname(__FILE__) . '/../database.php');
     try {
         $sql =
-            "SELECT T.* 
-            FROM Topic T, Post P
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', MAX(P.datePost) AS 'lastPost'
+            FROM Topic T, Post P, Utilisateur U, Categorie C
             WHERE T.id = P.idTopic
+            AND T.idAuteur = U.id
+            AND T.idCategorie = C.id
             GROUP BY T.id
-            ORDER BY P.datePost DESC";
+				ORDER BY `lastPost` DESC";
         $query = $database->prepare($sql);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -30,7 +32,16 @@ function getLastTopics () {
 function getTopics ($name, $category) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Topic WHERE titre LIKE :name AND idCategorie = :category ORDER BY dateTopic DESC";
+        $sql =
+            "SELECT T.*, U.pseudo AS 'auteur', C.intitulé AS 'categorie', MAX(P.datePost) AS 'lastPost'
+            FROM Topic T, Post P, Utilisateur U, Categorie C
+            WHERE T.titre LIKE :name
+            AND T.idCategorie = :category
+            AND T.idCategorie = C.id
+            AND T.id = P.idTopic
+            AND T.idAuteur = U.id
+            GROUP BY T.id
+            ORDER BY P.datePost DESC";
 
         $name = "%$name%";
         $query = $database->prepare($sql);
@@ -38,20 +49,6 @@ function getTopics ($name, $category) {
         $query->bindParam(':category', $category);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
-    } catch(PDOException $e) {
-        return null;
-    }
-}
-
-function getLastPostDate($id) {
-    require(dirname(__FILE__) . '/../database.php');
-    try {
-        $sql = "SELECT P.* FROM Post P, Topic T WHERE P.idTopic = T.id AND T.id = :id ORDER BY P.datePost DESC";
-
-        $query = $database->prepare($sql);
-        $query->bindParam(':id', $id);
-        $query->execute();
-        return $query->fetch(PDO::FETCH_ASSOC)['datePost'];
     } catch(PDOException $e) {
         return null;
     }
@@ -79,7 +76,7 @@ function getCategories () {
 function getAuthor($idAuteur) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Utilisateur WHERE id = :idAuteur";
+        $sql = "SELECT U.*, R.role FROM Utilisateur U, Role R WHERE U.id = :idAuteur AND U.idRole = R.id ";
         $query = $database->prepare($sql);
         $query->bindParam(':idAuteur', $idAuteur);
         $query->execute();
@@ -96,7 +93,7 @@ function getAuthor($idAuteur) {
 function getTopic($id) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "SELECT * FROM Topic WHERE id = :id";
+        $sql = "SELECT T.*, C.intitulé AS 'categorie' FROM Topic T, Categorie C WHERE T.id = :id AND C.id = T.idCategorie";
         $query = $database->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();
@@ -124,17 +121,19 @@ function getPosts($id) {
 }
 
 /**
- *  Créer un topic
+ *  Crée un topic
  * @param $sujet
+ * @param $idC
  * @return bool
  */
-function insertTopic($sujet) {
+function insertTopic($sujet, $idC) {
     require(dirname(__FILE__) . '/../database.php');
     try {
-        $sql = "INSERT INTO Topic (titre, idAuteur) VALUES (:titre, :idAuteur)";
+        $sql = "INSERT INTO Topic (titre, idAuteur, idCategorie) VALUES (:titre, :idAuteur, :idC)";
         $query = $database->prepare($sql);
         $query->bindParam(':titre', $sujet);
-        $query->bindParam(':idAuteur', $_SESSION['idAuteur']);
+        $query->bindParam(':idAuteur', $_SESSION['idUser']);
+        $query->bindParam(':idC', $idC);
         $query->execute();
     }
     catch(PDOException $e) {
@@ -145,8 +144,61 @@ function insertTopic($sujet) {
 }
 
 /**
- * DEMANDER A SAMAR SA FONCTION DE POST COMME CA J'AI PAS A RECODER SA FONCTION
+ * Poster un message
+ * 
  */
+function postBD($post, $idTopic){
+    require(dirname(__FILE__) . '/../database.php');
+    try {
+        $sql = "INSERT INTO Post (idAuteur, idTopic, content) VALUES (:idA, :idT, :c)";
+        $query = $database->prepare($sql);
+        $query->bindParam(':idA', $_SESSION['idUser']);
+        $query->bindParam(':idT', $idTopic);
+        $query->bindParam(':c', $post);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        return false;
+    }
+    return true;
+}
+
+function getTopicID($sujet) {
+	require(dirname(__FILE__) . '/../database.php');
+	try {
+		$sql = "SELECT * FROM Topic WHERE titre = :sujet";
+		$query = $database->prepare($sql);
+		$query->bindParam(':sujet', $sujet);
+		$query->execute();
+		return $query->fetch(PDO::FETCH_ASSOC)['id'];
+	} catch(PDOException $e) {
+		return null;
+	}
+}
+
+
+/**
+ * Manque un truc :
+ * - Si le signalement existait déjà -->UPDATE en traité = SELECT * FROM Signalement WHERE ??? IDK (il manque l'id du message genre)
+ *           puis si count == 1 UPDATE Signalement SET traité = 1; 
+ * - Sinon INSERT INTO Signalement (idSignaleur, idSignalé, motif, traité) VALUES (:idT, :idU, 'Modération', 1)
+ */
+function  supprimerPostBD($idMsg){
+    require(dirname(__FILE__) . '/../database.php');
+    try {
+        $sql = "UPDATE Post SET content='Ce message a été supprimé par un modérateur.' WHERE id=:id";
+        $query = $database->prepare($sql);
+        $query->bindParam(':id', $idMsg);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        return false;
+    }
+    return true;
+}
+
 
 function saveDescription($description){
     require(dirname(__FILE__) . '/../database.php');

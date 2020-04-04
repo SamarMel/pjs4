@@ -23,11 +23,12 @@
 		<label for="remarque">Remarques :</label>
 		<textarea id="remarque" disabled><? echo $demarche['rmq'] ?></textarea>
 		<button id="modify">Modifier</button>
-		<button id="finish">Terminer</button>
-		<button id="give-up">Abandonner</button>
+		<button class="status" id="accept">Marquer comme acceptée</button>
+        <button class="status" id="refuse">Marquer comme refusée</button>
+		<button class="status" id="give-up">Abandonner</button>
 	</div>
 
-    <div id="<? echo $demarche['id'] ?>" class="data">
+    <div class="data">
         <h4>Pièces justificatives : </h4>
         <? foreach ($documents as $document): ?>
         <div class="doc">
@@ -36,8 +37,8 @@
         </div>
         <? endforeach; ?>
         <div id="add">
-            <input type="checkbox">
-            <input type="text" placeholder="Nom du document">
+            <input id="new-doc-checked" type="checkbox">
+            <input id="new-doc-name" type="text" placeholder="Nom du document">
             <a id="add-doc" href="#">Ajouter</a>
         </div>
     </div>

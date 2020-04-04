@@ -47,6 +47,10 @@ div.data button {
     cursor: pointer;
 }
 
+button.status {
+    width: 15vw !important;
+}
+
 div.data button:focus {
     outline: none;
 }
@@ -76,37 +80,41 @@ button#modify:hover {
     color: var(--color-action-4);
 }
 
-button#finish, button#give-up {
+button#accept, button#give-up, button#refuse {
     position: absolute;
     right: 7.5vw;
 }
 
-button#finish {
+button#accept {
     top: 25vh;
 }
 
-button#give-up {
-    top: 30vh;
+button#refuse {
+    top:30vh
 }
 
-button#finish {
+button#give-up {
+    top: 35vh;
+}
+
+button#accept {
     background: var(--color-forum-1);
     border: var(--color-forum-1) solid 0.2vh;
     color: var(--color-light);
 }
 
-button#finish:hover {
+button#accept:hover {
      background: transparent;
      color: var(--color-forum-1);
 }
 
-button#give-up {
+button#give-up, button#refuse {
     background: var(--color-chatbox-1);
     border: var(--color-chatbox-1) solid 0.2vh;
     color: var(--color-light);
 }
 
-button#give-up:hover {
+button#give-up:hover, button#refuse:hover {
     background: transparent;
     color: var(--color-chatbox-1);
 }
@@ -146,8 +154,4 @@ a#add-doc {
 a#add-doc:hover {
     color: var(--color-action-4);
     background: var(--color-light);
-}
-
-a#add-doc:hover {
-    filter: brightness(85%);
 }

@@ -1,0 +1,51 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 30vw;
+    margin-top: 5vh;
+}
+
+label, input, textarea {
+    font-size: 2vh;
+    width: 30vw;
+    padding: 0.5vh;
+    border: var(--color-home-1) solid 0.2vh;
+}
+
+label, input[type="submit"] {
+    background: var(--color-home-1);
+    color: var(--color-light);
+}
+
+input, textarea {
+    margin-bottom: 2.5vh;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    background: var(--color-home-1);
+    color: var(--color-light);
+}
+
+input[readonly] {
+    filter: brightness(80%);
+}
+
+input[type="submit"] {
+    align-self: center;
+    width: 15vw;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--color-light);
+    color: var(--color-home-1);
+}
+
+textarea {
+    resize: vertical;
+}

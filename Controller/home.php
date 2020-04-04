@@ -25,6 +25,14 @@ function faq () {
 	require_once (dirname(__FILE__) . "/../View/home/faq.php");
 }
 
+function legal () {
+	require_once (dirname(__FILE__) . "/../View/home/mentions-legales.php");
+}
+
+function contact () {
+	require_once (dirname(__FILE__) . "/../View/home/contact.php");
+}
+
 function articles () {
 	if (isset($_GET['idCate'])) {
 		$idCate = $_GET['idCate'];

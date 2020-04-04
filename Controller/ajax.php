@@ -97,8 +97,14 @@ function newConv()
         $idUser = $_SESSION['idUser'];
 
         require_once(dirname(__FILE__) . "/../Model/queries.php");
-
-        echo json_encode(createConv($idUser, $idPerson));
+		
+        if (($idConv = getIdConv ($idUser, $idPerson)) != -1) {
+        	$numUser = $idUser < $idPerson ? 1 : 2;
+			setConvVisible($numUser, $idConv);
+	        echo json_encode($idConv);
+        } else {
+	        echo json_encode(createConv($idUser, $idPerson));
+        }
     }
 }
 
@@ -230,6 +236,16 @@ function addDocument () {
 	}
 }
 
+function deleteConv () {
+	if (isset ($_GET ['numUser']) && isset ($_GET['idConv'])) {
+		$numUser = $_GET ['numUser'];
+		$idConv = $_GET ['idConv'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		hideConv ($numUser, $idConv);
+	}
+}
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

@@ -42,7 +42,7 @@ $(document).ready(() => {
                 (response) => {
                     openChat();
                     setTimeout(() => {
-                        openConv(response.id);
+                        openConv(response);
                     }, 500);
                 });
         }

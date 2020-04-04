@@ -286,38 +286,118 @@ function dropDemarche ($id) {
 	}
 }
 
+function setAsAccepted ($id) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Demarche SET isFinie = 1, isAcceptée = 1, isArchivée = 1 WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function setAsRefused ($id) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Demarche SET isFinie = 1, isAcceptée = 0, isArchivée = 1 WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function setAsGivenUp ($id) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Demarche SET isFinie = 0, isAcceptée = 0, isArchivée = 1 WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function setAsGiven ($id) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Document SET isRendu = 1 WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function setAsNotGiven ($id) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "UPDATE Document SET isRendu = 0 WHERE id = :id";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du UPDATE : " . $e->getMessage() . "\n");
+	}
+}
+
+function newDocument ($id, $name, $rendu) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "INSERT INTO Document(idDem, libelle, isRendu) VALUES (:id, :name, :rendu)";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':name', $name);
+		$req->bindParam (':rendu', $rendu);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
+	}
+}
+
 function getDemarches($id) {
 	require (dirname(__FILE__) . '/database.php');
 	$sql = "SELECT
-                Dem.*,
-                IF(
-                    COUNT(Doc.id) <>(
-                    SELECT
-                        COUNT(*)
-                    FROM
-                        Document D
-                ),
-                COUNT(Doc.id),
-                0
-                ) AS 'manquants'
-            FROM
-                Demarche Dem,
-                Document Doc
-            WHERE
-                Dem.iduser = :id AND(
-                    (
-                        Doc.iddem = Dem.id AND Doc.isrendu = 0
-                    ) OR NOT EXISTS(
-                    SELECT
-                        D.*
-                    FROM
-                        Document D
-                    WHERE
-                        D.iddem = Dem.id
-                )
-                )
-            GROUP BY
-                Dem.id";
+					 Dem.*,
+					 IF(
+						  COUNT(Doc.id) <>(
+						  SELECT
+								COUNT(*)
+						  FROM
+								Document D
+					 ),
+					 COUNT(Doc.id),
+					 0
+					 ) AS 'manquants'
+				FROM
+					 Demarche Dem,
+					 Document Doc
+				WHERE
+					 Dem.iduser = :id AND(
+						  (
+								Doc.iddem = Dem.id AND Doc.isrendu = 0
+						  ) OR NOT EXISTS(
+						  SELECT
+								D.*
+						  FROM
+								Document D
+						  WHERE
+								D.iddem = Dem.id AND D.isRendu = 0
+					 )
+					 )
+				GROUP BY
+					 Dem.id";
 	
 	try {
 		$req = $database->prepare ($sql);

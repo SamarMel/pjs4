@@ -168,6 +168,68 @@ function sendMail () {
 	mail ($to, $subject, $body, $headers);
 }
 
+function markAccepted () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		setAsAccepted($id);
+	}
+}
+
+function markRefused () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		setAsRefused($id);
+	}
+}
+
+function giveUp () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		setAsGivenUp($id);
+	}
+}
+
+function markAsGiven () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		setAsGiven($id);
+	}
+}
+
+function markAsNotGiven () {
+	if (isset ($_GET ['id'])) {
+		$id = $_GET ['id'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		setAsNotGiven($id);
+	}
+}
+
+function addDocument () {
+	if (isset ($_GET ['id']) && isset ($_GET['name']) && isset ($_GET['rendu'])) {
+		$id = $_GET ['id'];
+		$name = $_GET ['name'];
+		$rendu = $_GET ['rendu'] == "true" ? 1 : 0;
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		newDocument($id, $name, $rendu);
+	}
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

@@ -36,7 +36,7 @@
         <h2>Démarches en cours</h2>
         <div class="horizontal-scroll-wrapper">
         <? foreach ($demarches as $demarche):
-	        if ($demarche['isArchivee'] == 0):?>
+	        if ($demarche['isArchivée'] == 0):?>
             <div class="demarche uncomplete">
                 <h3><? echo $demarche['libelle'] ?></h3>
                 <span>Commencée le : <? echo $demarche['dateCrea'] ?></span>
@@ -51,14 +51,14 @@
         <h2>Démarches archivées</h2>
         <div class="horizontal-scroll-wrapper">
         <? foreach ($demarches as $demarche):
-            if ($demarche['isArchivee'] == 1):?>
+            if ($demarche['isArchivée'] == 1):?>
             <div class="demarche complete">
                 <h3><? echo $demarche['libelle'] ?></h3>
                 <span>Commencée le : <? echo $demarche['dateCrea'] ?></span>
                 <span>Mise à jour le : <? echo $demarche['dateModif'] ?></span>
                 <span class="status">
                 <?
-                if ($demarche['isAcceptee'] == 1):
+                if ($demarche['isAcceptée'] == 1):
                     echo "Acceptée";
                 elseif ($demarche['isFinie'] == 0):
                     echo "Abandonnée";

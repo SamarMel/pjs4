@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Les cinémas et les metro d'Ile-De-France</title>
+	<title>Carte établissements CROUS</title>
 
 
 	<link rel="stylesheet" href="/View/css/map/map.css">

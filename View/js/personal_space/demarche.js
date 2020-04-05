@@ -60,7 +60,6 @@ $(document).ready(() => {
 		}
 
 		let rendu = $("#new-doc-checked").is(":checked");
-		alert(`/?controller=ajax&action=addDocument&id=${id}&name=${name}&rendu=${rendu}`);
 		$.ajax(`/?controller=ajax&action=addDocument&id=${id}&name=${name}&rendu=${rendu}`)
 			.then(() => {
 				location.reload();

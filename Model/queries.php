@@ -177,7 +177,7 @@ function updateRole($idUser, $idRole){
 }
 
 function queryBotQuestion($id) {
-    $string = file_get_contents("/Model/bot/bot.json");
+    $string = file_get_contents(dirname(__FILE__) . "/../Resources/json/bot.json");
 
     $json_a = json_decode($string, true);
 

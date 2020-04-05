@@ -52,7 +52,7 @@
         </iframe>
         <div id="vid-invite">
             <span>Voulez-vous être accompagné vous aussi ?</span>
-            <a href="#">Par ici !</a>
+            <a id="par-ici" href="#">Par ici !</a>
         </div>
         <div id="need-help">
             <h3>Besoin d'aide ?</h3>

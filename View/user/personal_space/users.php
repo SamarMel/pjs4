@@ -84,6 +84,10 @@
                         <option value="1">Étudiant</option>
                         <?
                         endif;
+                        if ($u['role'] != "Étudiant Expert"):
+                        ?>
+                        <option value="6">Étudiant Expert</option>
+                        <? endif;
                         if ($u['role'] != "Rédacteur"):
                         ?>
                         <option value="2">Rédacteur</option>

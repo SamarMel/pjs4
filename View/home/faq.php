@@ -44,7 +44,7 @@ En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sou
                 Vous trouverez plus d'informations dans la rubrique <a href="/?controller=home&action=articles&idCate=3">Logement</a>.</p>
         </div>
         <p class="QuestLog">
-            <label for="QuestLog">J'ai un logement mais j'aimerais : </label>
+            <label for="QuestLog">Je voudrais plus d'informations sur les logements étudiant : </label>
            <a href='?controller=home&action=articles&idCate=3'> Logement </a>
         </p>
     </div>
@@ -73,7 +73,7 @@ En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sou
             </p>
         </div>
         <p class="QuestSante">
-            <label for="QuestSante">Je voudrais : </label>
+            <label for="QuestSante">Je voudrais plus d'informations sur la santé : </label>
             <a href='?controller=home&action=articles&idCate=1'> Santé </a>
 
         </p>
@@ -95,7 +95,7 @@ En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sou
             <p>Consultez notre plateforme d'aide scolaire en ligne !</p>
         </div>
         <p class="QuestEtudes">
-            <label for="QuestEtudes">Je voudrais des informations concernant : </label>
+            <label for="QuestEtudes">Je voudrais des informations concernant les études : </label>
             <a href='?controller=home&action=articles&idCate=4'> Etudes </a>
         </p>
     </div>
@@ -121,7 +121,7 @@ En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sou
             </p>
         </div>
         <p class="QuestAides">
-            <label for="QuestAides">Je voudrais des informations concernant : </label>
+            <label for="QuestAides">Je voudrais des informations concernant les aides étudiantes : </label>
             <a href='?controller=home&action=articles&idCate=2'> Aides </a>
 
         </p>

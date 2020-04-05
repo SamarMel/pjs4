@@ -11,9 +11,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css">
 
-    <!-- SLICK Carousel -->
-    <link rel="stylesheet" type="text/css" href="/Resources/lib/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/Resources/lib/slick/slick-theme.css"/>
 </head>
 <body>
 

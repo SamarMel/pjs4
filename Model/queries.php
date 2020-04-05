@@ -575,6 +575,67 @@ function setConvVisible ($numUser, $idConv) {
 		$req->execute();
 	} catch (PDOException $e) {
 		echo $e->getMessage();
-		return false;
+	}
+}
+
+function updatePseudo ($id, $pseudo) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET pseudo = :pseudo
+			WHERE id = :id";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':pseudo', $pseudo);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updateMail ($id, $mail) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET mail = :mail
+			WHERE id = :id";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':mail', $mail);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updatePwd ($id, $pwd) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET mdp = :pwd
+			WHERE id = :id";
+	$pwd = hash("sha256", $pwd);
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':pwd', $pwd);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updateImg ($id, $img) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET imageProfil = :img
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':img', $img);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
 	}
 }

@@ -54,7 +54,7 @@ function createTopic(){
 		    postBD ($description, $id);
 		    
 		    $_GET['id'] = $id;
-		    seeTopic ();
+			header("Location: /?controller=forum&action=seeTopic&id=" . $_GET['id']);
 	    } else
             require_once (dirname(__FILE__) . "/../View/forum/createTopic.php");
     }
@@ -67,6 +67,7 @@ function post(){
         require_once(dirname(__FILE__) . "/../Model/forum/forum.php");
         postBD($_GET['post'], $_GET['id']);
     }
+    header("Location: /?controller=forum&action=seeTopic&id=" . $_GET['id']);
     seeTopic();
 }
 

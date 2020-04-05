@@ -235,3 +235,14 @@ function deleteUser(){
     deleteUserBD($_SESSION["idUser"]);
     require (dirname(__FILE__) . "/../View/home/home.php");
 }
+
+function account() {
+	if (!isset($_SESSION['idUser'])) {
+		login();
+		return;
+	}
+	require_once(dirname(__FILE__) . "/../Model/queries.php");
+	$user = $_SESSION['user'];
+	
+	require(dirname(__FILE__) . "/../View/user/personal_space/account.php");
+}

@@ -33,6 +33,10 @@ function contact () {
 	require_once (dirname(__FILE__) . "/../View/home/contact.php");
 }
 
+function questionnaire () {
+	require_once (dirname(__FILE__) . "/../View/home/questionnaire.php");
+}
+
 function articles () {
 	if (isset($_GET['idCate'])) {
 		$idCate = $_GET['idCate'];

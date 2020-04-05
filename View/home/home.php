@@ -56,12 +56,11 @@
         </div>
         <div id="need-help">
             <h3>Besoin d'aide ?</h3>
-            <p>Répondez à notre <a href="#">Questionnaire</a> ou participez au <a href="/?controller=forum&action=home">Forum</a>!</p>
+            <p>Répondez à notre <a href="/?controller=home&action=questionnaire">Questionnaire</a> ou participez au <a href="/?controller=forum&action=home">Forum</a>!</p>
             <img src="/Resources/images/help.png" alt="?">
         </div>
     </div>
 </div>
-
 
 <!-- Chatbox -->
 <?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>

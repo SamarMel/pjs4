@@ -99,7 +99,7 @@ function gerer () {
             header("Location: /?controller=article&action=gererArticles");
             break;
         case "Étudiant":
-	        require(dirname(__FILE__) . "/../View/user/personal_space/map.php");
+	        require(dirname(__FILE__) . "/../View/map/map.php");
             return;
     endswitch;
 }

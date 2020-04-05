@@ -40,7 +40,7 @@
         "txt":"Nous disposons d'un forum d'une grande diversité. Vous trouverez surement quelqu'un pour discuter.",
         "ans":[
             {
-                "txt":"<a href='/?controller=forum&action=home'>AccÃ©der au forum</a>",
+                "txt":"<a href='/?controller=forum&action=home'>Accéder au forum</a>",
                 "nextQuestion":5
             },
             {
@@ -121,12 +121,8 @@
     },
     {
         "id":33,
-        "txt":"J'ai un logement et je cherche des colocataires.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=3'>Accéder à la rubrique Logement</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=3'>Accéder à la rubrique Logement</a>",
-                "nextQuestion": 33
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -135,12 +131,8 @@
     },
     {
         "id":34,
-        "txt":"J'ai un logement et je cherche un garant.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
-                "nextQuestion": 34
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -195,12 +187,8 @@
     },
     {
         "id":43,
-        "txt":"J'aimerais entrer en contact avec un médecin universitaire.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Santé</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Études</a>",
-                "nextQuestion": 43
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -209,12 +197,8 @@
     },
     {
         "id":44,
-        "txt":"Je voudrais me faire rembourser ma consultation.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Santé</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Santé</a>",
-                "nextQuestion": 44
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -269,12 +253,8 @@
     },
     {
         "id":53,
-        "txt":"Je voudrais des informations sur l'orientation.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
-                "nextQuestion": 53
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -283,12 +263,8 @@
     },
     {
         "id":54,
-        "txt":"Je voudrais des informations sur les licenses. ",
+        "txt":"<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
-                "nextQuestion": 54
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -343,12 +319,8 @@
     },
     {
         "id":63,
-        "txt":"Je cherche des informations sur les allocations familiales.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
-                "nextQuestion": 63
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5
@@ -357,12 +329,8 @@
     },
     {
         "id":64,
-        "txt":"Je cherche des informations sur les prêts étudiants.",
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
         "ans":[
-            {
-                "txt": "<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
-                "nextQuestion": 64
-            },
             {
                 "txt": "Revenir à l'accueil",
                 "nextQuestion": 5

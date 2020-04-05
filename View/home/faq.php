@@ -26,14 +26,12 @@
 
         <div class="rep" id ="rep1">
            <p>Il faut pour cela constituer un Dossier Social Étudiant (DSE) sur <a href="https://messervices.etudiant.gouv.fr">messervices.etudiant.gouv.fr</a> entre le 15 janvier et le 15 mai.</p>
-           <p> Remarque :: Les étudiants internationaux de Campus France doivent déposer leur demande de logement au service international du Crous de Paris.
-Les étudiants en mobilité doivent formuler leur demande auprès du service relations internationales de leur établissement d’enseignement.
-</p>
+          
            <p> Pour les demandes de renouvellement :
-Après la constition de TON DSE, procéde à votre demande de renouvellement en vous rendant à la rubrique « Gérer son logement » puis cliquez sur la brique « Cité U »
+Rend toi dans la rubrique « Gérer son logement » puis cliquez sur la brique « Cité U »
 et clique sur « Demander mon renouvellement »</p>
            <p> 
-Après étude de ton dossier, une réponse conditionnelle vous te adressée par courriel avant le 12 juin 2020.
+Une réponse conditionnelle te seras adresser par courriel avant le 12 juin 2020.
 En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sous 15 jours en allant sur « Cité U »</p>
         </div>
         <div id="Choix2">

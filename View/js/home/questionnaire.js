@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	$('input[type="radio"]').click(() => {
+	$('input[type="radio"]').click(function () {
 		let val = $(this).attr("value");
 		let target = $("." + val);
 		$(".msg").not(target).hide();
@@ -7,7 +7,7 @@ $(document).ready(() => {
 	});
 	
 	$("select").change(function() {
-		$(this).find("option:selected").each(() => {
+		$(this).find("option:selected").each(function () {
 			let val = $(this).attr("value");
 			if (val) {
 				$(".msgs").not("." + val).hide();
@@ -18,7 +18,7 @@ $(document).ready(() => {
 		});
 	}).change();
 	
-	$('input[type="checkbox"]').click(() => {
+	$('input[type="checkbox"]').click(function () {
 		let val = $(this).attr("value");
 		$("." + val).toggle();
 	});

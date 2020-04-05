@@ -1,0 +1,20 @@
+.ms, .msg {
+    display : none;
+}
+
+label, input, select, p, #quest div {
+    width: 45vw;
+    font-size: 1.8vh;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: 1.75vh;
+    height: 1.75vh;
+}
+
+.msgs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

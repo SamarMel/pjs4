@@ -80,6 +80,7 @@
 
 video, iframe {
     height: 40vh;
+    width: 40vw;
 }
 
 #vid-invite {

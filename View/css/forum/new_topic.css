@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+textarea {
+    width: 30vw;
+    height: 15vh;
+    resize: vertical;
+}
+
+#create-topic h2 {
+    font-size: 4vh;
+    font-family: "League Gothic", "Open Sans", sans-serif;
+    letter-spacing: 0.025vw;
+}
+
+input[type="submit"] {
+    font-size: 2.5vh;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 7.5vh;
+    background: var(--color-forum-2);
+    color: var(--color-light);
+    border: var(--color-forum-2) solid 0.25vh;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--color-light);
+    color: var(--color-forum-2);
+}

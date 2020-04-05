@@ -62,7 +62,7 @@ $(document).ready(() => {
 		let rendu = $("#new-doc-checked").is(":checked");
 		$.ajax(`/?controller=ajax&action=addDocument&id=${id}&name=${name}&rendu=${rendu}`)
 			.then(() => {
-				location.reload();
+				window.location.replace(`/?controller=user&action=seeDemarche&id=${id}`);
 			});
 	});
 

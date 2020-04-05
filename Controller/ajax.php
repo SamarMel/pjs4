@@ -246,6 +246,51 @@ function deleteConv () {
 		hideConv ($numUser, $idConv);
 	}
 }
+
+function changePseudo () {
+	if (isset ($_GET ['id']) && isset ($_GET['pseudo'])) {
+		$id = $_GET ['id'];
+		$pseudo = $_GET ['pseudo'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updatePseudo ($id, $pseudo);
+	}
+}
+
+function changeMail () {
+	if (isset ($_GET ['id']) && isset ($_GET['mail'])) {
+		$id = $_GET ['id'];
+		$mail = $_GET ['mail'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateMail ($id, $mail);
+	}
+}
+
+function changePwd () {
+	if (isset ($_GET ['id']) && isset ($_GET['pwd'])) {
+		$id = $_GET ['id'];
+		$pwd = $_GET ['pwd'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updatePwd ($id, $pwd);
+	}
+}
+
+function changeImg () {
+	if (isset ($_GET ['id']) && isset ($_GET['img'])) {
+		$id = $_GET ['id'];
+		$img = $_GET ['img'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateImg ($id, $img);
+	}
+}
+
 if (isset ($_GET['query'])) {
     $_GET['query'] ();
 }

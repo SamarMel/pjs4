@@ -5,6 +5,8 @@ $(document).ready(function(){
 
     $("#par-ici").click(() => {
         openChat();
-        openConv(-10);
+        setTimeout(() => {
+            openConv(-10);
+        }, 500);
     });
 });

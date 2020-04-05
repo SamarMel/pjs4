@@ -96,11 +96,11 @@ function isTaken($ident) {
 function deleteUserBD($id) {
     require (dirname(__FILE__) .  '/../database.php');
     
-    $listeR=array("UPDATE Post SET idAuteur="39" WHERE idAuteur=:id",
-               "UPDATE Topic SET idAuteur="39" WHERE idAuteur=:id",
-               "UPDATE Conversation SET idUser1="39" WHERE idUser1=:id",
-               "UPDATE Conversation SET idUser2="39" WHERE idUser2=:id",
-               "UPDATE MessageConv SET idAuteur="39" WHERE idAuteur=:id",
+    $listeR=array("UPDATE Post SET idAuteur='39' WHERE idAuteur=:id",
+               "UPDATE Topic SET idAuteur='39' WHERE idAuteur=:id",
+               "UPDATE Conversation SET idUser1='39' WHERE idUser1=:id",
+               "UPDATE Conversation SET idUser2='39' WHERE idUser2=:id",
+               "UPDATE MessageConv SET idAuteur='39' WHERE idAuteur=:id",
                "DELETE FROM Utilisateur WHERE id=:id");
 
     foreach($listeR as $sql) {

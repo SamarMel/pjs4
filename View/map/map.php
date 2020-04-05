@@ -23,22 +23,22 @@
 </head>
 
 <body>
-	<? require(dirname(__FILE__) . "/../../modules/menu.tpl") ?>
+	<? require(dirname(__FILE__) . "/../modules/menu.tpl") ?>
 	<style>#menu {background: var(--color-action-4);}</style>
 	<div id="page">
 	<?
 	$page_name = "CARTE";
-	require(dirname(__FILE__) . "/../../modules/header.php");
+	require(dirname(__FILE__) . "/../modules/header.php");
 	?>
 		<div id="mapid"></div>
-		<ul>
+		<ul id="listeCROUS">
 			<li id="listeResto"><img src="/View/map/images/eat.png" class="iconeListe"><span class="titreListe">Vous restaurer</span><br>Restauration des CROUS</li>
 			<li id="listeLogement"><img src="/View/map/images/dormir.png" class="iconeListe"><span class="titreListe">Vous loger</span><br>Résidences universitaires des CROUS</li>
 		</ul>
 	</div>
 	<?
-	require(dirname(__FILE__) . "/../../modules/chatbox.html");
-	require(dirname(__FILE__) . "/../../modules/footer.tpl");
+	require(dirname(__FILE__) . "/../modules/chatbox.html");
+	require(dirname(__FILE__) . "/../modules/footer.tpl");
 	?>
 
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>

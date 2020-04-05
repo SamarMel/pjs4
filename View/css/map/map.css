@@ -1,6 +1,7 @@
 #mapid{
-	height: 500px;
-	width: 500px;
+	margin-top: 50px;
+	height: 30vh;
+	width: 50vh;
 }
 
 .iconeListe{
@@ -13,19 +14,19 @@
 	font-weight: 600;
 }
 
-li{
+#listeResto, #listeLogement{
 	border: 2px solid #eeeeee;
 	margin : 5px;
 	padding: 5px;
 	width: 400px;
 }
 
-li:hover{
+#listeResto:hover, #listeLogement:hover{
 	background-color: #dddddd;
 
 }
 
-ul{
+#listeCROUS{
 	list-style: none;
 }
 

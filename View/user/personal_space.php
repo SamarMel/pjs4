@@ -86,7 +86,7 @@
             <td colspan="2" id="action_5" class="action">
                 <a href="/?controller=user&action=gerer">
                     <?
-                    if ($role == "Étudiant") :
+                    if ($role == "Étudiant" || $role == "Étudiant Expert") :
                     ?>
                     <div class="cell">
                         Trouver des endroits pour manger ou pour dormir

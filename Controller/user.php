@@ -99,6 +99,7 @@ function gerer () {
             header("Location: /?controller=article&action=gererArticles");
             break;
         case "Étudiant":
+	    case "Étudiant Expert":
 	        require(dirname(__FILE__) . "/../View/map/map.php");
             return;
     endswitch;

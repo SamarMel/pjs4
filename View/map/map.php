@@ -32,8 +32,16 @@
 	?>
 		<div id="mapid"></div>
 		<ul id="listeCROUS">
-			<li id="listeResto"><img src="/View/map/images/eat.png" class="iconeListe"><span class="titreListe">Vous restaurer</span><br>Restauration des CROUS</li>
-			<li id="listeLogement"><img src="/View/map/images/dormir.png" class="iconeListe"><span class="titreListe">Vous loger</span><br>Résidences universitaires des CROUS</li>
+			<li id="listeResto">
+                <img src="/View/map/images/eat.png" class="iconeListe">
+                <span class="titreListe">Vous restaurer</span>
+                <span>Restauration des CROUS</span>
+            </li>
+			<li id="listeLogement">
+                <img src="/View/map/images/dormir.png" class="iconeListe">
+                <span class="titreListe">Vous loger</span>
+                <span>Résidences universitaires des CROUS</span>
+            </li>
 		</ul>
 	</div>
 	<?

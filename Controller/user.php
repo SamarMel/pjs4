@@ -229,3 +229,9 @@ function seeDemarche () {
 	
 	require (dirname(__FILE__) . "/../View/user/personal_space/demarche.php");
 }
+
+function deleteUser(){
+    require_once (dirname(__FILE__) . "/../Model/user/user.php");
+    deleteUserBD($_SESSION["idUser"]);
+    require (dirname(__FILE__) . "/../View/home/home.php");
+}

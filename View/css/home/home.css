@@ -78,9 +78,8 @@
     margin-top: 5vh;
 }
 
-video {
+video, iframe {
     height: 40vh;
-    width: auto;
 }
 
 #vid-invite {

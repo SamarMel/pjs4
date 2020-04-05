@@ -45,9 +45,11 @@
     </div>
 
     <div id="body">
-        <video width="600" height="300" controls poster="/Resources/images/preclarity.png" autoplay muted>
+        <!--<video width="600" height="300" controls poster="/Resources/images/preclarity.png" autoplay muted>
             <source src="/Resources/videos/preclarity.mp4" type="video/mp4">
-        </video>
+        </video>-->
+        <iframe width="600" height="300" src="https://www.youtube.com/embed/FzccxUn5MDE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
         <div id="vid-invite">
             <span>Voulez-vous être accompagné vous aussi ?</span>
             <a href="#">Par ici !</a>

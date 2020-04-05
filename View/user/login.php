@@ -36,7 +36,7 @@
 
                 <label for="mail">Mail</label>
                 <input name="mail" type="text" id="mail" placeholder="exemple@gmail.com"
-                required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$">
+                required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
                 <label for="password">Mot de passe</label>
                 <input name="password" type="password" id="password" placeholder="●●●●●●●●">

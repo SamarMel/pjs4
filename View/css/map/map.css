@@ -1,0 +1,42 @@
+#mapid{
+	height: 500px;
+	width: 500px;
+}
+
+.iconeListe{
+	height: 25px;
+	width: 25px;
+}
+
+.titreListe{
+	font-size: 25px;
+	font-weight: 600;
+}
+
+li{
+	border: 2px solid #eeeeee;
+	margin : 5px;
+	padding: 5px;
+	width: 400px;
+}
+
+li:hover{
+	background-color: #dddddd;
+
+}
+
+ul{
+	list-style: none;
+}
+
+.imgPop{
+	height: 30%;
+	width: 40%;
+	padding-left: 30%;
+	justify-content: center;
+}
+
+.popup{
+	font-size: 20px;
+	font-weight: 600;
+}

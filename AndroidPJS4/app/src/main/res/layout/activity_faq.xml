@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".faq.FaqActivity">
+
+    <Button
+        android:id="@+id/btnMenu"
+        android:layout_marginLeft="5dp"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_menu_black_24dp">
+
+    </Button>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewFAQ"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@id/btnMenu"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            android:background="#ffde59">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/interro" />
+
+            <TextView
+                android:id="@+id/textViewFAQ"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="FAQ"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/Logement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CardViewFAQ"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:fontFamily="sans-serif-black"
+        android:paddingLeft="30dp"
+        android:text="Logement"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupLogement"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Logement"
+        android:tag="Constituer un Dossier Social Étudiant (DSE) sur messervices.etudiant.gouv.fr entre le 15 janvier et le 15 mai.">
+
+        <RadioButton
+            android:id="@+id/radio_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:tag="Constituer un Dossier Social Étudiant (DSE) sur messervices.etudiant.gouv.fr entre le 15 janvier et le 15 mai."
+            android:text="Comment avoir un logement Crous ?" />
+
+        <RadioButton
+            android:id="@+id/radio_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="Vous devez contacter la CAF de votre département,en vous rendant sur leur site. Plus d'information dans la rubrique &quot;Logement&quot;."
+            android:text="Comment bénéficier de l'APL ?" />
+
+        <TextView
+            android:id="@+id/text_view_logement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="20dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Santé"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="30dp"
+            android:text="Santé"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radio_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="Vous devez contacter la CAF de votre département,en vous rendant sur leur site. Plus d'information dans la rubrique &quot;Logement&quot;."
+            android:text="Puis-je bénéficier de la sécurité sociale ?" />
+
+        <RadioButton
+            android:id="@+id/radio_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:tag="Dorénavant, les mutuelles ont pour obligation d'informer leurs assurés de la possibilité de résilier leur contrat, et ce avant chaque échéance annuelle de prime de cotisation. Les assurés disposent généralement d'un préavis de 2 mois pour résilier leur mutuelle santé."
+            android:text="Dispose t’on d’un préavis pour résilier notre mutuelle santé ?" />
+
+        <TextView
+            android:id="@+id/text_view_santé"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="20dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Etudes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="30dp"
+            android:text="Etudes"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radio_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:tag="Vous pouvez vous rendre sur le Forum afin qu’un professeur puisse vous répondre !"
+            android:text="Je voudrais poser des questions à des professeurs" />
+
+        <RadioButton
+            android:id="@+id/radio_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="Veuillez consulter notre plateforme d’aide scolaire en ligne !"
+            android:text="J'ai besoin d'aide pour mes cours" />
+
+        <TextView
+            android:id="@+id/text_view_etudes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="20dp"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+</RelativeLayout>

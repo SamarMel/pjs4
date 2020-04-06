@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    >
+
+
+
+        <ImageView
+            android:id="@+id/user_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:foreground="@drawable/profile_photo"
+            android:layout_marginLeft ="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true">
+
+        </ImageView>
+        <TextView
+            android:id="@+id/pseudoPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_profile"
+            android:layout_margin="5dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/user_profile"
+            android:layout_margin="5dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/datePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/post"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            >
+
+
+        </TextView>
+
+
+</RelativeLayout>

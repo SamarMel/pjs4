@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopicActivity"
+    android:layout_margin="10dp">
+    <Button
+        android:id="@+id/btnMenu"
+        android:layout_marginLeft="5dp"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_menu_black_24dp">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/sujet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/btnMenu"
+        >
+    </TextView>
+    <Button
+        android:id="@+id/commentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="Commenter"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_below="@id/sujet"
+        >
+
+    </Button>
+
+
+    <RelativeLayout
+        android:id="@+id/descriptionBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/commentBtn"
+        android:background="@drawable/round_border_purple"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/photoAuteur"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:foreground="@drawable/profile_photo_purple"
+            android:layout_margin ="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/photoAuteur">
+
+        </TextView>
+        <TextView
+            android:id="@+id/dateTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_alignParentRight="true">
+
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/listPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dividerHeight="3dp"
+        android:scrollbars="none"
+        android:layout_below="@id/descriptionBox"
+        android:background="@color/text_color"
+        android:divider="#660ff1">
+
+    </ListView>
+
+
+
+
+
+
+</RelativeLayout>

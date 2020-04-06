@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chat.ListchatActivity"
+    android:padding="7dp">
+    <TextView
+        android:id="@+id/titleMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messages"
+        android:fontFamily="sans-serif-black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp">
+
+    </TextView>
+    <ListView
+        android:id="@+id/listConv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleMessages"
+        android:scrollbars="none"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp">
+
+    </ListView>
+
+
+</RelativeLayout>

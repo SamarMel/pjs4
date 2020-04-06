@@ -45,21 +45,22 @@
     </div>
 
     <div id="body">
-        <video width="600" height="300" controls poster="/Resources/images/preclarity.png">
-            <source src="/Resources/images/kx3ib-s5to6.webm" type="video/mp4">
-        </video>
+        <!--<video width="600" height="300" controls poster="/Resources/images/preclarity.png" autoplay muted>
+            <source src="/Resources/videos/preclarity.mp4" type="video/mp4">
+        </video>-->
+        <iframe width="600" height="300" src="https://www.youtube.com/embed/FzccxUn5MDE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
         <div id="vid-invite">
             <span>Voulez-vous être accompagné vous aussi ?</span>
-            <a href="#">Par ici !</a>
+            <a id="par-ici" href="#">Par ici !</a>
         </div>
         <div id="need-help">
             <h3>Besoin d'aide ?</h3>
-            <p>Répondez à notre <a href="#">Questionnaire</a> ou participez au <a href="/?controller=forum&action=home">Forum</a>!</p>
+            <p>Répondez à notre <a href="/?controller=home&action=questionnaire">Questionnaire</a> ou participez au <a href="/?controller=forum&action=home">Forum</a>!</p>
             <img src="/Resources/images/help.png" alt="?">
         </div>
     </div>
 </div>
-
 
 <!-- Chatbox -->
 <?php require_once(dirname(__FILE__) . "/../modules/chatbox.html"); ?>

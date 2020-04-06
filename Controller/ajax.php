@@ -97,8 +97,14 @@ function newConv()
         $idUser = $_SESSION['idUser'];
 
         require_once(dirname(__FILE__) . "/../Model/queries.php");
-
-        echo json_encode(createConv($idUser, $idPerson));
+		
+        if (($idConv = getIdConv ($idUser, $idPerson)) != -1) {
+        	$numUser = $idUser < $idPerson ? 1 : 2;
+			setConvVisible($numUser, $idConv);
+	        echo json_encode($idConv);
+        } else {
+	        echo json_encode(createConv($idUser, $idPerson));
+        }
     }
 }
 
@@ -160,7 +166,7 @@ function sendMail () {
 	$email = $_POST['form_email'];
 	$message = $_POST['form_msg'];
 	
-	$to = "plecaritypjs4@gmail.com";
+	$to = " preclaritydescartes@gmail.com";
 	$subject = $_POST['form_subject'];
 	$body = "Pseudo: " . $name . "\nMessage: " . $message;
 	$headers = "From: " . $email;
@@ -227,6 +233,61 @@ function addDocument () {
 		require_once (dirname (__FILE__) . "/../Model/queries.php");
 		
 		newDocument($id, $name, $rendu);
+	}
+}
+
+function deleteConv () {
+	if (isset ($_GET ['numUser']) && isset ($_GET['idConv'])) {
+		$numUser = $_GET ['numUser'];
+		$idConv = $_GET ['idConv'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		hideConv ($numUser, $idConv);
+	}
+}
+
+function changePseudo () {
+	if (isset ($_GET ['id']) && isset ($_GET['pseudo'])) {
+		$id = $_GET ['id'];
+		$pseudo = $_GET ['pseudo'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updatePseudo ($id, $pseudo);
+	}
+}
+
+function changeMail () {
+	if (isset ($_GET ['id']) && isset ($_GET['mail'])) {
+		$id = $_GET ['id'];
+		$mail = $_GET ['mail'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateMail ($id, $mail);
+	}
+}
+
+function changePwd () {
+	if (isset ($_GET ['id']) && isset ($_GET['pwd'])) {
+		$id = $_GET ['id'];
+		$pwd = $_GET ['pwd'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updatePwd ($id, $pwd);
+	}
+}
+
+function changeImg () {
+	if (isset ($_GET ['id']) && isset ($_GET['img'])) {
+		$id = $_GET ['id'];
+		$img = $_GET ['img'];
+		
+		require_once (dirname (__FILE__) . "/../Model/queries.php");
+		
+		updateImg ($id, $img);
 	}
 }
 

@@ -16,6 +16,10 @@ form {
     height: 50vh;
 }
 
+form h1 {
+    font-size: 3vh;
+}
+
 #forms #bar {
     width: 0.25vw;
     height: 70vh;

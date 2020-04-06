@@ -13,5 +13,6 @@
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="popper" level="application" />
     <orderEntry type="library" name="loading" level="application" />
+    <orderEntry type="library" name="leaflet-routing-machine" level="application" />
   </component>
 </module>

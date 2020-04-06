@@ -1,0 +1,39 @@
+#mapid{
+    margin-top: 5vh;
+    height: 30vh;
+    width: 80vw;
+}
+
+ul#opt-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 30vw;
+}
+
+li.opt img {
+    height: 5vh;
+    width: 5vh;
+}
+
+li.opt {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 30vw;
+}
+
+li.opt span {
+    margin-left: 1vw;
+}
+
+span.titreListe {
+    font-weight: bold;
+    cursor: pointer;
+}

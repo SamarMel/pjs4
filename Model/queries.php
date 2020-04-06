@@ -177,7 +177,7 @@ function updateRole($idUser, $idRole){
 }
 
 function queryBotQuestion($id) {
-    $string = file_get_contents("http://preclarity.ulyssebouchet.fr/Model/bot/bot.json");
+    $string = file_get_contents(dirname(__FILE__) . "/../Resources/json/bot.json");
 
     $json_a = json_decode($string, true);
 
@@ -204,7 +204,6 @@ function getIdConv($user1, $user2){
     }
 
     $sql = "SELECT id FROM Conversation WHERE idUser1 = :idUser1 AND idUser2 = :idUser2";
-    $res = array();
     try {
         $cde = $database->prepare($sql);
         $cde->bindParam(':idUser1', $user1);
@@ -214,7 +213,10 @@ function getIdConv($user1, $user2){
     } catch (PDOException $e){
         echo utf8_encode("Echec du SELECT : " . $e->getMessage() . "\n");
     }
-    return $res;
+    if (!$res)
+    	return -1;
+    
+    return $res['id'];
 }
 
 /**
@@ -509,5 +511,131 @@ function getId($pseudo, $mail) {
 	} catch (PDOException $e) {
 		echo $e->getMessage();
 		return false;
+	}
+}
+
+function createDemarche ($id, $name, $rmq) {
+	require (dirname(__FILE__) . '/database.php');
+	$sql = "INSERT INTO Demarche(libelle, idUser, rmq) VALUES (:name, :id, :rmq)";
+	
+	try {
+		$req = $database->prepare ($sql);
+		$req->bindParam (':id', $id);
+		$req->bindParam (':name', $name);
+		$req->bindParam (':rmq', $rmq);
+		$req->execute ();
+	} catch (PDOException $e) {
+		echo utf8_encode("Echec du INSERT : " . $e->getMessage() . "\n");
+	}
+}
+
+function getDemarcheId($id, $name, $rmq) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "SELECT id
+			FROM Demarche
+			WHERE idUser = :id
+			AND libelle = :name
+			AND rmq = :rmq";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':name', $name);
+		$req->bindParam(':rmq', $rmq);
+		$req->execute();
+		return $req->fetch(PDO::FETCH_ASSOC)['id'];
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+		return false;
+	}
+}
+
+function hideConv ($numUser, $idConv) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Conversation
+			SET " . ($numUser == 1 ? "visible1" : "visible2") . " = 0
+			WHERE id = :idConv";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':idConv', $idConv);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function setConvVisible ($numUser, $idConv) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Conversation
+			SET " . ($numUser == 1 ? "visible1" : "visible2") . " = 1
+			WHERE id = :idConv";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':idConv', $idConv);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updatePseudo ($id, $pseudo) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET pseudo = :pseudo
+			WHERE id = :id";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':pseudo', $pseudo);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updateMail ($id, $mail) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET mail = :mail
+			WHERE id = :id";
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':mail', $mail);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updatePwd ($id, $pwd) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET mdp = :pwd
+			WHERE id = :id";
+	$pwd = hash("sha256", $pwd);
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':pwd', $pwd);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+}
+
+function updateImg ($id, $img) {
+	require (dirname(__FILE__) .  '/database.php');
+	$sql = "UPDATE Utilisateur
+			SET imageProfil = :img
+			WHERE id = :id";
+	
+	try {
+		$req = $database->prepare($sql);
+		$req->bindParam(':id', $id);
+		$req->bindParam(':img', $img);
+		$req->execute();
+	} catch (PDOException $e) {
+		echo $e->getMessage();
 	}
 }

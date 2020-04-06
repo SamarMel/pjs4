@@ -10,19 +10,18 @@ form{
 	border-spacing: 50px 1rem;
 }
 
-#btnCreation{
+#btnCreationArticle{
 	font-size: 3vh;
 	padding: 5px 20px 5px 20px;
 	font-family: "League Gothic", "OpenSans", sans-serif;
-	background-color: white;
-	color: #83c4a3;
-	border: #83c4a3 2px solid;
+	background-color: var(--color-action-3);
+	color: var(--color-light);
+	border: var(--color-action-3) 2px solid;
 }
 
-#btnCreation:hover{
-	background-color: #83c4a3;
-	color: white;
-	border: white 2px solid;
+#btnCreationArticle:hover{
+	color: var(--color-action-3);
+	background: var(--color-light);
 }
 
 div{

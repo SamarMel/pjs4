@@ -19,7 +19,7 @@
                 <h1>Connexion</h1>
                 <label for="identifiant">Identifiant</label>
                 <input name="identifiant" type="text" id="identifiant" placeholder="pseudo / email">
-
+                
                 <label for="pwd">Mot de passe</label>
                 <input name="pwd" type="password" id="pwd" placeholder="●●●●●●●●">
 
@@ -36,7 +36,7 @@
 
                 <label for="mail">Mail</label>
                 <input name="mail" type="text" id="mail" placeholder="exemple@gmail.com"
-                required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$">
+                required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
                 <label for="password">Mot de passe</label>
                 <input name="password" type="password" id="password" placeholder="●●●●●●●●">
@@ -70,4 +70,5 @@
     require(dirname(__FILE__) . "/../modules/footer.tpl");
     ?>
 </body>
+<script src="/View/js/login.js"></script>
 </html>

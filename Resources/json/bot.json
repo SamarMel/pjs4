@@ -1,0 +1,340 @@
+[
+    {
+        "id":0,
+        "txt":"Bonjour, je suis PreclarityBot. Comment puis-je vous aider ?",
+        "ans":[
+            {
+                "txt":"J'ai besoin d'une information",
+                "nextQuestion":1
+            },
+            {
+                "txt":"J'aimerais discuter",
+                "nextQuestion":2
+            }
+        ]
+    },
+    {
+        "id":1,
+        "txt":"Sur quel sujet recherchez-vous une information ?",
+        "ans":[
+            {
+                "txt":"Logement",
+                "nextQuestion":30
+            },
+            {
+                "txt":"Santé",
+                "nextQuestion":40
+            },
+            {
+                "txt":"Études",
+                "nextQuestion":50
+            },
+            {
+                "txt":"Aides",
+                "nextQuestion":60
+            }
+        ]
+    },
+    {
+        "id":2,
+        "txt":"Nous disposons d'un forum d'une grande diversité. Vous trouverez surement quelqu'un pour discuter.",
+        "ans":[
+            {
+                "txt":"<a href='/?controller=forum&action=home'>Accéder au forum</a>",
+                "nextQuestion":5
+            },
+            {
+                "txt":"Revenir à l'accueil",
+                "nextQuestion":5
+            }
+        ]
+    },
+    {
+        "id":5,
+        "txt":"Comment puis-je vous aider ?",
+        "ans":[
+            {
+                "txt":"J'ai besoin d'une information",
+                "nextQuestion":1
+            },
+            {
+                "txt":"J'aimerais discuter",
+                "nextQuestion":2
+            }
+        ]
+    },
+    {
+        "id":8,
+        "txt":"Je ne suis pas encore parfait. Pour l'instant je ne peux pas satisfaire vos attentes. Je vous invite tout de même à parcourir notre site. Vous y trouverez peut-être vos réponses.",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":30,
+        "txt":"Voici les sujets récurrents sur le Logement : ",
+        "ans":[
+            {
+                "txt": "Comment avoir un logement CROUS ?",
+                "nextQuestion": 31
+            },
+            {
+                "txt": "Comment bénéficier de l'APL ?",
+                "nextQuestion": 32
+            },
+            {
+                "txt": "J'ai un logement et je cherche des colocataires.",
+                "nextQuestion": 33
+            },
+            {
+                "txt": "J'ai un logement et je cherche un garant.",
+                "nextQuestion": 34
+            },
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":31,
+        "txt":"<p>Il faut pour cela constituer un Dossier Social Étudiant (DSE) sur <a href=\"https://messervices.etudiant.gouv.fr\">messervices.etudiant.gouv.fr</a> entre le 15 janvier et le 15 mai.</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":32,
+        "txt":" <p>Vous devez contacter la CAF (Caisse d'Allocations Familiales) de votre département, en vous rendant sur leur site. Vous trouverez plus d'informations dans la rubrique <a href=\"/?controller=home&action=articles&idCate=3\">Logement</a>.</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":33,
+        "txt":"<a href='/?controller=home&action=articles&idCate=3'>Accéder à la rubrique Logement</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":34,
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":40,
+        "txt":"Voici les sujets récurrents sur la Santé : ",
+        "ans":[
+            {
+                "txt": "Dispose-t-on d'un préavis pour résilier notre mutuelle santé ?",
+                "nextQuestion": 41
+            },
+            {
+                "txt": ">Puis-je bénéficier de la sécurité sociale ?",
+                "nextQuestion": 42
+            },
+            {
+                "txt": "J'aimerais entrer en contact avec un médecin universitaire.",
+                "nextQuestion": 43
+            },
+            {
+                "txt": "Je voudrais me faire rembourser ma consultation.",
+                "nextQuestion": 44
+            },
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":41,
+        "txt":"<p>Dorénavant, les mutuelles ont pour obligation d'informer leurs assurés de la possibilité de résilier leur contrat, et ce avant chaque échéance annuelle de prime de cotisation. Les assurés disposent généralement d'un préavis de 2 mois pour résilier leur mutuelle santé.</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":42,
+        "txt":"<p>Depuis le 1er janvier 2016, avec la protection universelle maladie (PUMa),toute personne qui travaille ou réside en France de manière stable et régulière a droit à la prise en charge de ses frais de santé.</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":43,
+        "txt":"<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Santé</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":44,
+        "txt":"<a href='/?controller=home&action=articles&idCate=1'>Accéder à la rubrique Santé</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":50,
+        "txt":"Voici les sujets récurrents sur les Études : ",
+        "ans":[
+            {
+                "txt": "Je voudrais poser des questions à des professeurs.",
+                "nextQuestion": 51
+            },
+            {
+                "txt": "J'ai besoin d'aide pour mes cours.",
+                "nextQuestion": 52
+            },
+            {
+                "txt": "Je voudrais des informations sur l'orientation.",
+                "nextQuestion": 53
+            },
+            {
+                "txt": "Je voudrais des informations sur les licenses.",
+                "nextQuestion": 54
+            },
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":51,
+        "txt":"<p>Rends toi sur notre forum pour que tu puisses échanger avec des professeurs !</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":52,
+        "txt":"<p>Consultez notre plateforme d'aide scolaire en ligne !</p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":53,
+        "txt":"<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":54,
+        "txt":"<a href='/?controller=home&action=articles&idCate=4'>Accéder à la rubrique Études</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":60,
+        "txt":"Voici les sujets récurrents sur les Aides : ",
+        "ans":[
+            {
+                "txt": "Où puis-je trouver un job étudiant ?",
+                "nextQuestion": 61
+            },
+            {
+                "txt": "Je ne sais pas comment ouvrir un compte bancaire ",
+                "nextQuestion": 62
+            },
+            {
+                "txt": "Je cherche des informations sur les allocations familiales.",
+                "nextQuestion": 63
+            },
+            {
+                "txt": "Je cherche des informations sur les prêts étudiants.",
+                "nextQuestion": 64
+            },
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":61,
+        "txt":"<p>Il existe de nombreuses plateformes qui proposent des offres d'emploi étudiant tel que <a href=\"https://www.indeed.fr\"> indeed.fr</a></p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":62,
+        "txt":"<p>Hello Bank ne propose aucun frais de gestion et une démarche d'ouverture de compte simplifiée <br>qui lui permet de se distinguer de ses concurrents.L'ouverture de compte se fait en à peine 5 minutes !<br>Elle se fait directement en ligne et les frais sont au plus. Voici le site d'Hello Bank pour plus d'information :<a href=\"https://www.hellobank.fr\"> hellobank.fr</a></p>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":63,
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    },
+    {
+        "id":64,
+        "txt":"<a href='/?controller=home&action=articles&idCate=2'>Accéder à la rubrique Aides</a>",
+        "ans":[
+            {
+                "txt": "Revenir à l'accueil",
+                "nextQuestion": 5
+            }
+        ]
+    }
+]

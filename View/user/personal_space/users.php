@@ -30,11 +30,11 @@
     <div id="users-nav">
         <? if ($p > 1): ?>
             <a class="users-nav-link"
-               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>">
+               href="/?controller=user&action=users&s=<? echo $s ?>">
                 Première page
             </a>
             <a class="users-nav-link"
-               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
+               href="/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p - 1) ?>">
                 Page précédente
             </a>
         <? else: ?>
@@ -43,7 +43,7 @@
         <? endif; ?>
         <? if (count($users) == 10): ?>
             <a class="users-nav-link"
-               href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
+               href="/?controller=user&action=users&s=<? echo $s ?>&p=<? echo ($p + 1) ?>">
                 Page suivante
             </a>
         <? else: ?>
@@ -67,7 +67,7 @@
             <span class="error-msg">Aucun utilisateur n'a été trouvé.</span>
             <br>
             <span class="error-msg">
-                <a href="http://preclarity.ulyssebouchet.fr/?controller=user&action=users">Revenir à la liste</a>
+                <a href="/?controller=user&action=users">Revenir à la liste</a>
             </span>
         <? else:
             foreach ($users as $u):
@@ -84,6 +84,10 @@
                         <option value="1">Étudiant</option>
                         <?
                         endif;
+                        if ($u['role'] != "Étudiant Expert"):
+                        ?>
+                        <option value="6">Étudiant Expert</option>
+                        <? endif;
                         if ($u['role'] != "Rédacteur"):
                         ?>
                         <option value="2">Rédacteur</option>

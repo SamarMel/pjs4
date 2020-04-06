@@ -6,6 +6,7 @@
     <title>Article</title>
     <link rel="stylesheet" href="/View/css/style.css">
     <link rel="stylesheet" href="/View/css/home/article.css">
+    <link rel="stylesheet" href="/View/css/article/modifierArticle.css">
 
     <!-- SLICK Carousel -->
     <link rel="stylesheet" type="text/css" href="/Resources/lib/slick/slick.css"/>

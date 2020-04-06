@@ -63,6 +63,7 @@
     font-size: 2.5vh;
     font-weight: bold;
     background: var(--color-chatbox-1);
+    transform: translate3d(0,0,0);
 }
 
 #chatbox-convs>li:hover {
@@ -166,6 +167,10 @@
     width: 88%;
 }
 
+.supp {
+    position: absolute;
+    right: 2vw;
+}
 
 /* Extra-small devices (Phones) */
 @media (max-width: 767px) {

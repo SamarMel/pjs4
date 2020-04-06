@@ -5,19 +5,12 @@
 	<meta charset="utf-8">
 	<title>Les cinémas et les metro d'Ile-De-France</title>
 
-	<link rel="stylesheet" href="./bootstrap-css/bootstrap.css">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 	   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 	   crossorigin=""/>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-	   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-	   crossorigin=""></script>
-	
-
-
 
 </head>
 
@@ -27,21 +20,19 @@
 			<div class="col-12">
 				<div id="mapid"></div>
 				<ul>
-					<li><img src="./eat.png" class="iconeListe"><span class="titreListe">Vous restaurer</span><br>Restauration des CROUS</li>
-					<li><img src="./dormir.png" class="iconeListe"><span class="titreListe">Vous loger</span><br>Résidences universitaires des CROUS</li>
+					<li><img src="/Resources/images/knifefork.png" class="iconeListe" alt="Icône restaurant"><span class="titreListe">Vous restaurer</span><br>Restauration des CROUS</li>
+					<li><img src="/Resources/images/bed.png" class="iconeListe" alt="Icône lit"><span class="titreListe">Vous loger</span><br>Résidences universitaires des CROUS</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
-
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script src="./bootstrap-js/bootstrap.js"></script>
-	<script src="./leaflet.ajax.min.js"></script>
-	<script src="./mapJS.js"></script>
-	<script src="./leaflet-routing-machine-js/leaflet-routing-machine.js"></script>
-
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin=""></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="../Resources/lib/leaflet.ajax.min.js"></script>
+	<script src="/View/js/personal_space/map.js"></script>
 </body>
-
 </html>

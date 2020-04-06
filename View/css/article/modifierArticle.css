@@ -1,78 +1,100 @@
 #supprimerArticle{
-	font-family: "League Gothic", "Open Sans", "Serial";
+	font-family: "League Gothic", "Open Sans", "Serial", sans-serif;
 	font-size: 3.5vh;
-	background-color: red;
-	color: white;
-	font-weight: 700;
-	border: white 2px solid;
+	background-color: var(--color-chatbox-1);
+	color:  var(--color-light);
+	border: var(--color-light) 2px solid;
+	padding: 1vh;
 }
 
 #supprimerArticle:hover{
-	background-color: white;
-	color: red;
-	border: red 2px solid;
+	background-color: var(--color-light);
+	color: var(--color-chatbox-1);
+	border: var(--color-chatbox-1) 2px solid;
 }
 
 button,input[type="submit"]{
-		font-family: "League Gothic", "Open Sans", "Serial";
+	font-family: "League Gothic", "Open Sans", "Serial", sans-serif;
 	font-size: 3.5vh;
 }
+
 #modifierTitre{
-	color: white;
-	background-color: blue;
-	border: white 2px solid;
+	color:  var(--color-light);
+	background-color: var(--color-action-4);
+	border:  var(--color-light) 2px solid;
 }
 
 #modifierTitre:hover{
-	color: blue;
-	background-color: white;
-	border: blue 2px solid;
+	color: var(--color-action-4);
+	background-color:  var(--color-light);
+	border: var(--color-action-4) 2px solid;
 }
 
 #modifierAccroche{
-	color: white;
-	background-color: blue;
-	border: white 2px solid;
+	color:  var(--color-light);
+	background-color: var(--color-action-4);
+	border:  var(--color-light) 2px solid;
 }
 
 #modifierAccroche:hover{
-	color: blue;
-	background-color: white;
-	border: blue 2px solid;
+	color: var(--color-action-4);
+	background-color:  var(--color-light);
+	border: var(--color-action-4) 2px solid;
 }
 
 #modifierImage{
-	color: white;
-	background-color: blue;
-	border: white 2px solid;
+	color:  var(--color-light);
+	background-color: var(--color-action-4);
+	border:  var(--color-light) 2px solid;
 }
 
 #modifierImage:hover{
-	color: blue;
-	background-color: white;
-	border: blue 2px solid;
+	color: var(--color-action-4);
+	background-color:  var(--color-light);
+	border: var(--color-action-4) 2px solid;
 }
 
 #modifierTexte{
-	color: white;
-	background-color: blue;
-	border: white 2px solid;
+	color:  var(--color-light);
+	background-color: var(--color-action-4);
+	border:  var(--color-light) 2px solid;
 }
 
 #modifierTexte:hover{
-	color: blue;
-	background-color: white;
-	border: blue 2px solid;
+	color: var(--color-action-4);
+	background-color:  var(--color-light);
+	border: var(--color-action-4) 2px solid;
 }
 
 #modifierArticle{
-	color: white;
-	background-color: green;
-	border: white 2px solid;
+	color:  var(--color-light);
+	background-color: var(--color-forum-2);
+	border:  var(--color-light) 2px solid;
 }
 
 #modifierArticle:hover{
-	color: green;
-	background-color: white;
-	border: green 2px solid;
+	color: var(--color-forum-2);
+	background-color:  var(--color-light);
+	border: var(--color-forum-2) 2px solid;
+}
+
+
+button{
+	font-size: 3vh;
+	padding: 1vh;
+	font-family: "League Gothic", "OpenSans", sans-serif;
+	background-color: var(--color-action-3);
+	color: var(--color-light);
+	border: var(--color-action-3) 2px solid;
+}
+
+button:hover{
+	color: var(--color-action-3);
+	background: var(--color-light);
+}
+
+textarea {
+	font-size: 1.8vh;
+	padding:0.5vh;
+	width: 10vw;
 }

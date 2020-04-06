@@ -25,7 +25,14 @@
         </div>
 
         <div class="rep" id ="rep1">
-            <p>Il faut pour cela constituer un Dossier Social Étudiant (DSE) sur <a href="https://messervices.etudiant.gouv.fr">messervices.etudiant.gouv.fr</a> entre le 15 janvier et le 15 mai.</p>
+           <p>Il faut pour cela constituer un Dossier Social Étudiant (DSE) sur <a href="https://messervices.etudiant.gouv.fr">messervices.etudiant.gouv.fr</a> entre le 15 janvier et le 15 mai.</p>
+          
+           <p> Pour les demandes de renouvellement :
+Rend toi dans la rubrique « Gérer son logement » puis cliquez sur la brique « Cité U »
+et clique sur « Demander mon renouvellement »</p>
+           <p> 
+Une réponse conditionnelle te seras adresser par courriel avant le 12 juin 2020.
+En cas d’acceptation, tu dois impérativement confirmer ton renouvellement sous 15 jours en allant sur « Cité U »</p>
         </div>
         <div id="Choix2">
             <label><input type="radio" name="optradio">Comment bénéficier de l'APL ?</label>
@@ -35,12 +42,8 @@
                 Vous trouverez plus d'informations dans la rubrique <a href="/?controller=home&action=articles&idCate=3">Logement</a>.</p>
         </div>
         <p class="QuestLog">
-            <label for="QuestLog">J'ai un logement mais j'aimerais : </label>
-            <select name="QuestLog" id="QuestLog" autofocus required>
-                <option value="None"></option>
-                <option value="Coloc">Chercher des colocataires </option>
-                <option value="Aides">Trouver un garant </option>
-            </select>
+            <label for="QuestLog">Je voudrais plus d'informations sur les logements étudiant : </label>
+           <a href='?controller=home&action=articles&idCate=3'> Logement </a>
         </p>
     </div>
 
@@ -68,12 +71,9 @@
             </p>
         </div>
         <p class="QuestSante">
-            <label for="QuestSante">Je voudrais : </label>
-            <select name="QuestSante" id="QuestSante" autofocus required>
-                <option value="None"></option>
-                <option value="Medecins">Être mis en contact avec des médecins universitaires</option>
-                <option value="Consult">Me faire rembourser ma consultation</option>
-            </select>
+            <label for="QuestSante">Je voudrais plus d'informations sur la santé : </label>
+            <a href='?controller=home&action=articles&idCate=1'> Santé </a>
+
         </p>
     </div>
 
@@ -93,12 +93,8 @@
             <p>Consultez notre plateforme d'aide scolaire en ligne !</p>
         </div>
         <p class="QuestEtudes">
-            <label for="QuestEtudes">Je voudrais des informations concernant : </label>
-            <select name="QuestEtudes" id="QuestEtudes" autofocus required>
-                <option value="None"></option>
-                <option value="Orientation">Les différentes orientations </option>
-                <option value="Cours"> Les licences </option>
-            </select>
+            <label for="QuestEtudes">Je voudrais des informations concernant les études : </label>
+            <a href='?controller=home&action=articles&idCate=4'> Etudes </a>
         </p>
     </div>
 
@@ -123,12 +119,9 @@
             </p>
         </div>
         <p class="QuestAides">
-            <label for="QuestAides">Je voudrais des informations concernant : </label>
-            <select name="QuestAides" id="QuestAides" autofocus required>
-                <option value="None"></option>
-                <option value="Allocs">Les allocations familiales </option>
-                <option value="Prêts"> Les prêts étudiants </option>
-            </select>
+            <label for="QuestAides">Je voudrais des informations concernant les aides étudiantes : </label>
+            <a href='?controller=home&action=articles&idCate=2'> Aides </a>
+
         </p>
     </div>
 </div>

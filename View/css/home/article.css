@@ -38,6 +38,7 @@
 #article-texte {
     margin-top: 2vh;
     font-size: 1.75vh;
+    width: 80vw;
     text-align: justify;
 }
 
